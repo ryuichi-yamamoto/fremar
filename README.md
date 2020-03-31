@@ -80,8 +80,8 @@ Things you may want to cover:
 - has_many :images
 - has_many :comments
 - belongs_to :user
-- belongs_to :brands
-- belongs_to :categories
+- belongs_to :brand
+- belongs_to :category
 
 ## commentsテーブル
 |Column|Type|Options|
