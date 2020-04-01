@@ -54,7 +54,7 @@ Things you may want to cover:
 |first_name_hiragana|string|null: false|
 |last_name_hiragana|string|null: false|
 |postal_code|integer|null: false|
-|prefecture|string|null: false|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |room|string||
