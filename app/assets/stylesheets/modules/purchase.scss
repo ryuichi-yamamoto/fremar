@@ -1,0 +1,129 @@
+.PayHeader {
+  background-color: #f8f8f8;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.PayMain {
+  background-color: #f8f8f8;
+  line-height: 1;
+  padding-bottom: 100px;
+  &__contents {
+    background-color: #fff;
+    width: 700px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    &--title {
+      padding: 32px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    &--info {
+      padding: 32px 16px;
+      border: 1px solid #f5f5f5;
+      &__box {
+        display: flex;
+        justify-content: center;
+        &__image {
+          height: 80px;
+          width: 80px;
+          img {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+          }
+        }
+        &__item {
+          height: 80px;
+          margin-left: 16px;
+          &--name {
+            padding: 0 0 8px;
+          }
+          &--price {
+            display: flex;
+            font-size: 12px;
+            font-weight: bold;
+            &__fee {
+              padding-left: 16px;
+            }
+          }
+        }
+      }
+    }
+    .PayMain__contents--means {
+      max-width: 400px;
+      margin: 0 auto;
+      &__price {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 0;
+        border-bottom: 1px solid #f5f5f5;
+        &--title {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        &--num {
+          font-weight: bold;
+          font-size: 23px;
+        }
+      }
+      &__method {
+        padding: 40px 0;
+        border-bottom: 1px solid #f5f5f5;
+        &--title {
+          display: flex;
+          justify-content: space-between;
+          &__theme {
+            font-weight: bold;
+            font-size: 14px;
+          }
+          &__edit {
+            font-size: 14px;
+            a {
+              text-decoration: none;
+              color: #3acacd;
+            }
+          }
+        }
+        &--card {
+          list-style: none;
+          padding-top: 10px;
+        }
+      }
+      &__address {
+        padding: 40px 0;
+        border-bottom: 1px solid #f5f5f5;
+        &--info {
+          display: flex;
+          justify-content: space-between;
+          &__theme {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+          }
+          &__edit {
+            font-size: 14px;
+            a {
+              text-decoration: none;
+              color: #3acacd;
+            }
+          }
+          &__text {
+            font-size: 12px;
+            line-height: 1.5;
+          }
+        }
+      }
+      &__btn {
+        background-color: #3acacd;
+        text-align: center;
+        padding: 20px;
+        margin-top: 60px;
+        color: #fff;
+      }
+    }
+  }
+}
