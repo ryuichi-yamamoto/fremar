@@ -7,10 +7,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # @items = Item.new
+    @item = Item.new
   end
 
   def create
+    Item.create(item_params)
   end
 
   def edit
