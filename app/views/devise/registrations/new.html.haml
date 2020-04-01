@@ -1,0 +1,62 @@
+-# .sign_up-wrapper__right--form
+-# = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", class: "form"
+-# = f.submit "アカウント作成", class: 'sign_up-btn'
+-# = render "devise/shared/links"
+
+.exhibition
+  .exbHeader
+    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "185"), root_path
+
+  .exhibition__wrapper
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .userSignIn
+        .userSignIn__head
+          %p 会員情報入力
+        .userSignIn__nickname
+          %p#text ニックネーム
+          %p#mark 必須
+        = f.text_field :nickname, autofocus: true, id: "nicknameForm", placeholder: "例）フリマル 菜奈"
+        .userSignIn__email
+          %p#text メールアドレス
+          %p#mark 必須
+        = f.email_field :email, placeholder: " PC・携帯どちらでも可", id: "emailForm"
+        .userSignIn__pwForm
+          %p#text パスワード
+          %p#mark 必須
+        = f.password_field :password, autocomplete: "off", placeholder: " パスワード（英数字7文字以上）", id: "pwForm"
+        .userSignIn__pwForm
+          %p#text パスワード(再入力)
+          %p#mark 必須
+        = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
+  
+        .userSignIn__textTitle
+          %p 本人確認
+        .userSignIn__textField
+          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .userSignIn__fullname
+          %p#text お名前
+          %p#mark 必須
+        = f.text_field :first_name, autofocus: true, id: "firstnameForm", placeholder: "例）小松"
+        = f.text_field :last_name, autofocus: true, id: "lastnameForm", placeholder: "例）菜奈"
+        .userSignIn__fullname-hiragana
+          %p#text お名前かな
+          %p#mark 必須
+        = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）こまつ"
+        = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）なな"
+        .userSignIn__birthday
+          %p#text 生年月日
+          %p#mark 必須
+        != sprintf(f.date_select(:birth_year, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'), '年','月')+'日'
+        .userSignIn__success
+          = f.submit "登録する", id: "sendBtn"
+          = render "devise/shared/links"
+  
+  
+
+
+
+  
+  .exbFooter
+    .exbFooter__center
+      = image_tag src ="icon_category.png", id: "exbFooter__center__logo", width: '60'
+
