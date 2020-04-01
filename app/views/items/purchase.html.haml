@@ -35,4 +35,7 @@
           %li= "大阪府 大阪市中央区難波5丁目1−60 なんばスカイオ15階"
           %li= "田中 太郎"
       .PayMain__contents--means__btn
-        = "購入する"
+        = form_with url: pay_items_path do
+          :plain
+          %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": "pk_test_753b09f353bcc8cbee5a5d36"}
+

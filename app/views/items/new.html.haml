@@ -3,7 +3,7 @@
     =image_tag src = "logo.png", id: "exbHeader__logo", width: "185"
   
   .exhibition__wrapper
-    =form_for "#" do |f|
+    =form_for @item do |f|
       .exbMain
         .exbMain__topWrapper
           .exbMain__topWrapper__top
@@ -12,25 +12,23 @@
           .exbMain__topWrapper__textBox
             %p 最大10枚までアップロードできます
           .exbMain__topWrapper__imageArea
-            = f.label :image, id: "image" do
-              = icon('fas', 'camera-retro')
-              = f.file_field :image, id: "item_img"
+            = f.fields_for :images do |i|
+              .input-area
+                = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id: "img-file"
+                %label{for: "img-file"}
+                  %i.fas.fa-camera= f.file_field :image, id: "item_img"
 
         .exbMain__secondWrapper
           .exbMain__secondWrapper__top
             %p#text 商品名
             %p#mark 必須 
-          .exbMain__secondWrapper__itemName
+          = f.text_field :name, id: "itemName", placeholder: "商品名を入力してください"
           
   
           .exbMain__secondWrapper__center
             %p#text 商品の説明
             %p#mark 必須
-          .exbMain__secondWrapper__introduction
-            %p 商品の説明
-            %p (色、重さ、素材、定価額、注意点など)
-  
-            %p 例）2010年頃に購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。
+          = f.text_area :text, id: "introduction", placeholder: "\n商品の説明\n色、重さ、素材、定価額、注意点など"
           .exbMain__secondWrapper__under
     
         .exbMain__thirdWrapper
@@ -39,35 +37,38 @@
           .exbMain__thirdWrapper__top
             %p#text カテゴリー
             %p#mark 必須
-          .exbMain__thirdWrapper__categoryForm
+          = f.text_field :category, id: "category", placeholder: "カテゴリーを入力してください"
           .exbMain__thirdWrapper__center
             %p#text ブランド
             %p#mark2 任意
-          .exbMain__thirdWrapper__brandName
+          = f.text_field :brandName, id: "brandName", placeholder: "ブランド名を入力してください"
+
           .exbMain__thirdWrapper__under
             %p#text 商品の状態
             %p#mark 必須
-          .exbMain__thirdWrapper__itemStatus
+          = f.select :status, [["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], id: "itemStatus", prompt: "  選択してください"
           .exbMain__thirdWrapper__bottom
             %p#text サイズ
             %p#mark 必須
-          .exbMain__thirdWrapper__itemSize
-  
+          = f.text_field :size, id: "size", placeholder: "サイズを入力してください 衣類はS,M,Lなど、靴等は○○cm"  
         .exbMain__fourthWrapper
           .exbMain__fourthWrapper__janle
             %p#janle 配送について
           .exbMain__fourthWrapper__top
             %p#text 配送料の負担
             %p#mark 必須
-          .exbMain__fourthWrapper__deliberyCost
+          = f.select :deliveryfee, [["送料込み（出品者負担）", "送料込み（出品者負担）"], ["着払い（購入者負担）", "着払い（購入者負担）"]], id: "deliveryfee", prompt: "  選択してください"
           .exbMain__fourthWrapper__center
             %p#text 発送元の地域
             %p#mark 必須
-          .exbMain__fourthWrapper__address
+          = form_for '' do |f|
+            .exbMain__fourthWrapper__addressBox.icon-relative
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
+              -# = icon("fa", "chevron-down")
           .exbMain__fourthWrapper__under
             %p#text 発送までの日数
             %p#mark 必須
-          .exbMain__fourthWrapper__days
+          = f.select :deliveryday, [["１〜２日で発送", "１〜２日で発送"], ["３〜４日で発送", "３〜４日で発送"], ["５〜７日で発送", "５〜７日で発送"]], id: "deliveryday", prompt: "  選択してください"
     
         .exbMain__fifthWrapper
           .exbMain__fifthWrapper__left
@@ -79,24 +80,16 @@
           .exbMain__fifthWrapper__right
             .exbMain__fifthWrapper__right__priceArea
               %p#yen ¥
-              .exbMain__fifthWrapper__right__priceArea__box
-        .exbMain__commission
-          %p 販売手数料(10%)
-          %p ー
+              = f.text_field :price, id: "price", placeholder: "金額を入力してください"
+
   
     
         .exbMain__sixWrapper
-          .exbMain__sixWrapper__head
-            .exbMain__sixWrapper__head--left
-              %p 販売利益
-            .exbMain__sixWrapper__head--right
-              %p ー
           .exbMain__sixWrapper__center
-            .exbMain__sixWrapper__center--sendBtn
-              %p 出品する 
-            .exbMain__sixWrapper__center--backBtn
-              %p もどる
+            = f.submit "出品する", id: "sendBtn"
+            = link_to "もどる", root_path, id: "backBtn"
   
   .exbFooter
-    -# .exbFooter__center
-    -#   = image_tag src ="icon_category.png", id: "exbFooter__center__logo", width: '60'
+    .exbFooter__center
+      = image_tag src ="icon_category.png", id: "exbFooter__center__logo", width: '60'
+
