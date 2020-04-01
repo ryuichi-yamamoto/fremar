@@ -82,13 +82,16 @@ background-color: gray;
       margin-bottom: 20px;
     }
     &__imageArea {
+      font-size: 50px;
       height: 140px;
       width: 100%;
       background-color: #f5f5f5;
       border: 1px solid lightgray;
       cursor: pointer;
       #item_img {
-        // display: none;
+        height: 140px;
+        width: 100%;
+        display: none;
       }
     }
   }
