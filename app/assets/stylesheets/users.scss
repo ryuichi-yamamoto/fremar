@@ -1,9 +1,9 @@
-// .users__main {
-//   &__right {
-//     height: 100px;
-//     width: 100px;
-//     &__name {
-//       font-size: 30px;
-//     }
-//   }
-// }
+.users__main {
+  &__right {
+    height: 100px;
+    width: 100px;
+    &__name {
+      font-size: 30px;
+    }
+  }
+}
