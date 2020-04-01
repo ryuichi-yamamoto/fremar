@@ -2,7 +2,30 @@
   box-sizing: border-box;
 }
 
-#mark {
+@mixin wrapper($padding: 40px) {
+  border-bottom: 2px solid #f8f8f8;
+  padding: $padding;
+}
+
+@mixin formBox($height: 50px, $margin-bottom: 40px) {
+  height: $height;
+  border-radius: 5px;
+  border: 1px solid lightgray; 
+  margin-bottom: $margin-bottom;
+}
+
+@mixin janle($padding: 10px 0, $font-weight: 600) {
+  padding: $padding;
+  font-weight: $font-weight;
+  display: flex;
+}
+
+@mixin dFlex($display: flex, $justify-content: center) {
+  display: $display;
+  justify-content: $justify-content;
+}
+
+@mixin mark() {
   height: 20px;
   background-color: red;
   font-size: 12px;
@@ -14,16 +37,13 @@
   margin-left: 10px;
 }
 
+#mark {
+@include mark();
+}
+
 #mark2 {
-  height: 20px;
-  background-color: gray;
-  font-size: 12px;
-  font-weight: 600;
-  color: white;
-  border-radius: 3px;
-  padding: 0 3px;
-  margin: auto 0;
-  margin-left: 10px;
+@include mark();
+background-color: gray;
 }
 
 #text {
@@ -31,6 +51,7 @@
 }
 
 #janle {
+  margin-bottom: 20px;
   font-weight: 600;
   color: #878787;
 }
@@ -46,18 +67,19 @@
 
 .exbHeader {
   height: 128px; 
-  display: flex;
-  justify-content: center;
+  @include dFlex();
   align-items: center;
   padding: 16px;
 }
 
 .exbMain {
   &__topWrapper {
-    padding: 30px;
-    border-bottom: 2px solid #F8F8F8;
+    @include wrapper();
     &__top {
-      display: flex;
+      @include janle();
+    }
+    &__textBox {
+      margin-bottom: 20px;
     }
     &__image {
       height: 140px;
@@ -66,87 +88,76 @@
     }
   }
   &__secondWrapper {
-    padding: 30px;
-    border-bottom: 2px solid #F8F8F8;
+    @include wrapper();
     &__top {
-      display: flex;
+      @include janle();    
     }
     &__itemName {
-      height: 50px;
-      border: 1px solid lightgray;
-      border-radius: 5px;
+      @include formBox();
     }
     &__center {
-      display: flex;
+      @include janle();    
     }
     &__introduction{
-      border: 1px solid lightgray;
-      border-radius: 5px;   
+      @include formBox($height: 150px);
+   
     }
   }
   &__thirdWrapper {
-    padding: 30px;
-    border-bottom: 2px solid #F8F8F8;
+    @include wrapper();
     &__top {
-      display: flex;
+      @include janle();    
     }
     &__categoryForm {
-      height: 50px;
-      border: 1px solid lightgray;
-      border-radius: 5px;   
+      @include formBox();
+
     }
     &__center {
-      display: flex;
+      @include janle();    
     }
     &__brandName {
-      height: 50px;
-      border: 1px solid lightgray;
-      border-radius: 5px;   
+      @include formBox();
+
     }
     &__under {
-      display: flex;
+      @include janle();    
     }
     &__itemStatus {
-      height: 50px;
-      border: 1px solid lightgray;
-      border-radius: 5px;   
+      @include formBox();
+ 
     }
   }
   &__fourthWrapper {
-    padding: 30px;
-    border-bottom: 2px solid #F8F8F8;
+    @include wrapper();
     &__top {
-      display: flex;
+      @include janle();    
     }
     &__deliberyCost {
-      height: 50px;
-      border: 1px solid lightgray;
-      border-radius: 5px;   
+      @include formBox();
+ 
     }
     &__center {
-      display: flex;
+      @include janle();
     }
     &__address {
-      height: 50px;
-      border: 1px solid lightgray;
-      border-radius: 5px;   
+      @include formBox();
+ 
     }
     &__under {
-      display: flex;
+      @include janle();    
     }
     &__days {
-      height: 50px;
-      border: 1px solid lightgray;
-      border-radius: 5px;   
+      @include formBox();
+ 
     }
   }
   &__fifthWrapper {
-    padding: 30px;
+    padding: 40px;
     display: flex;
     &__left {
       width: 50%;
       &__top {
-        display: flex;
+        @include janle();      
       }
     }
     &__right {
@@ -158,25 +169,20 @@
         width: 100%;
         display: flex;
         &__box {
-          height: 50px;
+          @include formBox();
           width: 100%;
-          border: 1px solid lightgray;
-          border-radius: 5px;   
         }
       }
     }
   }
   &__commission {
-    padding: 0 30px 10px 30px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid #F8F8F8;
+    @include wrapper();
+    @include dFlex($justify-content: space-between);
   }
   &__sixWrapper {
-    padding: 30px;
+    padding: 40px;
     &__head {
-      display: flex;
-      justify-content: space-between;
+      @include dFlex($justify-content: space-between);
     }
     &__center {
       &--sendBtn {
@@ -206,8 +212,7 @@
   font-size: 12px;
   text-align: center;
   &__top {
-    display: flex;
-    justify-content: center;
+    @include dFlex();
     margin: 30px;
     &--text {
       margin-left: 20px;
