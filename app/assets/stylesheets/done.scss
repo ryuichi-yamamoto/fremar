@@ -1,0 +1,19 @@
+.DoneContent {
+  background-color: #f8f8f8;
+  height: 700px;
+  &__main {
+    // background-color: #fff;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    padding-top: 150px;
+  }
+  &__back {
+    text-align: center;
+    padding-top: 60px;
+    a {
+      color: #3acacd;
+      text-decoration: none;
+    }
+  }
+}
