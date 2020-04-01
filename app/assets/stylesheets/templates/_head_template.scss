@@ -3,10 +3,7 @@
 }
 
 .header-grp {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
+  
 &__header {
   height: 100px;
   background-color: #fff;
@@ -62,26 +59,6 @@
     .list-links:hover {
       color: #FFC36F;
     }
-  }
-}
-
-&__footer {
-  color: #fff;
-  height: 80px;
-  background-color: rgb(59, 58, 58);
-  margin-top: auto;
-  &__images {
-    text-align: center;
-    .footer-image {
-      margin-top: 10px;
-      height: 50px;
-      vertical-align: bottom;
-    }
-  }
-  &__copy {
-    font-size: 11px;
-    color: #fff;
-    text-align: center;
   }
 }
 }
