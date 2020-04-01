@@ -100,7 +100,6 @@ background-color: gray;
     }
     &__introduction{
       @include formBox($height: 150px);
-   
     }
   }
   &__thirdWrapper {
@@ -110,21 +109,24 @@ background-color: gray;
     }
     &__categoryForm {
       @include formBox();
-
     }
     &__center {
       @include janle();    
     }
     &__brandName {
       @include formBox();
-
     }
     &__under {
       @include janle();    
     }
     &__itemStatus {
       @include formBox();
- 
+    }
+    &__bottom {
+      @include janle();    
+    }
+    &__itemSize {
+      @include formBox();
     }
   }
   &__fourthWrapper {
@@ -134,21 +136,18 @@ background-color: gray;
     }
     &__deliberyCost {
       @include formBox();
- 
     }
     &__center {
       @include janle();
     }
     &__address {
       @include formBox();
- 
     }
     &__under {
       @include janle();    
     }
     &__days {
       @include formBox();
- 
     }
   }
   &__fifthWrapper {
@@ -168,6 +167,9 @@ background-color: gray;
       &__priceArea {
         width: 100%;
         display: flex;
+        #yen {
+          margin: 15px 10px 0 0;
+        }
         &__box {
           @include formBox();
           width: 100%;
@@ -202,21 +204,15 @@ background-color: gray;
         margin-bottom: 50px;
       }
     }
-    &__under {
-      font-size: 12px;
-    }
   }
 }
 
 .exbFooter {
-  font-size: 12px;
+  height: 100px;
   text-align: center;
   &__top {
     @include dFlex();
     margin: 30px;
-    &--text {
-      margin-left: 20px;
-    }
   }
   &__center {
     margin: 0;
