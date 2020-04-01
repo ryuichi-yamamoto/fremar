@@ -48,6 +48,10 @@
           %p#text 商品の状態
           %p#mark 必須
         .exbMain__thirdWrapper__itemStatus
+        .exbMain__thirdWrapper__bottom
+          %p#text サイズ
+          %p#mark 必須
+        .exbMain__thirdWrapper__itemSize
   
       .exbMain__fourthWrapper
         .exbMain__fourthWrapper__janle
@@ -74,7 +78,7 @@
             %p#mark 必須
         .exbMain__fifthWrapper__right
           .exbMain__fifthWrapper__right__priceArea
-            %p ¥
+            %p#yen ¥
             .exbMain__fifthWrapper__right__priceArea__box
       .exbMain__commission
         %p 販売手数料(10%)
@@ -92,17 +96,7 @@
             %p 出品する 
           .exbMain__sixWrapper__center--backBtn
             %p もどる
-        .exbMain__sixWrapper__under
-          %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品を持ちまして加盟店規約に同意したことになります。
   
   .exbFooter
-    .exbFooter__top
-      %p プライパシーポリシー
-      .exbFooter__top--text
-        %p フリマル利用規約
-      .exbFooter__top--text
-        %p 特定商取引に関する表記
-    .exbFooter__center
-      = image_tag src ="icon_category.png", id: "exbFooter__center__logo", width: "60"
-    .exbFooter__under
-      %p ©Fremar, inc.
+    -# .exbFooter__center
+    -#   = image_tag src ="icon_category.png", id: "exbFooter__center__logo", width: "60"
