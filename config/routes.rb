@@ -7,5 +7,5 @@ Rails.application.routes.draw do
       get 'purchase/:id' => 'items#purchase', as: 'purchase'
     end
   end
-  resources :users
+  resources :users, only: [:index, :show, :edit, :update]
 end
