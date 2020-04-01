@@ -109,6 +109,12 @@ background-color: gray;
     @include janle($font-weight: 0);
     margin-bottom: 30px;
   }
+  &__status {
+    @include janle();
+  }
+  #user_status {
+    @include formBox($width: 20%);
+  }
   &__fullname {
     @include janle();    
   }
@@ -130,12 +136,18 @@ background-color: gray;
   &__birthday {
     @include janle();    
   }
-  #birthday_birth_year_1i {
-    @include formBox($width: 20%);
-  }
-  #birthday_birth_year_2i,#birthday_birth_year_3i {
-    @include formBox($width: 20%);
-    margin-left: 5px;
+  &__birthdayForm {
+    display: flex;
+    #birthForm {
+      @include formBox($width: 30%);
+    }
+    #birthForm2 {
+      @include formBox($width: 20%);
+      margin-left: 5px;
+    }
+    #birthText {
+      margin: 15px;
+    }
   }
   &__success {
     padding: 40px 0 30px;
