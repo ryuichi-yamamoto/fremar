@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class UsersController < ApplicationController
 
   def index
   end
@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # @items = Item.new
+    @users = User.new
   end
 
   def create
