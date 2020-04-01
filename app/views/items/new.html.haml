@@ -3,99 +3,99 @@
     =image_tag src = "logo.png", id: "exbHeader__logo", width: "185"
   
   .exhibition__wrapper
-    .exbMain
-      .exbMain__topWrapper
-        .exbMain__topWrapper__top
-          %p#text 出品画像
-          %p#mark 必須
-        .exbMain__topWrapper__textBox
-          %p 最大10枚までアップロードできます
-        .exbMain__topWrapper__image
-        -# =form_for "#" do |f|
-        -#   = f.label :image, id: "exbMain-image" do
-        -#     = icon('fas', 'camera-retro')
-        -#     = f.file_field :image, id: "item_img"
-  
-      .exbMain__secondWrapper
-        .exbMain__secondWrapper__top
-          %p#text 商品名
-          %p#mark 必須 
-        .exbMain__secondWrapper__itemName
-        
-
-        .exbMain__secondWrapper__center
-          %p#text 商品の説明
-          %p#mark 必須
-        .exbMain__secondWrapper__introduction
-          %p 商品の説明
-          %p (色、重さ、素材、定価額、注意点など)
-
-          %p 例）2010年頃に購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。
-        .exbMain__secondWrapper__under
-  
-      .exbMain__thirdWrapper
-        .exbMain__thirdWrapper__janle
-          %p#janle 商品の詳細
-        .exbMain__thirdWrapper__top
-          %p#text カテゴリー
-          %p#mark 必須
-        .exbMain__thirdWrapper__categoryForm
-        .exbMain__thirdWrapper__center
-          %p#text ブランド
-          %p#mark2 任意
-        .exbMain__thirdWrapper__brandName
-        .exbMain__thirdWrapper__under
-          %p#text 商品の状態
-          %p#mark 必須
-        .exbMain__thirdWrapper__itemStatus
-        .exbMain__thirdWrapper__bottom
-          %p#text サイズ
-          %p#mark 必須
-        .exbMain__thirdWrapper__itemSize
-  
-      .exbMain__fourthWrapper
-        .exbMain__fourthWrapper__janle
-          %p#janle 配送について
-        .exbMain__fourthWrapper__top
-          %p#text 配送料の負担
-          %p#mark 必須
-        .exbMain__fourthWrapper__deliberyCost
-        .exbMain__fourthWrapper__center
-          %p#text 発送元の地域
-          %p#mark 必須
-        .exbMain__fourthWrapper__address
-        .exbMain__fourthWrapper__under
-          %p#text 発送までの日数
-          %p#mark 必須
-        .exbMain__fourthWrapper__days
-  
-      .exbMain__fifthWrapper
-        .exbMain__fifthWrapper__left
-          .exbMain__fifthWrapper__left__janle
-            %p#janle 価格（¥300〜9,999,999)
-          .exbMain__fifthWrapper__left__top
-            %p#text 販売価格
+    =form_for "#" do |f|
+      .exbMain
+        .exbMain__topWrapper
+          .exbMain__topWrapper__top
+            %p#text 出品画像
             %p#mark 必須
-        .exbMain__fifthWrapper__right
-          .exbMain__fifthWrapper__right__priceArea
-            %p#yen ¥
-            .exbMain__fifthWrapper__right__priceArea__box
-      .exbMain__commission
-        %p 販売手数料(10%)
-        %p ー
-
+          .exbMain__topWrapper__textBox
+            %p 最大10枚までアップロードできます
+          .exbMain__topWrapper__imageArea
+            = f.label :image, id: "image" do
+              = icon('fas', 'camera-retro')
+              = f.file_field :image, id: "item_img"
+    
+        .exbMain__secondWrapper
+          .exbMain__secondWrapper__top
+            %p#text 商品名
+            %p#mark 必須 
+          .exbMain__secondWrapper__itemName
+          
   
-      .exbMain__sixWrapper
-        .exbMain__sixWrapper__head
-          .exbMain__sixWrapper__head--left
-            %p 販売利益
-          .exbMain__sixWrapper__head--right
-            %p ー
-        .exbMain__sixWrapper__center
-          .exbMain__sixWrapper__center--sendBtn
-            %p 出品する 
-          .exbMain__sixWrapper__center--backBtn
-            %p もどる
+          .exbMain__secondWrapper__center
+            %p#text 商品の説明
+            %p#mark 必須
+          .exbMain__secondWrapper__introduction
+            %p 商品の説明
+            %p (色、重さ、素材、定価額、注意点など)
+  
+            %p 例）2010年頃に購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。
+          .exbMain__secondWrapper__under
+    
+        .exbMain__thirdWrapper
+          .exbMain__thirdWrapper__janle
+            %p#janle 商品の詳細
+          .exbMain__thirdWrapper__top
+            %p#text カテゴリー
+            %p#mark 必須
+          .exbMain__thirdWrapper__categoryForm
+          .exbMain__thirdWrapper__center
+            %p#text ブランド
+            %p#mark2 任意
+          .exbMain__thirdWrapper__brandName
+          .exbMain__thirdWrapper__under
+            %p#text 商品の状態
+            %p#mark 必須
+          .exbMain__thirdWrapper__itemStatus
+          .exbMain__thirdWrapper__bottom
+            %p#text サイズ
+            %p#mark 必須
+          .exbMain__thirdWrapper__itemSize
+  
+        .exbMain__fourthWrapper
+          .exbMain__fourthWrapper__janle
+            %p#janle 配送について
+          .exbMain__fourthWrapper__top
+            %p#text 配送料の負担
+            %p#mark 必須
+          .exbMain__fourthWrapper__deliberyCost
+          .exbMain__fourthWrapper__center
+            %p#text 発送元の地域
+            %p#mark 必須
+          .exbMain__fourthWrapper__address
+          .exbMain__fourthWrapper__under
+            %p#text 発送までの日数
+            %p#mark 必須
+          .exbMain__fourthWrapper__days
+    
+        .exbMain__fifthWrapper
+          .exbMain__fifthWrapper__left
+            .exbMain__fifthWrapper__left__janle
+              %p#janle 価格（¥300〜9,999,999)
+            .exbMain__fifthWrapper__left__top
+              %p#text 販売価格
+              %p#mark 必須
+          .exbMain__fifthWrapper__right
+            .exbMain__fifthWrapper__right__priceArea
+              %p#yen ¥
+              .exbMain__fifthWrapper__right__priceArea__box
+        .exbMain__commission
+          %p 販売手数料(10%)
+          %p ー
+  
+    
+        .exbMain__sixWrapper
+          .exbMain__sixWrapper__head
+            .exbMain__sixWrapper__head--left
+              %p 販売利益
+            .exbMain__sixWrapper__head--right
+              %p ー
+          .exbMain__sixWrapper__center
+            .exbMain__sixWrapper__center--sendBtn
+              %p 出品する 
+            .exbMain__sixWrapper__center--backBtn
+              %p もどる
   
   .exbFooter
     -# .exbFooter__center
