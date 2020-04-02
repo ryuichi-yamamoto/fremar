@@ -13,8 +13,15 @@
           = link_to 'カテゴリー', "#", class:"list-links"
         %li.header-grp__header__lists__leftbox__brands
           = link_to 'ブランド', "#", class:"list-links"
-      %ul.header-grp__header__lists__rightbox
-        %li.header-grp__header__lists__rightbox__login
-          = link_to 'ログイン', "/users/sign_in", class:"list-links"
-        %li.header-grp__header__lists__rightbox__new
-          = link_to '新規会員登録', "/users/sign_up", class:"list-links"
+      - if user_signed_in?
+        %ul.header-grp__header__lists__rightbox
+          %li.header-grp__header__lists__rightbox__login
+            = link_to 'ログアウト', "/users/sign_out", class:"list-links"
+          %li.header-grp__header__lists__rightbox__new
+            = link_to 'マイページ', "/users/", class:"list-links"
+      - else
+        %ul.header-grp__header__lists__rightbox
+          %li.header-grp__header__lists__rightbox__login
+            = link_to 'ログイン', "/users/sign_in", class:"list-links"
+          %li.header-grp__header__lists__rightbox__new
+            = link_to '新規会員登録', "/users/sign_up", class:"list-links"
