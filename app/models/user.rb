@@ -20,8 +20,4 @@ class User < ApplicationRecord
   validates :birth_month,                              presence: true, format: { with: /\A\d{2}\z/, message: "no" }
   validates :birth_day,                                presence: true, format: { with: /\A\d{2}\z/, message: "no" }
 
-
-
-
-  
 end
