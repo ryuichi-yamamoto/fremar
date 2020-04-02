@@ -1,17 +1,25 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.userSignInMain
+  .userSignIn__header
+    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "185"), root_path
+
+  .userSignInMain__wrapper
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .userSignIn
+        .userSignUp__head
+          %p ログインフォーム
+        .userSignIn__email
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", id: "emailForm"
+        .userSignIn__pwForm
+        = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", id: "pwForm"
+      
+        .userSignIn__success
+          = f.submit "ログインする", id: "sendBtn"
+        - if devise_mapping.rememberable?
+          = f.check_box :remember_me, id: 'rememberMe'
+          = f.label :ログイン状態を保持する, id: 'rememberMe'
+      = render "devise/shared/links"
+
+  .userSignInFooter
+    .usrSignInFooter__center
+      = image_tag src ="icon_category.png", id: "userSignUpFooter__center__logo", width: '60'
+
