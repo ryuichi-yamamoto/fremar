@@ -1,6 +1,6 @@
 .PayHeader
   .PayHeader__title
-    = image_tag "logo.png", size: "300x80"
+    = image_tag "logo.png", size: "310x65" 
 .PayMain
   .PayMain__contents
     .PayMain__contents--title 購入内容の確認
@@ -38,4 +38,6 @@
         = form_with url: pay_items_path do
           :plain
           %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": "pk_test_753b09f353bcc8cbee5a5d36"}
+  .PayFooer-iamge
+    = image_tag "logo-gray.png", width: '200'
 
