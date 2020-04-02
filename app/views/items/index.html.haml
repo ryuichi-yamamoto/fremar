@@ -98,8 +98,13 @@
       .productLists
         .productList
           =link_to "#", class: "productList" do
+          //商品詳細へのリンク
+          //=link_to "/items/#{@items.ids}", class: "productList" do
             %figure.productList--img
             =image_tag src="test1.jpg"
+            //TOPページの新規商品一覧表示
+            //- @images.each do |image|
+              //=image_tag src="image.image"
             .productList--body
               %h3.name test1
               .product--text
