@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get  'done'=> 'items#done', as: 'done'
     end
   end
+
   resources :users, only: [:index, :show, :edit, :update] do
     collection do 
       get 'done'
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
   end
   resources :cards, only: [:new, :show] do
     collection do
+      post 'delete', to: 'cards#delete'
+    end
+    member do
       get 'confirmation'
     end
   end
