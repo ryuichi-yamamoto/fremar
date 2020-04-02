@@ -1,0 +1,203 @@
+= render "/items/templates/head_template"
+= render "/items/templates/new_btn"
+.topMain
+  .topMain__topVisual
+    .content
+      .content__topVisualTitle
+        人生を変えるフリマアプリ
+      .content__topVisualMessage
+        fremarは誰でも簡単に出品・購入できる
+        %br
+          フリマアプリです
+      .content__btn
+        =link_to "https://www.apple.com/jp/ios/app-store/",class: "appStore" do
+          =image_tag src="Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" 
+        =link_to "https://play.google.com/store?hl=ja", class:"googlePlay" do
+          =image_tag src="google-play.png" 
+        
+  .topMain__topIntroduction
+    .content__topIntroductionTitle
+      フリマルが選ばれる３つの理由
+    .bottomLine
+    %ul.lists
+      %li.list
+        .list__image
+          %span.list__number 1
+          = image_tag src="pict-reason-01.jpg"
+        .list__text__title
+          %span 3分
+          ですぐに出品
+        .list__text__message
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__image
+          %span.list__number 2
+          = image_tag src="pict-reason-02.jpg"
+        .list__text__title
+          %span シンプル
+          で使いやすい
+        .list__text__message
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list-last
+        .list__image
+          %span.list__number 3
+          = image_tag src="pict-reason-03.jpg"
+        .list__text__title
+          手数料 
+          %span 業界最安
+        .list__text__message
+          最大3%でお得に出品＆購入！
+
+  .topMain__middleVisual
+    .topMain__middleVisual__inner
+      .topMain__middleVisual__inner__title
+        会員数日本一位
+      .topMain__middleVisual__inner__message
+        fremarは、フリマアプリで最も人気。
+        %br 
+        出品・購入回数も業界最多です！
+        %br ほしかったあの商品に出会えるかもしれません。
+      .content__btn
+        =link_to "#",class: "appStore" do
+          =image_tag src="Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" 
+        =link_to "#", class:"googlePlay" do
+          =image_tag src="google-play.png" 
+
+  .topMain__middleIntroduction
+    .content__middleIntroductionTitle
+      fremarの特徴
+    .bottomLine
+    .content__middleIntroductionItems
+      .content__middleIntroductionItem
+        .item__img
+          =image_tag src="icon-01.png"
+        .item__title
+          簡単に売り買いできる
+        .item__message
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .content__middleIntroductionItem
+        .item__img
+          =image_tag src="icon-03.png"
+        .item__title
+          売上金は即日振込みに対応
+        %p.item__message
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+      .content__middleIntroductionItem
+        .item__img
+          =image_tag src="icon-04.png"
+        .item__title
+          様々な支払いに対応
+        %p.item__message
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+  .topMain__pickUpContainer
+    %h2.head ピックアップカテゴリー
+    .productBox
+      .productHead
+        =link_to"新規投稿商品","＃",class:"pickUpTitle"
+      .productLists
+        .productList
+          =link_to "#", class: "productList" do
+            %figure.productList--img
+            =image_tag src="test1.jpg"
+            .productList--body
+              %h3.name test1
+              .product--text
+                %ul
+                  %li 3000円
+                  %li
+                    %i.icon 
+                    ★
+                    0
+                %p 税込
+        .productList
+          =link_to "#", class: "productList" do
+            %figure.productList--img
+            =image_tag src="test1.jpg"
+            .productList--body
+              %h3.name test1
+              .product--text
+                %ul.text
+                  %li 3000円
+                  %li
+                    %i.icon 
+                    ★
+                    0
+                %p 税込
+        .productList
+          =link_to "#", class: "productList" do
+            %figure.productList--img
+            =image_tag src="test1.jpg"
+            .productList--body
+              %h3.name test1
+              .product--text
+                %ul
+                  %li 3000円
+                  %li
+                    %i.icon
+                    ★
+                    0
+                %p 税込
+
+  .topMain__pickUpContainer
+    %h2.head ピックアップブランド
+    .productBox
+      .productHead
+        =link_to"アーカイバ","＃",class:"pickUpTitle"
+      .productLists
+        .productList
+          =link_to "#", class: "productList" do
+            %figure.productList--img
+            =image_tag src="test1.jpg"
+            .productList--body
+              %h3.name test1
+              .product--text
+                %ul
+                  %li 3000円
+                  %li
+                    %i.icon 
+                    ★
+                    0
+                %p 税込
+        .productList
+          =link_to "#", class: "productList" do
+            %figure.productList--img
+            =image_tag src="test1.jpg"
+            .productList--body
+              %h3.name test1
+              .product--text
+                %ul
+                  %li 3000円
+                  %li
+                    %i.icon 
+                    ★
+                    0
+                %p 税込
+        .productList
+          =link_to "#", class: "productList" do
+            %figure.productList--img
+            =image_tag src="test1.jpg"
+            .productList--body
+              %h3.name test1
+              .product--text
+                %ul
+                  %li 3000円
+                  %li
+                    %i.icon 
+                    ★
+                    0
+                %p 税込
+    .topMain__pickUpContainer-bottom
+
+  .topMain__bttomVisual
+    .topMain__bttomVisual__inner
+      .topMain__bttomVisual__inner__title
+        だれでもかんたん、人生を変えるフリマアプリ
+      .topMain__bttomVisual__inner__message
+        今すぐ無料ダウンロード！
+      .content__btn_last
+        =link_to "https://www.apple.com/jp/ios/app-store/",class: "appStore" do
+          =image_tag src="Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" 
+        =link_to "https://play.google.com/store?hl=ja", class:"googlePlay" do
+          =image_tag src="google-play.png" 
+= render “/items/templates/foot_template” 
