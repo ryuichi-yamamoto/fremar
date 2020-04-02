@@ -6,7 +6,7 @@
   &__topVisual{
     width: 100%;
     height: 560px;
-    background-image:url("mainVisual-pict.jpg");
+    background-image:image-url("mainVisual-pict.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -124,7 +124,7 @@
   
   &__middleVisual{
     height: 400px;
-    background-image:url("topMiddleDl-pict.jpg");
+    background-image:image-url("topMiddleDl-pict.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -283,7 +283,7 @@
   }
   &__bttomVisual{
     height: 400px;
-    background-image:url("bg-appBanner-pict.jpg");
+    background-image:image-url("bg-appBanner-pict.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
