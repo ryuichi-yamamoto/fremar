@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin wrapper($padding: 40px) {
+  border-bottom: 2px solid #f8f8f8;
+  padding: $padding;
+}
+
+@mixin formBox($height: 50px, $margin-bottom: 10px, $width: 100%) {
+  height: $height;
+  width: $width;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid lightgray; 
+  margin-bottom: $margin-bottom;
+  padding: 10px;
+}
+
+@mixin janle($padding: 15px 0, $font-weight: 600) {
+  padding: $padding;
+  font-weight: $font-weight;
+  display: flex;
+}
+
+@mixin dFlex($display: flex, $justify-content: center) {
+  display: $display;
+  justify-content: $justify-content;
+}
+
+@mixin mark() {
+  height: 20px;
+  background-color: red;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  border-radius: 3px;
+  padding: 0 3px;
+  margin: auto 0;
+  margin-left: 10px;
+}
+
+#mark {
+@include mark();
+}
+
+#mark2 {
+@include mark();
+background-color: gray;
+}
+
+#text {
+  font-weight: 600;
+}
+
+#janle {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #878787;
+}
+
+.userSignInMain {
+  background-color: #F8F8F8;
+  padding: 0 370px;
+  font-size: 14px;
+  &__wrapper {
+    @include wrapper($padding: 0 180px);
+    background-color: white;
+  }
+}
+
+.userSignIn__header {
+  height: 128px; 
+  @include dFlex();
+  align-items: center;
+  padding: 16px;
+}
+
+.userSignIn {
+  margin-bottom: 20px;
+  &__head {
+    @include wrapper();
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+  }
+  &__email {
+    @include janle();    
+  }
+  #emailForm{
+    @include formBox();
+  }
+  &__pwForm {
+    @include janle();    
+  }
+  #pwForm {
+    @include formBox();
+  }
+  &__success {
+    padding: 40px 0 30px;
+    text-align: center;
+    #sendBtn {
+      height: 50px;
+      width: 100%;
+      background-color: #3DCACE;
+      border-radius: 5px;
+      line-height: 50px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}
+#userSignUpPage {
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  background-color: red;
+  margin: 0 auto;
+  border-radius: 5px;
+  line-height: 50px;
+  cursor: pointer;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+#forgotPw {
+  text-decoration: none;
+  color: #3DCACE;
+  a {
+    margin-bottom: 30px;
+  }
+}
+
+.userSignInFooter {
+  height: 100px;
+  padding: 25px;
+  text-align: center;
+  &__top {
+    @include dFlex();
+    margin: 30px;
+  }
+  &__center {
+    margin: 0;
+  }
+}
