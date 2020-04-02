@@ -1,0 +1,88 @@
+.template-header 
+  = render "/items/templates/head_template"
+
+.bg-color
+  .dtlWhole-view
+  .dtlWhole-view__item-main
+    .dtlWhole-view__item-main__name
+      test-name
+    .dtlWhole-view__item-main__toppic
+      = image_tag 'bobu.jpg', class: 'main-pic'
+    .dtlWhole-view__item-main__otherpic-grp
+      .dtlWhole-view__item-main__otherpic-grp--left
+        = image_tag 'bobu.jpg', class: 'left-pic'
+      .dtlWhole-view__item-main__otherpic-grp--mid
+        = image_tag 'bobu.jpg', class: 'mid-pic'
+      .dtlWhole-view__item-main__otherpic-grp--right
+        = image_tag 'bobu.jpg', class: 'right-pic'
+    .dtlWhole-view__item-main__pricebox
+      .dtlWhole-view__item-main__pricebox__price
+        ￥100,000
+      .dtlWhole-view__item-main__pricebox__tax-txt
+        (税込) 送料込み
+    .dtlWhole-view__item-main__item-explan
+      互いにあざむき合って、しかもいずれも不思議に何の傷もつかず、
+      あざむき合っている事にさえ気がついていないみたいな、実にあざやかな、
+      それこそ清く明るくほがらかな不信の例が、人間の生活に充満しているように思われます。
+      けれども、自分には、あざむき合っているという事には、さして特別の興味もありません。
+      自分だって、お道化に依って、朝から晩まで人間をあざむいているのです。
+    .dtlWhole-view__item-main__item-lists
+      %table{:border => "1"}
+        %tr
+          %th
+            出品者
+            %td
+              hoge
+        %tr
+          %th
+            カテゴリー
+            %td
+              hoge
+        %tr
+          %th
+            ブランド
+            %td
+              hoge
+        %tr
+          %th
+            商品のサイズ
+            %td
+              hoge
+        %tr
+          %th
+            商品の状態
+            %td
+              hoge
+        %tr
+          %th
+            配送料の負担
+            %td
+              hoge
+        %tr
+          %th
+            配送元の地域
+            %td
+              hoge
+        %tr
+          %th
+            発送日の目安
+            %td
+              hoge
+  .dtlWhole-view__comment-form
+    .dtlWhole-view__comment-form__grp
+      .dtlWhole-view__comment-form__grp__txtarea
+        %textarea{:cols => "70", :rows => "4"}
+      .dtlWhole-view__comment-form__grp__atention
+        相手のことを考え丁寧なコメントを心がけましょう。
+        %br
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      .dtlWhole-view__comment-form__grp__comments-btn
+        .dtlWhole-view__comment-form__grp__comments-btn__send
+          = link_to 'コメントする', "#", class:"dtlWhole-view__comment-form__grp__comments-btn__send"
+  %ul.dtlWhole-view__movepage
+    %li.dtlWhole-view__movepage--back
+      = link_to '< 前のページ', "#", class:"page-button"
+    %li.dtlWhole-view__movepage--next
+      = link_to '次のページ >', "#", class:"page-button"
+
+= render "/items/templates/foot_template"

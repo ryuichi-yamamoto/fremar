@@ -1,0 +1,41 @@
+.PayHeader
+  .PayHeader__title
+    = image_tag "logo.png", size: "300x80"
+.PayMain
+  .PayMain__contents
+    .PayMain__contents--title 購入内容の確認
+    .PayMain__contents--info
+      .PayMain__contents--info__box
+        .PayMain__contents--info__box__image
+          = image_tag "bobu.jpg"
+        .PayMain__contents--info__box__item
+          %p.PayMain__contents--info__box__item--name まとめ売りっ！
+          .PayMain__contents--info__box__item--price
+            .PayMain__contents--info__box__item--price__num ¥1,500-
+            .PayMain__contents--info__box__item--price__fee (税込)送料込み
+    .PayMain__contents--means
+      %ul.PayMain__contents--means__price
+        %li.PayMain__contents--means__price--title 支払い金額
+        %li.PayMain__contents--means__price--num ¥1,500-
+      .PayMain__contents--means__method
+        %ul.PayMain__contents--means__method--title
+          %li.PayMain__contents--means__method--title__theme 支払い方法
+          %li.PayMain__contents--means__method--title__edit
+            = link_to "#" do
+              変更する
+        %li.PayMain__contents--means__method--card クレジットカード情報
+      .PayMain__contents--means__address
+        %ul.PayMain__contents--means__address--info
+          %li.PayMain__contents--means__address--info__theme 配送先
+          %li.PayMain__contents--means__address--info__edit
+            = link_to "#" do
+              変更する
+        %ul.PayMain__contents--means__address--info__text
+          %li= "〒123-4567"
+          %li= "大阪府 大阪市中央区難波5丁目1−60 なんばスカイオ15階"
+          %li= "田中 太郎"
+      .PayMain__contents--means__btn
+        = form_with url: pay_items_path do
+          :plain
+          %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": "pk_test_753b09f353bcc8cbee5a5d36"}
+

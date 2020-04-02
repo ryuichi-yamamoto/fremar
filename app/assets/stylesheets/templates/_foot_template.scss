@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+.footer {
+  color: #fff;
+  height: 80px;
+  background-color: rgb(59, 58, 58);
+  margin-top: auto;
+  &__images {
+    text-align: center;
+    .footer-image {
+      margin-top: 15px;
+      height: 40px;
+      vertical-align: bottom;
+    }
+  }
+  &__copy {
+    font-size: 11px;
+    color: #fff;
+    text-align: center;
+  }
+}

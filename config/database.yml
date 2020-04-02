@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: fremar_production
-  username: fremar
-  password: <%= ENV['FREMAR_DATABASE_PASSWORD'] %>
+  username: root            #rootに変更
+  password: <%= ENV['DATABASE_PASSWORD'] %> #chat-spadeで使った変数
+  socket: /var/lib/mysql/mysql.sock #必須の指定
