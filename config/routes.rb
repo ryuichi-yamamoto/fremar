@@ -10,7 +10,11 @@ Rails.application.routes.draw do
       get  'done'=> 'items#done', as: 'done'
     end
   end
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    collection do 
+      get 'done'
+    end
+  end
   resources :cards, only: [:new, :show] do
     collection do
       get 'confirmation'

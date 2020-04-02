@@ -22,4 +22,7 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def done
+  end
+
 end
