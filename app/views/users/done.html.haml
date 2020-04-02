@@ -5,7 +5,9 @@
       登録完了しました
   .done__main__link
     .done__main__link__top
-      %a( href='root' class='topBtn')トップ
+      = link_to "root" , class: "topBtn" do
+        トップ
     .done__main__link__mypage
-      %a( href='/users' class='myBtn')マイページ
+      = link_to "/users" , class: "myBtn" do
+        マイページ
 = render "/items/templates/foot_template"

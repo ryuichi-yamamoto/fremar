@@ -3,7 +3,8 @@
   .show__main__content
     .show__main__content__user
       .show__main__content__user--name
-        %a( href='#' class='showUserName')ユーザーネーム
+        = link_to "#" , class: "showUserName" do
+          ユーザーネーム
     .show__main__content__data
       ユーザー詳細画面
     .show__main__content__icon
