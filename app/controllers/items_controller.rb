@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.limit(3).order(:created_time)
-    
+    #TOPページ新規商品一覧表示ーーーーーーーーーーーーーーーーーー
+    #@items = Item.all.limit(3).order(:created_at)
+    #@images = Image.where('item_id == ?',@items.ids)
   end
 
   def show
