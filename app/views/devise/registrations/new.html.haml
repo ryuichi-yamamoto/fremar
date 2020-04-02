@@ -1,56 +1,51 @@
--# .sign_up-wrapper__right--form
--# = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", class: "form"
--# = f.submit "アカウント作成", class: 'sign_up-btn'
--# = render "devise/shared/links"
+.userSignUpMain
+  .userSignUp__header
+    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "250"), root_path
 
-.exhibition
-  .exbHeader
-    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "185"), root_path
-
-  .exhibition__wrapper
+  .userSignUpMain__wrapper
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      .userSignIn
-        .userSignIn__head
+      .userSignUp
+        .userSignUp__head
           %p 会員情報入力
-        .userSignIn__nickname
-          %p#text ニックネーム
+        .userSignUp__nickname
+          %p#text ニックネーム(40文字以内)
           %p#mark 必須
         = f.text_field :nickname, autofocus: true, id: "nicknameForm", placeholder: "例）フリマル 菜奈"
-        .userSignIn__email
+        .userSignUp__email
           %p#text メールアドレス
           %p#mark 必須
         = f.email_field :email, placeholder: " PC・携帯どちらでも可", id: "emailForm"
-        .userSignIn__pwForm
+        .userSignUp__pwForm
           %p#text パスワード
           %p#mark 必須
-        = f.password_field :password, autocomplete: "off", placeholder: " パスワード（英数字7文字以上）", id: "pwForm"
-        .userSignIn__pwForm
+        = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
+        .userSignUp__pwForm
           %p#text パスワード(再入力)
           %p#mark 必須
         = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
   
-        .userSignIn__textTitle
+        .userSignUp__textTitle
           %p 本人確認
-        .userSignIn__textField
+        .userSignUp__textField
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-        .userSignIn__status
+        .userSignUp__status
           %p#text 性別
           %p#mark 必須
         = f.select :status, [['男性','男性'], ['女性','女性']], prompt: "選択", id: "status"
-        .userSignIn__fullname
+        .userSignUp__fullname
           %p#text お名前
           %p#mark 必須
         = f.text_field :first_name, autofocus: true, id: "firstnameForm", placeholder: "例）小松"
         = f.text_field :last_name, autofocus: true, id: "lastnameForm", placeholder: "例）菜奈"
-        .userSignIn__fullname-hiragana
+        .userSignUp__fullname-hiragana
           %p#text お名前かな
           %p#mark 必須
         = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）こまつ"
         = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）なな"
-        .userSignIn__birthday
+        .userSignUp__birthday
           %p#text 生年月日
           %p#mark 必須
-        .userSignIn__birthdayForm
+        .userSignUp__birthdayForm
           = f.text_field :birth_year, placeholder: "", id: "birthForm"
           #birthText 年
           = f.text_field :birth_month, placeholder: "", id: "birthForm2"
@@ -60,16 +55,11 @@
         -# .deleted_at
         -#   = f.text_field :deleted_at
 
-        .userSignIn__success
+        .userSignUp__success
           = f.submit "登録する", id: "sendBtn"
           = render "devise/shared/links"
   
-  
-
-
-
-  
-  .exbFooter
-    .exbFooter__center
-      = image_tag src ="icon_category.png", id: "exbFooter__center__logo", width: '60'
+  .userSignUpFooter
+    .usrSignUpFooter__center
+      = image_tag src ="logo-gray.png", id: "userSignUpFooter__center__logo", width: '200'
 

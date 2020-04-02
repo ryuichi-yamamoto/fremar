@@ -1,4 +1,5 @@
 @import "reset";
+@import "items";
 @import "templates/head_template";
 @import "templates/foot_template";
 @import "templates/new_btn";
@@ -9,7 +10,9 @@
 @import "purchase";
 @import "users";
 @import "userSignIn";
+@import "userSignUp";
 @import "done";
 @import "newCard";
 @import "confirmation";
 @import "showCard";
+

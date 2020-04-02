@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
+    @items = Item.limit(3).order(:created_time)
+    
   end
 
   def show
