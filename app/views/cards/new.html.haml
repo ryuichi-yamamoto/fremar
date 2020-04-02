@@ -3,13 +3,13 @@
   .NewCard
     %section.NewCard__info
       %h2.NewCard__info--name クレジットカード情報入力
-      %form
+      = form_tag(cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
         .NewCard__info--contents
           .card-box
             %label.card-box__title カード番号
             %span.card-box__form 必須
           .card-text
-            %input.card-text__form{placeholder: "半角数字のみ", id: "card_number"}
+            = text_field_tag "number", "", class: "card-text__form", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
           %ul.card-text__image
             %li.card-text__image--list
               = image_tag 'https://pcweb-assets.mercdn.net/assets/img/card/visa.svg?1152353370', size: '49x20'
@@ -62,6 +62,6 @@
             %label セキュリティーコード
             %span.card-security__form 必須
           .card-code
-            %input.card-code__cvc{placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"}
+            = text_field_tag "cvc", "", class: "card-code__cvc", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
           #card_token
-            .top__margin{id: "token_submit"} 追加する
+            = submit_tag "追加する", id: "token_submit", class: "top__margin"
