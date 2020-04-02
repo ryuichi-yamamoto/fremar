@@ -7,7 +7,7 @@
   padding: $padding;
 }
 
-@mixin formBox($height: 50px, $margin-bottom: 10px, $width: 100%) {
+@mixin formBox($height: 50px, $margin-bottom: 40px, $width: 100%) {
   height: $height;
   width: $width;
   background-color: white;
@@ -59,7 +59,7 @@ background-color: gray;
   color: #878787;
 }
 
-.userSignInMain {
+.userSignUpMain {
   background-color: #F8F8F8;
   padding: 0 370px;
   font-size: 14px;
@@ -69,20 +69,25 @@ background-color: gray;
   }
 }
 
-.userSignIn__header {
+.userSignUp__header {
   height: 128px; 
   @include dFlex();
   align-items: center;
   padding: 16px;
 }
 
-.userSignIn {
-  margin-bottom: 20px;
+.userSignUp {
   &__head {
     @include wrapper();
     font-size: 22px;
     font-weight: 600;
     text-align: center;
+  }
+  &__nickname {
+    @include janle();
+  }
+  #nicknameForm {
+    @include formBox();
   }
   &__email {
     @include janle();    
@@ -96,13 +101,62 @@ background-color: gray;
   #pwForm {
     @include formBox();
   }
+  &__textTitle {
+    @include janle($padding: 0);
+    font-size: 18px;
+  }
+  &__textField {
+    @include janle($font-weight: 0);
+    margin-bottom: 30px;
+  }
+  &__status {
+    @include janle();
+  }
+  #user_status {
+    @include formBox($width: 20%);
+  }
+  &__fullname {
+    @include janle();    
+  }
+  #firstnameForm {
+    @include formBox($width: 49%);
+  }
+  #lastnameForm {
+    @include formBox($width: 49%);
+  }
+  &__fullname-hiragana {
+    @include janle();    
+  }
+  #firstname_hiraganaForm {
+    @include formBox($width: 49%);
+  }
+  #lastname_hiraganaForm {
+    @include formBox($width: 49%);
+  }
+  &__birthday {
+    @include janle();    
+  }
+  &__birthdayForm {
+    display: flex;
+    #birthForm {
+      @include formBox($width: 30%);
+    }
+    #birthForm2 {
+      @include formBox($width: 20%);
+      margin-left: 5px;
+    }
+    #birthText {
+      margin: 15px;
+    }
+  }
   &__success {
-    padding: 40px 0 30px;
-    text-align: center;
+    padding: 20px 0;
+    // text-align: center;
     #sendBtn {
       height: 50px;
       width: 100%;
       background-color: #3DCACE;
+      margin-bottom: 30px;
       border-radius: 5px;
       line-height: 50px;
       color: white;
@@ -110,33 +164,14 @@ background-color: gray;
       font-weight: 600;
       cursor: pointer;
     }
-  }
-}
-#userSignUpPage {
-  text-align: center;
-  height: 50px;
-  width: 100%;
-  background-color: red;
-  margin: 0 auto;
-  border-radius: 5px;
-  line-height: 50px;
-  cursor: pointer;
-  a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-  }
-}
-#forgotPw {
-  text-decoration: none;
-  color: #3DCACE;
-  a {
-    margin-bottom: 30px;
+    #loginText {
+      text-decoration: none;
+      color: #3DCACE;
+    }
   }
 }
 
-.userSignInFooter {
+.userSignUpFooter {
   height: 100px;
   padding: 25px;
   text-align: center;
