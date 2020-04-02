@@ -147,7 +147,7 @@ background-color: gray;
     &__center {
       @include janle();
     }
-    #prefecture_id {
+    #item_prefecture {
       @include formBox();
       background-color: white;
       // color: white;
