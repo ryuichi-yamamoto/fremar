@@ -14,7 +14,7 @@
           .exbMain__topWrapper__imageArea
             = f.fields_for :images do |i|
               .input-area
-                = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id: "img-file"
+                = i.file_field :isrc, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id: "img-file"
                 %label{for: "img-file"}
                   %i.fas.fa-camera= f.file_field :image, id: "item_img"
 
@@ -41,11 +41,10 @@
             %p#text ブランド
             %p#mark2 任意
           = f.text_field :brandName, id: "brandName", placeholder: "ブランド名を入力してください"
-
           .exbMain__thirdWrapper__under
             %p#text 商品の状態
             %p#mark 必須
-          = f.select :status, [["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]], id: "itemStatus", prompt: "  選択してください"
+          = f.collection_select :status, Status.all, :id, :name, prompt: "選択してください", class: 'input'
           .exbMain__thirdWrapper__bottom
             %p#text サイズ
             %p#mark 必須
@@ -56,18 +55,15 @@
           .exbMain__fourthWrapper__top
             %p#text 配送料の負担
             %p#mark 必須
-          = f.select :deliveryfee, [["送料込み（出品者負担）", "送料込み（出品者負担）"], ["着払い（購入者負担）", "着払い（購入者負担）"]], id: "deliveryfee", prompt: "  選択してください"
+          = f.collection_select :deliveryfee, Deliveryfee.all, :id, :name, prompt: "選択してください", class: 'input'
           .exbMain__fourthWrapper__center
             %p#text 発送元の地域
             %p#mark 必須
-          = form_for '' do |f|
-            .exbMain__fourthWrapper__addressBox.icon-relative
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
-              -# = icon("fa", "chevron-down")
+          = f.collection_select :prefecture, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
           .exbMain__fourthWrapper__under
             %p#text 発送までの日数
             %p#mark 必須
-          = f.select :deliveryday, [["１〜２日で発送", "１〜２日で発送"], ["３〜４日で発送", "３〜４日で発送"], ["５〜７日で発送", "５〜７日で発送"]], id: "deliveryday", prompt: "  選択してください"
+          = f.collection_select :deliveryday, Deliveryday.all, :id, :name, prompt: "選択してください", class: 'input'
     
         .exbMain__fifthWrapper
           .exbMain__fifthWrapper__left

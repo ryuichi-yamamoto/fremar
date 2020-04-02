@@ -1,4 +1,4 @@
-// 下記はユーザーパージで主に使うサイドメニュー
+// 下記はユーザーページで主に使うサイドメニュー
 .user__side {
   height: 200px;
   width: 200px;
@@ -189,4 +189,394 @@
     }
   }
 }
-
+// 下記はユーザー情報編集ページの記述
+.userEdit {
+  height: 1100px;
+  width: 100vw;
+  display: flex;
+  &__main {
+    height: 2000px;
+    width: 80%;
+    &--title {
+      height: 30px;
+      width: 80%;
+      margin: 10px auto;
+      text-align: center;
+      font-size: 20px;
+    }
+    &__nic {
+      height: 100px;
+      width: 80%;
+      margin: 10px auto;
+      font-size: 20px;
+      &--guide {
+        height: 40px;
+        width: 80%;
+      }
+      &--in {
+        height: 40px;
+        width: 100%;
+        border: solid 2px;
+        margin-top: 5px;
+        background-color: gainsboro;
+      }
+    }
+    &__data {
+      height: 100px;
+      width: 80%;
+      margin: 10px auto;
+      font-size: 20px;
+      &--in {
+        height: 40px;
+        width: 100%;
+        border: solid 2px;
+        background-color: gainsboro;
+      }
+    }
+    &__name {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      &--guide {
+        height: 40px;
+        width: 150px;
+        text-align: center;
+      }
+      &--nin {
+        height: 30px;
+        width: 40px;
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        background-color: gainsboro;
+      }
+    }
+    &__nameIn {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      &--first {
+        height: 40px;
+        width: 40%;
+        margin: auto;
+        border: solid 2px;
+        background-color: gainsboro;
+      }
+      &--last {
+        height: 40px;
+        width: 40%;
+        margin: auto;
+        border: solid 2px;
+        background-color: gainsboro;
+      }
+    }
+    &__kana {
+      height: 40px;
+      width: 80%;
+      margin: 10px auto 0;
+      font-size: 20px;
+      display: flex;
+      &--guide {
+        height: 40px;
+        width: 150px;
+        text-align: center;
+      }
+      &--nin {
+        height: 30px;
+        width: 40px;
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        background-color: gainsboro;
+      }
+    }
+    &__kanaIn {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      &--first {
+        height: 40px;
+        width: 40%;
+        margin: auto;
+        border: solid 2px;
+        background-color: gainsboro;
+      }
+      &--last {
+        height: 40px;
+        width: 40%;
+        margin: auto;
+        border: solid 2px;
+        background-color: gainsboro;
+      }
+    }
+    &__birthday {
+      height: 40px;
+      width: 80%;
+      margin: 10px auto 0;
+      font-size: 20px;
+      display: flex;
+      &--guide {
+        height: 40px;
+        width: 150px;
+        text-align: center;
+      }
+      &--nin {
+        height: 30px;
+        width: 40px;
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        background-color: gainsboro;
+      }
+    }
+    &__birthdayIn {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      &--year {
+        height: 40px;
+        width: 30%;
+        margin: auto;
+        border: solid 2px;
+        background-color: gainsboro;
+      }
+      &--mon {
+        height: 40px;
+        width: 30%;
+        margin: auto;
+        border: solid 2px;
+        background-color: gainsboro;
+      }
+      &--day {
+        height: 40px;
+        width: 30%;
+        margin: auto;
+        border: solid 2px;
+        background-color: gainsboro;
+      }
+    }
+    &__postalCode {
+      height: 40px;
+      width: 80%;
+      margin: 10px auto 0;
+      font-size: 20px;
+      display: flex;
+      &--guide {
+        height: 40px;
+        width: 150px;
+        text-align: center;
+      }
+      &--nin {
+        height: 30px;
+        width: 40px;
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        background-color: gainsboro;
+      }
+    }
+    &__postalCodeIn {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      border: solid 2px;
+      background-color: gainsboro;
+    }
+    &__prefectur {
+      height: 40px;
+      width: 80%;
+      margin: 10px auto 0;
+      font-size: 20px;
+      display: flex;
+      &--guide {
+        height: 40px;
+        width: 150px;
+        text-align: center;
+      }
+      &--nin {
+        height: 30px;
+        width: 40px;
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        background-color: gainsboro;
+      }
+    }
+    &__prefecturIn {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      border: solid 2px;
+      background-color: gainsboro;
+    }
+    &__city {
+      height: 40px;
+      width: 80%;
+      margin: 10px auto 0;
+      font-size: 20px;
+      display: flex;
+      &--guide {
+        height: 40px;
+        width: 150px;
+        text-align: center;
+      }
+      &--nin {
+        height: 30px;
+        width: 40px;
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        background-color: gainsboro;
+      }
+    }
+    &__cityIn {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      border: solid 2px;
+      background-color: gainsboro;
+    }
+    &__address {
+      height: 40px;
+      width: 80%;
+      margin: 10px auto 0;
+      font-size: 20px;
+      display: flex;
+      &--guide {
+        height: 40px;
+        width: 150px;
+        text-align: center;
+      }
+      &--nin {
+        height: 30px;
+        width: 40px;
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        background-color: gainsboro;
+      }
+    }
+    &__addressIn {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      border: solid 2px;
+      background-color: gainsboro;
+    }
+    &__room {
+      height: 40px;
+      width: 80%;
+      margin: 10px auto 0;
+      font-size: 20px;
+      display: flex;
+      &--guide {
+        height: 40px;
+        width: 150px;
+        text-align: center;
+      }
+      &--nin {
+        height: 30px;
+        width: 40px;
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        background-color: gainsboro;
+      }
+    }
+    &__roomIn {
+      height: 40px;
+      width: 80%;
+      margin: auto;
+      font-size: 20px;
+      display: flex;
+      border: solid 2px;
+      background-color: gainsboro;
+    }
+    &__regi {
+      height: 40px;
+      width: 80%;
+      margin: 10px auto;
+      font-size: 20px;
+      display: flex;
+      &--btn {
+        height: 40px;
+        width: 150px;
+        margin: auto;
+        text-align: center;
+        background-color: red;
+        border: solid 2px;
+      }
+    } 
+  }
+}
+// 下記はユーザー新規登録完了画面
+.done__main {
+  height: 80vw;
+  width: 100%;
+  &__ok {
+    height: 200px;
+    width: 80%;
+    text-align: center;
+    line-height: 200px;
+    font-size: 60px;
+    margin: auto;
+    &__message {
+      height: 150px;
+      width: 100%;
+    }
+  }
+  &__link {
+    height: 100px;
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    &__top {
+      height: 100px;
+      width: 30%;
+      margin: auto;
+      text-align: center;
+      .topBtn {
+        font-size: 25px;
+        text-decoration: none;
+        color: black;
+        line-height: 100px;
+      }
+    }
+    &__mypage {
+      height: 100px;
+      width: 30%;
+      margin: auto;
+      text-align: center;
+      .myBtn {
+        font-size: 25px;
+        text-decoration: none;
+        color: black;
+        line-height: 100px;
+      }
+    }
+  }
+}
