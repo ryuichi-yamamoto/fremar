@@ -1,36 +1,110 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+= render "/items/templates/head_template"
+.userEdit
+  = render "/users/users_side"
+  .userEdit__main
+    .userEdit__main--title
+      本人情報の編集
+    .userEdit__main__nic
+      .userEdit__main__nic--guide
+        ニックネーム
+      .userEdit__main__nic--in
+    .userEdit__main__data
+      ユーザー情報
+      .userEdit__main__data--in
+    .userEdit__main__name
+      .userEdit__main__name--guide
+        お名前
+      .userEdit__main__name--nin
+        必須
+    .userEdit__main__nameIn
+      .userEdit__main__nameIn--first
+      .userEdit__main__nameIn--last
+    .userEdit__main__kana
+      .userEdit__main__kana--guide
+        お名前　かな
+      .userEdit__main__kana--nin
+        必須
+    .userEdit__main__kanaIn
+      .userEdit__main__kanaIn--first
+      .userEdit__main__kanaIn--last
+    .userEdit__main__birthday
+      .userEdit__main__birthday--guide
+        生年月日
+      .userEdit__main__birthday--nin
+        必須
+    .userEdit__main__birthdayIn
+      .userEdit__main__birthdayIn--year
+      .userEdit__main__birthdayIn--mon
+      .userEdit__main__birthdayIn--day
+    .userEdit__main__postalCode
+      .userEdit__main__postalCode--guide
+        郵便番号
+      .userEdit__main__postalCode--nin
+        任意
+    .userEdit__main__postalCodeIn
+    .userEdit__main__prefectur
+      .userEdit__main__prefectur--guide
+        都道府県
+      .userEdit__main__prefectur--nin
+        任意
+    .userEdit__main__prefecturIn
+    .userEdit__main__city
+      .userEdit__main__city--guide
+        市区町村
+      .userEdit__main__city--nin
+        任意
+    .userEdit__main__cityIn
+    .userEdit__main__address
+      .userEdit__main__address--guide
+        番地
+      .userEdit__main__address--nin
+        任意
+    .userEdit__main__addressIn
+    .userEdit__main__room
+      .userEdit__main__room--guide
+        建物名
+      .userEdit__main__room--nin
+        任意
+    .userEdit__main__roomIn
+    .userEdit__main__regi
+      .userEdit__main__regi--btn
+        登録する
+= render "/items/templates/foot_template"
+
+-# %h2
+-#   Edit #{resource_name.to_s.humanize}
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+-#     %div
+-#       Currently waiting confirmation for: #{resource.unconfirmed_email}
+-#   .field
+-#     = f.label :password
+-#     %i (leave blank if you don't want to change it)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#     - if @minimum_password_length
+-#       %br/
+-#       %em
+-#         = @minimum_password_length
+-#         characters minimum
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .field
+-#     = f.label :current_password
+-#     %i (we need your current password to confirm your changes)
+-#     %br/
+-#     = f.password_field :current_password, autocomplete: "current-password"
+-#   .actions
+-#     = f.submit "Update"
+-# %h3 Cancel my account
+-# %p
+-#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+-# = link_to "Back", :back
+

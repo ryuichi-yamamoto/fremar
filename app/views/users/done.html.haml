@@ -1,0 +1,11 @@
+= render "/items/templates/head_template"
+.done__main
+  .done__main__ok
+    .done__main__ok__message
+      登録完了しました
+  .done__main__link
+    .done__main__link__top
+      %a( href='root' class='topBtn')トップ
+    .done__main__link__mypage
+      %a( href='/users' class='myBtn')マイページ
+= render "/items/templates/foot_template"
