@@ -69,6 +69,67 @@
         font-size: 30px;
         font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
       }
+      &__purchase {
+        // background-color: #3ccace;
+        margin: 20px 0;
+        .purchase-btn {
+          color: #333;
+          line-height: 35px;
+          display: inline-block;
+          width: 100%;
+          height: 60px;
+          background-color: #3ccace;
+          border: 2px solid #3ccace;
+          font-size: 25px;
+          color: #000
+          0;
+          text-decoration: none;
+          font-weight: bold;
+          padding: 10px 24px;
+          border-radius: 4px;
+          position: relative;
+          font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+        }
+        
+        .purchase-btn span {
+          color: #357EDB;
+          position: relative;
+          z-index: 1;
+        }
+        
+        .purchase-btn::before,
+        .purchase-btn::after {
+          color: #333;
+          content: "";
+          display: block;
+          background-color: #FFF;
+          width: 50%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          transition: .2s;
+        }
+        .purchase-btn::before {
+          color: #357EDB;
+          left: 0;
+        }
+        .purchase-btn::after {
+          color: #357EDB;
+          right: 0;
+        }
+        
+        .purchase-btn:hover:before,
+        .purchase-btn:hover:after {
+          width: 0;
+          color: #357EDB;
+          background-color: #357EDB;
+        }
+        
+        .purchase-btn:hover {
+          color: #fff;
+          font-size: 25px;
+        }
+      }
     }
     &__item-explan {
       text-align: center;

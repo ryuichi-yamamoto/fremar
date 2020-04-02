@@ -1,6 +1,6 @@
 .userSignInMain
   .userSignIn__header
-    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "185"), root_path
+    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "250"), root_path
 
   .userSignInMain__wrapper
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -21,5 +21,6 @@
 
   .userSignInFooter
     .usrSignInFooter__center
-      = image_tag src ="icon_category.png", id: "userSignUpFooter__center__logo", width: '60'
+      = image_tag src ="logo-gray.png", id: "userSignUpFooter__center__logo", width: '200'
+
 

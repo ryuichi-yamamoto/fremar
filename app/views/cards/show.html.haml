@@ -1,0 +1,16 @@
+= render "/items/templates/head_template"
+.jjj
+  .NewCard
+    %section.NewCard__info
+      %h2.NewCard__info--name 支払い方法
+      .NewCard__info--contents
+        %form
+        .card-box
+          %label.card-box__title クレジットカード一覧
+        .card__number 
+          = "**** **** **** 4242"
+        .expire__date
+          = " 5 / 35"
+        %form
+          %input{ type: "hidden", name: "card_id", value: "" }
+          %button.delete__button 削除する
