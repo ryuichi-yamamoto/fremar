@@ -1,0 +1,15 @@
+.confirmation-list {
+  background-color: red;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  &:hover {
+    opacity: 0.6;
+  }
+  &__btn{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+  }
+}

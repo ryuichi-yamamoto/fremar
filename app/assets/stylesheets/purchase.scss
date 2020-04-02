@@ -8,7 +8,7 @@
 .PayMain {
   background-color: #f8f8f8;
   line-height: 1;
-  padding-bottom: 100px;
+  padding-bottom: 40px;
   &__contents {
     background-color: #fff;
     width: 700px;
@@ -132,5 +132,9 @@
         }
       }
     }
+  }
+  .PayFooer-iamge {
+    margin-top: 20px;
+    text-align: center;
   }
 }
