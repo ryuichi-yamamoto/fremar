@@ -97,7 +97,7 @@
         =link_to"新規投稿商品","＃",class:"pickUpTitle"
       .productLists
         .productList
-          =link_to "#", class: "productList" do 
+          =link_to "#", class: "productList" do
             %figure.productList--img
             =image_tag src="test1.jpg"
             .productList--body
@@ -202,12 +202,3 @@
         =link_to "https://play.google.com/store?hl=ja", class:"googlePlay" do
           =image_tag src="google-play.png" 
 = render "/items/templates/foot_template"
-
--#商品詳細へのリンク-------------------------------------------------------
-        -#.productList
-          -#=link_to "/items/#{@items.ids}", class: "productList" do
-          -#%figure.productList--img
-            -#TOPページの新規商品一覧表示
-            -#- @images.each do |image|
-              -#=image_tag src="image.image"
--#----------------------------------------------------------------------
