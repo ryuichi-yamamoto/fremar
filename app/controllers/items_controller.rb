@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-before_action :set_item, except: [:index, :new, :create]
+# before_action :set_item, except: [:index, :new, :create]
 
 
   def index
@@ -16,6 +16,18 @@ before_action :set_item, except: [:index, :new, :create]
   def new
     @item = Item.new
     @item.images.new
+    @category_parent_array = ["カテゴリ選択"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+    end  
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_id]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create

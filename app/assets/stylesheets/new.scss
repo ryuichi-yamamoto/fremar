@@ -105,7 +105,13 @@ background-color: gray;
     &__top {
       @include janle();    
     }
-    #category {
+    #parent_category {
+      @include formBox($margin-bottom: 10px);
+    }
+    #child_category {
+      @include formBox($margin-bottom: 10px);
+    }
+    #grandchild_category {
       @include formBox();
     }
     &__center {
