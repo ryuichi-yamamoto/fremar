@@ -1,7 +1,53 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+car_child_array =['自動車本体','自動車タイヤ/ホイール','自動車パーツ','自動車アクセサリー','オートバイ車体','オートバイパーツ','オートバイアクセサリー']
+car_grandchild_array = [
+                        ['国内自動車本体','外国自動車本体']
+                        ['タイヤ/ホイールセット','タイヤ','その他']
+                        ['サスペンション','ブレーキ','外装、エアロパーツ','ライト','内装品、シート','ステアリング','マフラー・排気系','エンジン、過給器、冷却装置','クラッチ、ミッション、駆動系','電装品','補強パーツ','汎用パーツ','外国自動車用パーツ','その他']
+                        ['車内アクセサリー','カーナビ','カーオーディオ','車外アクセサリー','メンテナンス用品','チャイルドシート','ドライブレコーダー','レーダー探知機','/マニュアル','セキュリティ','ETC','その他']
+                        ['タイヤ','マフラー','エンジン、冷却装置','カウル、フェンダー、外装','サスペンション','ホイール','シート','ブレーキ','タンク','ライト、ウィンカー','チェーン、スプロケット、駆動系','メーター','電装系','ミラー','外国オートバイ用パーツ','その他']
+                        ['ヘルメット/シールド','バイクウエア/装備','アクセサリー','メンテナンス','カタログ/マニュアル','その他']
+]
+parent = Category.create(name: '自動車、モーターバイク')
+car_child_array.each_with_index do |child, i|
+  child = parent.children.create(name: child)
+  car_grandchild_array[i].each do |grandchild|
+    child.children.create(name: grandchild)
+    
+
+ticket_child_array =['音楽','スポーツ','演劇/芸能','イベント','映画','施設利用券','優待券/割引券','その他']
+ticket_grandchild_array = [ 
+                            ['男性アイドル','女性アイドル','韓流','国内アーティスト','海外アーティスト','音楽フェス','声優/アニメ','その他']
+                            [,'サッカー','野球','テニス','/プロレス','相撲/武道','ゴルフ','バレーボール','バスケットボール','モータースポーツ','ウィンタースポーツ','その他']
+                            [,'ミュージカル','演劇','伝統芸能','落語','お笑い','オペラ','サーカス','バレエ','その他']
+                            [,'声優/アニメ','キッズ/ファミリー','トークショー/講演会']
+                            [,'邦画','洋画','その他']
+                            [,'遊園地/テーマパーク','美術館/博物館','スキー場','ゴルフ場','フィットネスクラブ','プール','ボウリング場','水族館','動物園','その他']
+                            [,'ショッピング','レストラン/食事券','フード/ドリンク券','宿泊券','その他']
+                            ['その他']
+]
+parent = Category.create(name: 'チケット')
+ticket_child_array.each_with_index do |child, i|
+  child = parent.children.create(name: child)
+  ticket_grandchild_array[i].each do |grandchild|
+    child.children.create(name: grandchild)
+
+    
+others_child_array =['ペット用品','食品','飲料/酒,''日用品/生活雑貨/旅行','アンティーク/コレクション','文房具/事務用品,事務/店舗用品','その他']
+others_grandchild_array = [
+                            ['ペットフード','犬用品','猫用品','魚用品/水草','小動物用品','爬虫類/両生類用品','かご/おり','鳥用品','虫類用品','その他']
+                            ['菓子','米','野菜','果物','調味料','魚介類(加工食品)','肉類(加工食品)','その他','加工食品','その他']
+                            ['コーヒー','ソフトドリンク','ミネラルウォーター','茶','ウイスキー','ワイン','ブランデー','焼酎','日本酒','ビール、発泡酒','その他']
+                            ['タオル/バス用品','日用品/生活雑貨','洗剤/柔軟剤','旅行用品','防災関連グッズ','その他']
+                            ['雑貨','工芸品','家具','印刷物','その他']
+                            ['筆記具','ノート/メモ帳','テープ/マスキングテープ','カレンダー/スケジュール','アルバム/スクラップ','ファイル/バインダー','はさみ/カッター','カードホルダー/名刺管理','のり/ホッチキス','その他']
+                            ['オフィス用品一般','オフィス家具','店舗用品','OA機器','ラッピング/包装','その他']
+                            ['その他']                      
+]
+parent = Category.create(name: 'その他')
+others_child_array.each_with_index do |child, i|
+  child = parent.children.create(name: child)
+  others_grandchild_array[i].each do |grandchild|
+    child.children.create(name: grandchild)
+  end
+end
+
