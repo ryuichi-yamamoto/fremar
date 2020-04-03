@@ -10,13 +10,28 @@
             %p#text 出品画像
             %p#mark 必須
           .exbMain__topWrapper__textBox
-            %p 最大10枚までアップロードできます
-          .exbMain__topWrapper__imageArea
-            = f.fields_for :images do |i|
-              .input-area
-                = i.file_field :isrc, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id: "img-file"
-                %label{for: "img-file"}
-                  %i.fas.fa-camera= f.file_field :image, id: "item_img"
+            %p 最大４枚までアップロードできます
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+            = f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                %label
+                  = icon('fas', 'camera-retro')
+                  = image.file_field :image, class: 'js-file'
+                %span.js-remove 削除
+              - if @item.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.images.count}"}
+                %label
+                  = icon('fas', 'camera-retro')
+                  = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+                %br
+                .js-remove
+                = link_to '削除', product_path(product), method: :delete
 
         .exbMain__secondWrapper
           .exbMain__secondWrapper__top
@@ -36,7 +51,13 @@
           .exbMain__thirdWrapper__top
             %p#text カテゴリー
             %p#mark 必須
-          = f.text_field :category, id: "category", placeholder: "カテゴリーを入力してください"
+          .listing-form-box 
+            .listing-product-detail__category
+              %span.listing-default--require 
+              .listing-select-wrapper
+                .listing-select-wrapper__box
+              .listing-select-wrapper__box
+                = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: 'item[category_id]'}
           .exbMain__thirdWrapper__center
             %p#text ブランド
             %p#mark2 任意
@@ -88,3 +109,7 @@
     .exbFooter__center
       = image_tag src ="logo-gray.png", id: "exbFooter__center__logo", width: '200'
 
+:javascript
+  
+
+  

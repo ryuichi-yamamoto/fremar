@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
 
-  require 'payjp'
-
+  
+before_action :set_item, except: [:index, :new, :create]
+require 'payjp'
+  
   def index
+    @items = Item.includes(:images).order('created_at DESC')
     #TOPページ新規商品一覧表示ーーーーーーーーーーーーーーーーーー
     #@items = Item.all.limit(3).order(:created_at)
     #@images = Image.where('item_id == ?',@items.ids)
@@ -14,20 +17,43 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @category_parent_array = ["カテゴリ選択"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+    end  
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_id]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
     @item = Item.new(item_params)
-    
+    if @item.save!
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
   
   def destroy
+    @product.destroy
+    redirect_to root_path
   end
 
   def purchase
@@ -58,8 +84,11 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :text, :size, :prefecture, :status, :deliveryfee, :deliveryday).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :text, :size, :prefecture, :category_id, :status, :deliveryfee, :deliveryday, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
   
 end
