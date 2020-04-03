@@ -84,15 +84,6 @@ background-color: gray;
     &__textBox {
       margin-bottom: 20px;
     }
-    &__imageArea {
-      height: 140px;
-      width: 100%;
-      background-color: #f5f5f5;
-      border: 1px solid lightgray;
-      cursor: pointer;
-      #item_img {
-      }
-    }
   }
   &__secondWrapper {
     @include wrapper();
@@ -223,5 +214,28 @@ background-color: gray;
   }
   &__center {
     margin: 0;
+  }
+}
+
+.js-file_group {
+  display: flex;
+  .js-remove {
+    margin-left: 10px;
+  }
+}
+#image-box {  
+  cursor: pointer;
+  .js-file {
+    // display: none;
+  }
+}
+#previews {
+  height: 140px;
+  width: 100%;
+  background-color: lightgray;
+  text-align: center;
+  img {
+    margin: 5px;
+    border: 1px solid lightgray;
   }
 }
