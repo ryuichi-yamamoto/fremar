@@ -70,10 +70,9 @@
         font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
       }
       &__purchase {
-        // background-color: #3ccace;
         margin: 20px 0;
         .purchase-btn {
-          color: #333;
+          color: #fff;
           line-height: 35px;
           display: inline-block;
           width: 100%;
@@ -81,8 +80,6 @@
           background-color: #3ccace;
           border: 2px solid #3ccace;
           font-size: 25px;
-          color: #000
-          0;
           text-decoration: none;
           font-weight: bold;
           padding: 10px 24px;
@@ -90,44 +87,70 @@
           position: relative;
           font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
         }
-        
-        .purchase-btn span {
-          color: #357EDB;
-          position: relative;
-          z-index: 1;
-        }
-        
-        .purchase-btn::before,
-        .purchase-btn::after {
-          color: #333;
-          content: "";
-          display: block;
-          background-color: #FFF;
-          width: 50%;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          transition: .2s;
-        }
-        .purchase-btn::before {
-          color: #357EDB;
-          left: 0;
-        }
-        .purchase-btn::after {
-          color: #357EDB;
-          right: 0;
-        }
-        
-        .purchase-btn:hover:before,
-        .purchase-btn:hover:after {
-          width: 0;
-          color: #357EDB;
-          background-color: #357EDB;
-        }
-        
-        .purchase-btn:hover {
+      }
+  .popup {
+    background-color: #efefef;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, .8);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 500px;
+    height: 250px;
+    z-index: 2;
+  }
+    #popup-on{
+      display: none;
+    }
+    #popup-on:checked + .popup{
+      display: block;
+    }
+
+  .btn-close{
+    background: #3ccace;
+    border-radius: 100px;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    margin: 50px auto;
+    width: 60%;
+    text-align: center;
+  }
+        .btn-open{
+          background: #3ccace;
+          border-radius: 100px;
           color: #fff;
-          font-size: 25px;
+          padding: 10px;
+          cursor: pointer;
+          margin: 10px auto;
+          width: 30%;
+          text-align: center;
+        }
+
+        .dtlWhole-view__item-main__setting {
+          width: 500px;
+          &__list {
+            display: flex;
+            justify-content: space-between;
+            margin: 80px 60px 20px 60px;
+          }
+        .edit-btn {
+          border: 5px double;
+          padding: 10px;
+          color: #3ccace;
+          font-size: 20px;
+          text-decoration: none;
+        }
+        .destroy-btn {
+          border: 5px double;
+          padding: 10px;
+          color: #3ccace;
+          font-size: 20px;
+          text-align: center;
+          text-decoration: none;
         }
       }
     }
