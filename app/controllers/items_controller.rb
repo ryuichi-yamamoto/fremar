@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
 
-# before_action :set_item, except: [:index, :new, :create]
-
-
+  
+before_action :set_item, except: [:index, :new, :create]
+require 'payjp'
+  
   def index
     @items = Item.includes(:images).order('created_at DESC')
     #TOPページ新規商品一覧表示ーーーーーーーーーーーーーーーーーー
@@ -56,14 +57,23 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      # redirect_to controller: "cards", action: "confirmation"
+    else
+      Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def pay
+    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
     Payjp::Charge.create(
-    amount: 1200,
-    card: params['payjp-token'],
-    currency: 'jpy'
+    amount: 12000,
+    customer: card.customer_id,
+    currency: 'jpy',
     )
     redirect_to action: :done
   end
