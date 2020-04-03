@@ -20,7 +20,7 @@ before_action :set_item, except: [:index, :new, :create]
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to root_path
     else
       render :new
@@ -62,7 +62,7 @@ before_action :set_item, except: [:index, :new, :create]
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :text, :size, :prefecture, :status, :deliveryfee, :deliveryday, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :text, :size, :prefecture, :category_id, :status, :deliveryfee, :deliveryday, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_item

@@ -20,15 +20,15 @@
               .js-file_group{"data-index" => "#{image.index}"}
                 %label
                   = icon('fas', 'camera-retro')
-                  = image.file_field :src, class: 'js-file'
-                  %span.js-remove 削除
+                  = image.file_field :image, class: 'js-file'
+                %span.js-remove 削除
               - if @item.persisted?
                 = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
             - if @item.persisted?
               .js-file_group{"data-index" => "#{@item.images.count}"}
                 %label
                   = icon('fas', 'camera-retro')
-                = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                  = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
                 %br
                 .js-remove
                 = link_to '削除', product_path(product), method: :delete
@@ -110,11 +110,13 @@
     
       // 画像用のinputを生成する関数    
       const buildFileField = (num)=> {
-        const html = `<div data-index="${num}" class="js-file_group">
-                        <i class="fas fa-camera-retro"></i>
-                        <input class="js-file" type="file" name="item[images_attributes][${num}][src]" id="item_images_attributes_${num}_src">
-                          <div class="js-remove">削除</div>
-                      </div>`;
+        const html = `<label>
+                        <div data-index="${num}" class="js-file_group">
+                          <i class="fas fa-camera-retro"></i>
+                          <input class="js-file" type="file" name="item[images_attributes][${num}][image]" id="item_images_attributes_${num}_src">
+                            <div class="js-remove">削除</div>
+                        </div>
+                      </label>`;
         return html;
       }
       // プレビュー用のimgタグを生成する関数
