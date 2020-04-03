@@ -22,9 +22,6 @@
       .dtlWhole-view__item-main__pricebox__tax-txt
         (税込) 送料込み
       - if user_signed_in?
-        .dtlWhole-view__item-main__pricebox__purchase
-          = link_to '購入画面に進むぞ！', "/items/purchase/:id", class:"purchase-btn"
-      - else
         .pop-box
           %label{:for => "popup-on"}
             %label{:for => "popup-on"}
@@ -42,6 +39,9 @@
                     =link_to 'この出品を削除', "#", class:"destroy-btn"
               %label{:for => "popup-on"}
                 .btn-close 閉じる
+      - else
+        .dtlWhole-view__item-main__pricebox__purchase
+          = link_to '購入画面に進むぞ！', "/items/purchase/:id", class:"purchase-btn"
     .dtlWhole-view__item-main__item-explan
       互いにあざむき合って、しかもいずれも不思議に何の傷もつかず、
       あざむき合っている事にさえ気がついていないみたいな、実にあざやかな、
