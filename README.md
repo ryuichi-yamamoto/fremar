@@ -44,6 +44,7 @@ Things you may want to cover:
 - has_many :addresses
 - has_many :items
 - has_many :comments
+- has_many :cards
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -70,6 +71,7 @@ Things you may want to cover:
 |text|text||
 |size|string||
 |prefecture|integer||
+|blandName|string||
 |status|string||
 |deliveryfee|integer||
 |deliveryday|integer||
@@ -80,7 +82,6 @@ Things you may want to cover:
 - has_many :images
 - has_many :comments
 - belongs_to :user
-- belongs_to :brand
 - belongs_to :category
 
 ## commentsテーブル
@@ -102,13 +103,6 @@ Things you may want to cover:
 - has_many :items
 - has_ancestry
 
-## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :items
-
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -116,3 +110,10 @@ Things you may want to cover:
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
+
+## cardsテーブル
+|user_id|integer|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+### Association
+- belongs_to :user
