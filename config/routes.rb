@@ -8,7 +8,6 @@ Rails.application.routes.draw do
       get 'purchase/:id' => 'items#purchase', as: 'purchase'
       post 'pay/:id'=> 'items#pay', as: 'pay'
       get  'done'=> 'items#done', as: 'done'
-      get 'destroy'=> 'items#destroy', as: 'destroy'
     end
   end
 
