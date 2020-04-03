@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_many   :comments
   belongs_to :user
   belongs_to :brand, optional: true
-  belongs_to :category, optional: true
+  belongs_to :category, foreign_key: 'category_id'
   
   
 
