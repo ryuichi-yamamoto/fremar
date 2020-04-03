@@ -1,21 +1,10 @@
-class UsersController < ApplicationController
-
-  def index
-  end
-
-  def show
-  end
+class AddressesController < ApplicationController
 
   def new
-    @users = User.new
-  end
-
-  def create
   end
 
   def edit
-    @user = User.find(params[:id])
-    # @addresses = Addresse.find(params[:id])
+    @addresses = Addresse.find(params[:id])
   end
 
   def update
@@ -26,12 +15,6 @@ class UsersController < ApplicationController
       redirect_to users_path
     end
   end
-  
-  def destroy
-  end
-
-  def done
-  end
 
   private
 
@@ -40,4 +23,3 @@ class UsersController < ApplicationController
   end
 
 end
-

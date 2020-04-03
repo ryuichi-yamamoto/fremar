@@ -24,4 +24,5 @@ Rails.application.routes.draw do
       get 'confirmation'
     end
   end
+  resources :addresses, only: [:new, :edit, :update]
 end
