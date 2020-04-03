@@ -1,9 +1,7 @@
 class ItemsController < ApplicationController
-
   
-before_action :set_item, except: [:index, :new, :create]
 require 'payjp'
-  
+ 
   def index
     @items = Item.includes(:images).order('created_at DESC')
     #TOPページ新規商品一覧表示ーーーーーーーーーーーーーーーーーー
@@ -33,10 +31,10 @@ require 'payjp'
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
-      redirect_to root_path
+    if @item.save
+      redirect_to @item 
     else
-      render :new
+      redirect_to action: :new
     end
   end
 
@@ -85,10 +83,6 @@ require 'payjp'
 
   def item_params
     params.require(:item).permit(:name, :price, :text, :size, :prefecture, :category_id, :status, :deliveryfee, :deliveryday, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
   
 end

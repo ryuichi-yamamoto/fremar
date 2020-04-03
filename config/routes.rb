@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
 
-  resources :items do
+  resources :items, except: :index do
     collection do
       get 'purchase/:id' => 'items#purchase', as: 'purchase'
       post 'pay/:id'=> 'items#pay', as: 'pay'

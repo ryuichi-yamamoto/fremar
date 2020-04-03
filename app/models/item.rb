@@ -7,6 +7,15 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :category, foreign_key: 'category_id'
   
-  
+  validates :name,        presence: true
+  validates :price,       presence: true
+  validates :text,        presence: true
+  validates :size,        presence: true
+  validates :prefecture,  presence: true
+  validates :deliveryfee, presence: true
+  validates :deliveryday, presence: true
+  validates :status,      presence: true
+  validates_associated :images
+  validates :images, presence: true
 
 end
