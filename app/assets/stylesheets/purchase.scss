@@ -120,15 +120,12 @@
       &__btn {
         text-align: center;
         margin-top: 60px;
-        #payjp_checkout_box {
-          input[type=button] {
-            background-image: none;
-            background-color: #3acacd;
-            padding: 15px;
-            width: 100%;
-            font-size: 16px;
-            border: none;
-          }
+        .pay__btn {
+          background-color: #3acacd;
+          padding: 15px;
+          width: 100%;
+          font-size: 16px;
+          color: #fff;
         }
       }
     }
