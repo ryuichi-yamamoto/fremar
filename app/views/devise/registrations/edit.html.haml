@@ -51,14 +51,14 @@
       .userEdit__main__postalCode--nin
         必須
     .userEdit__main__postalCodeIn
-      = f.text_field :password
+      = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
     .userEdit__main__prefectur
       .userEdit__main__prefectur--guide
         パスワード
       .userEdit__main__prefectur--nin
         必須
     .userEdit__main__prefecturIn
-      = f.text_field :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
     .userEdit__main__city
       .userEdit__main__city--guide
         市区町村
