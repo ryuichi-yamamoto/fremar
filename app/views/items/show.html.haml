@@ -6,28 +6,33 @@
   .dtlWhole-view__item-main
     .dtlWhole-view__item-main__setting
     .dtlWhole-view__item-main__name
-      test-name
+      = @item.name
     .dtlWhole-view__item-main__toppic
       = image_tag 'bobu.jpg', class: 'main-pic'
     .dtlWhole-view__item-main__otherpic-grp
       .dtlWhole-view__item-main__otherpic-grp--left
         = image_tag 'bobu.jpg', class: 'left-pic'
+      .dtlWhole-view__item-main__otherpic-grp--leftmid
+        = image_tag 'bobu.jpg', class: 'leftmid-pic'
       .dtlWhole-view__item-main__otherpic-grp--mid
         = image_tag 'bobu.jpg', class: 'mid-pic'
+      .dtlWhole-view__item-main__otherpic-grp--rightmid
+        = image_tag 'bobu.jpg', class: 'rightmid-pic'
       .dtlWhole-view__item-main__otherpic-grp--right
         = image_tag 'bobu.jpg', class: 'right-pic'
     .dtlWhole-view__item-main__pricebox
       .dtlWhole-view__item-main__pricebox__price
-        ￥100,000
+        ¥
+        = @item.price
       .dtlWhole-view__item-main__pricebox__tax-txt
         (税込) 送料込み
-      - if user_signed_in?
+      - if user_signed_in? && current_user.id == @item.user_id
         .pop-box
           %label{:for => "popup-on"}
             %label{:for => "popup-on"}
               .btn-open
                 オプション
-            %input#popup-on{:type => "checkbox"}/
+            %input#popup-on{:type => "checkbox"}
             .popup
               %label.icon-close{:for => "popup-on"}
               .popup-content
@@ -36,60 +41,62 @@
                   %li.dtlWhole-view__item-main__setting__list--edit
                     =link_to 'この出品を編集', "#", class:"edit-btn"
                   %li.dtlWhole-view__item-main__setting__list--dty
-                    =link_to 'この出品を削除', "#", class:"destroy-btn"
+                    =link_to 'この出品を削除', item_path, method: :delete, class:"destroy-btn"
               %label{:for => "popup-on"}
                 .btn-close 閉じる
       - else
         .dtlWhole-view__item-main__pricebox__purchase
-          = link_to '購入画面に進むぞ！', "/items/purchase/:id", class:"purchase-btn"
+          = link_to '購入画面に進む！', purchase_items_path, class:"purchase-btn"
     .dtlWhole-view__item-main__item-explan
-      互いにあざむき合って、しかもいずれも不思議に何の傷もつかず、
-      あざむき合っている事にさえ気がついていないみたいな、実にあざやかな、
-      それこそ清く明るくほがらかな不信の例が、人間の生活に充満しているように思われます。
-      けれども、自分には、あざむき合っているという事には、さして特別の興味もありません。
-      自分だって、お道化に依って、朝から晩まで人間をあざむいているのです。
+      = @item.text
     .dtlWhole-view__item-main__item-lists
       %table{:border => "1"}
         %tr
           %th
             出品者
             %td
-              hoge
+              = link_to users_path(@item.user), class:"list-link-grp" do
+                = @item.user.nickname
         %tr
           %th
             カテゴリー
             %td
-              hoge
+              = @item.category.root.name
+              %br
+              = @item.category.parent.name
+              %br
+              = @item.category.name
+              -# = @item.child.category.name
         %tr
           %th
             ブランド
             %td
-              hoge
+              = @item.brandName
         %tr
           %th
             商品のサイズ
             %td
-              hoge
+              = @item.size
         %tr
           %th
             商品の状態
             %td
-              hoge
+              = @item.status
         %tr
           %th
             配送料の負担
             %td
-              hoge
+              = @item.deliveryfee
         %tr
           %th
             配送元の地域
             %td
-              hoge
+              = @item.prefecture
         %tr
           %th
             発送日の目安
             %td
-              hoge
+              = @item.deliveryday
   .dtlWhole-view__comment-form
     .dtlWhole-view__comment-form__grp
       .dtlWhole-view__comment-form__grp__txtarea

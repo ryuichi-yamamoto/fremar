@@ -5,21 +5,21 @@ $(function() {
       const buildFileField = (num)=> {
         const html = `<label>
                         <div data-index="${num}" class="js-file_group">
-                          <i class="fas fa-camera-retro"></i>
+                          <p>選択</p>
                           <input class="js-file" type="file" name="item[images_attributes][${num}][image]" id="item_images_attributes_${num}_src">
-                            <div class="js-remove">削除</div>
+                          <div class="js-remove">削除</div>
                         </div>
                       </label>`;
         return html;
       }
       // プレビュー用のimgタグを生成する関数
       const buildImg = (index, url)=> {
-        const html = `<img data-index="${index}" src="${url}" width="130px" height="130px">`;
+        const html = `<img data-index="${index}" src="${url}" width="110px" height="110px">`;
         return html;
       }
     
       // file_fieldのnameに動的なindexをつける為の配列
-      let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+      let fileIndex = [1,2,3,4,5];
       // 既に使われているindexを除外
       lastIndex = $('.js-file_group:last').data('index');
       fileIndex.splice(0, lastIndex);
@@ -43,6 +43,9 @@ $(function() {
           // 末尾の数に1足した数を追加する
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
         }
+        if ('img[data-index=="4"]') {
+          $('div[data-index="5"]').remove();
+        };
       });
     
       $('#image-box').on('click', '.js-remove', function() {

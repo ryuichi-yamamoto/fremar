@@ -10,7 +10,13 @@
       .user__side__list__pro--btn
         = link_to "/users/edit" , class: "probtn" do
           プロフィール
-    .user__side__list__out
-      .user__side__list__out--btn
-        = link_to "#" , class: "outbtn" do
-          ログアウト
+    .user__side__list__adin
+      .user__side__list__adin--btn
+        = link_to "/addresses/new" , class: "adbtn" do
+          住所登録
+    .user__side__list__adedit
+      .user__side__list__adedit--btn
+        = link_to "/addresses/new" , class: "adeditbtn" do
+          住所変更
+
+-# = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"list-links"
