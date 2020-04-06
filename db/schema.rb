@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 2020_04_03_104553) do
     t.integer "price"
     t.text "text"
     t.string "size"
-    t.integer "prefecture"
-    t.string "status"
-    t.integer "deliveryfee"
-    t.integer "deliveryday"
+    t.integer "prefecture", null: false
+    t.integer "status", null: false
+    t.integer "deliveryfee", null: false
+    t.integer "deliveryday", null: false
     t.integer "user_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
