@@ -4,11 +4,8 @@ class ItemsController < ApplicationController
 require 'payjp'
  
   def index
-    @items = Item.includes(:images).order('created_at DESC')
-    @parents = Category.all.order("id ASC").limit(13)
-    #TOPページ新規商品一覧表示ーーーーーーーーーーーーーーーーーー
-    #@items = Item.all.limit(3).order(:created_at)
-    #@images = Image.where('item_id == ?',@items.ids)
+      @items = Item.includes(:images).references(:items).where(condition: '1').limit(3).order('created_at DESC')
+      @ladies_items = Item.includes(:images).references(:items).where(condition: '1', category_id: 1..199).limit(3).order('created_at DESC')  
   end
 
   def show
@@ -106,7 +103,7 @@ require 'payjp'
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :text, :size, :prefecture, :category_id, :status, :deliveryfee, :deliveryday, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :text, :size, :prefecture_id, :category_id, :status_id, :deliveryfee_id, :deliveryday_id, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
 end

@@ -1,4 +1,33 @@
 .footer
+  .footer__introduction
+    %ul.contents
+      %li.content
+        .content__title フリマルについて
+        %ul
+          %li
+            = link_to "会社概要(運営会社)","#"
+          %li
+            = link_to "プライバシーポリシー","#"
+          %li
+            = link_to "フリマル利用規約","#"
+          %li
+            = link_to "ポイントに関する規約","#"
+      %li.content
+        .content__title フリマルを見る
+        %ul
+          %li
+            = link_to "カテゴリー一覧","#"
+          %li
+            = link_to "ブランド一覧","#"
+      %li.content
+        .content__title ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to "フリマルガイド","#"
+          %li
+            = link_to "フリマルロゴ利用ガイドライン","#"
+          %li
+            = link_to "お知らせ","#"
   .footer__images
     = link_to image_tag(src= "logo-white.png", class: "footer-image"),root_path
   .footer__copy
