@@ -13,6 +13,8 @@ require 'payjp'
 
   def show
     @item = Item.find(params[:id])
+    @item_images = @item.images
+    @item_image = Image.new
   end
 
   def new
