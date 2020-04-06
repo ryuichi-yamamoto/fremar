@@ -224,7 +224,11 @@ background-color: gray;
 }
 
 .js-file_group {
-  display: flex;
+  @include dFlex();
+  font-size: 17px;
+  width: 115px;
+  margin-left: 8px;
+  float: left;
   .js-remove {
     margin-left: 10px;
   }
@@ -236,12 +240,11 @@ background-color: gray;
   }
 }
 #previews {
-  height: 140px;
+  height: 125px;
   width: 100%;
   background-color: lightgray;
-  text-align: center;
   img {
-    margin: 5px;
+    margin: 7px;
     border: 1px solid lightgray;
   }
 }

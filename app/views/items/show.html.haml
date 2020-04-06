@@ -21,7 +21,7 @@
         ￥100,000
       .dtlWhole-view__item-main__pricebox__tax-txt
         (税込) 送料込み
-      - if user_signed_in?
+      - if user_signed_in? && current_user.id == @item.user_id
         .pop-box
           %label{:for => "popup-on"}
             %label{:for => "popup-on"}
@@ -36,12 +36,12 @@
                   %li.dtlWhole-view__item-main__setting__list--edit
                     =link_to 'この出品を編集', "#", class:"edit-btn"
                   %li.dtlWhole-view__item-main__setting__list--dty
-                    =link_to 'この出品を削除', "#", class:"destroy-btn"
+                    =link_to 'この出品を削除', item_path, method: :delete, class:"destroy-btn"
               %label{:for => "popup-on"}
                 .btn-close 閉じる
       - else
         .dtlWhole-view__item-main__pricebox__purchase
-          = link_to '購入画面に進むぞ！', "/items/purchase/:id", class:"purchase-btn"
+          = link_to '購入画面に進む！', purchase_items_path, class:"purchase-btn"
     .dtlWhole-view__item-main__item-explan
       互いにあざむき合って、しかもいずれも不思議に何の傷もつかず、
       あざむき合っている事にさえ気がついていないみたいな、実にあざやかな、

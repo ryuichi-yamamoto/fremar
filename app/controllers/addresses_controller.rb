@@ -4,7 +4,7 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    @addresses = Addresse.find(params[:id])
+    @address = Address.find(params[:id])
   end
 
   def update
