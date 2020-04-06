@@ -210,19 +210,6 @@ background-color: gray;
   }
 }
 
-.exbFooter {
-  height: 100px;
-  padding: 25px;
-  text-align: center;
-  &__top {
-    @include dFlex();
-    margin: 30px;
-  }
-  &__center {
-    margin: 0;
-  }
-}
-
 .js-file_group {
   @include dFlex();
   font-size: 17px;
