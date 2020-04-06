@@ -54,8 +54,8 @@ Things you may want to cover:
 |last_name|string|null: false|
 |first_name_hiragana|string|null: false|
 |last_name_hiragana|string|null: false|
-|postal_code|integer|null: false|
-|prefecture|integer|null: false|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |room|string||
@@ -63,18 +63,18 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## itemテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
 |price|integer||
 |text|text||
 |size|string||
-|prefecture|integer||
+|prefecture|integer|null: false, foreign_key: true|
 |blandName|string||
-|status|string||
-|deliveryfee|integer||
-|deliveryday|integer||
+|status|integer|null: false, foreign_key: true|
+|deliveryfee|integer|null: false, foreign_key: true|
+|deliveryday|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
@@ -83,6 +83,10 @@ Things you may want to cover:
 - has_many :comments
 - belongs_to :user
 - belongs_to :category
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :status
+- belongs_to_active_hash :deliveryfee
+- belongs_to_active_hash :deliveryday
 
 ## commentsテーブル
 |Column|Type|Options|

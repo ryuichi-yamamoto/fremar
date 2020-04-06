@@ -8,13 +8,14 @@
     .PayMain__contents--info
       .PayMain__contents--info__box
         .PayMain__contents--info__box__image
-          = image_tag @item_images[0].image.url if @item_images[0].image.present?
+          = image_tag @item_images[0].image.url, size: '100x100' if @item_images[0].image.present?
         .PayMain__contents--info__box__item
           %p.PayMain__contents--info__box__item--name= @item.name
           .PayMain__contents--info__box__item--price
             .PayMain__contents--info__box__item--price__num
               = number_to_currency(@item.price, :unit => "¥", :precision => 0)
-            .PayMain__contents--info__box__item--price__fee (税込)送料込み
+            .PayMain__contents--info__box__item--price__fee
+              = @item.deliveryfee.name
     .PayMain__contents--means
       %ul.PayMain__contents--means__price
         %li.PayMain__contents--means__price--title 支払い金額
