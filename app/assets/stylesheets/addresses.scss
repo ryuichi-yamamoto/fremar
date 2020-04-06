@@ -51,6 +51,7 @@ background-color: gray;
 
 #text {
   font-weight: 600;
+  font-size: 15px;
 }
 
 #janle {
@@ -66,43 +67,84 @@ background-color: gray;
     @include wrapper();
     background-color: white;
     width: 50%;
-    margin: auto;
-    display: flex;
-    .addresseTitle {
+    margin: 5px auto;
+    .addresseFrame {
       margin: 0 auto;
-      width: 100%;
+      width: 70%;
+      .addresseTitle {
+        font-size: 20px;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+        padding-bottom: 40px;
+      }
       .addresseName__guide {
         width: 100%;
         display: flex;
         margin: auto;
       }
+      #firstnameForm {
+        @include formBox();
+        width: 40%;
+      }
+      #lastnameForm {
+        @include formBox();
+        width: 40%;
+      }
       .addresseNameKana__guide {
         display: flex;
         margin: auto;
+      }
+      #firstname_hiraganaForm {
+        @include formBox();
+        width: 40%;
+      }
+      #lastname_hiraganaForm {
+        @include formBox();
+        width: 40%;
       }
       .addresseTel__guide {
         display: flex;
         margin: auto;
       }
+      #addresseTel {
+        @include formBox();
+      }
       .addressePostalCode__guide {
         display: flex;
         margin: auto;
+      }
+      #addressePostalCode {
+        @include formBox();
       }
       .addressePrefectare__guide {
         display: flex;
         margin: auto;
       }
+      #addressePrefectare {
+        @include formBox();
+      }
       .addresseCity__guide {
         display: flex;
         margin: auto;
+      }
+      #addresseCity {
+        @include formBox();
       }
       .addresseAddress__guide {
         display: flex;
         margin: auto;
       }
+      #addresseAddress {
+        @include formBox();
+      }
       .addresseRoom__guide {
         display: flex;
         margin: auto;
+      }
+      #addresseRoom {
+        @include formBox();
       }
     }
   }
