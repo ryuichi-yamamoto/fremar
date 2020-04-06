@@ -16,6 +16,10 @@ class Item < ApplicationRecord
   validates :deliveryday, presence: true
   validates :status,      presence: true
   validates_associated :images
-  validates :images, presence: true
+  validates :images,      presence: true
+  validates :user_id,     presence: true
+  validates :category_id, presence: true
+  validates :condition,   presence: true
+
 
 end
