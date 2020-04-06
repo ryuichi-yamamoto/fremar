@@ -31,7 +31,7 @@
     &__otherpic-grp {
       height: 100px;
       width: 330px;
-      margin: 0 auto;
+      margin-left: 35px;
       background-color: #aaaaaa;
       display: flex;
       &--left {
@@ -43,10 +43,28 @@
           object-fit: cover;
         }
       }
+      &--leftmid {
+        width: 110px;
+        background-color: #676;
+        .leftmid-pic {
+          height: 100px;
+          width: 110px;
+          object-fit: cover;
+        }
+      }
       &--mid {
         width: 110px;
         background-color: #fff;
         .mid-pic {
+          height: 100px;
+          width: 110px;
+          object-fit: cover;
+        }
+      }
+      &--rightmid {
+        width: 110px;
+        background-color: #676;
+        .rightmid-pic {
           height: 100px;
           width: 110px;
           object-fit: cover;
@@ -170,6 +188,10 @@
       table td {
         width: 90vw;
         padding-left: 10px;
+      }
+      .list-link-grp {
+        color: #3ccace;
+        text-decoration: none;
       }
     }
   }

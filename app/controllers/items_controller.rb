@@ -4,12 +4,14 @@ require 'payjp'
  
   def index
     @items = Item.includes(:images).order('created_at DESC')
+    @parents = Category.all.order("id ASC").limit(13)
     #TOPページ新規商品一覧表示ーーーーーーーーーーーーーーーーーー
     #@items = Item.all.limit(3).order(:created_at)
     #@images = Image.where('item_id == ?',@items.ids)
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -52,7 +54,6 @@ require 'payjp'
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    redirect_to root_path
   end
 
   def purchase
