@@ -28,17 +28,14 @@
         display: flex;
         justify-content: center;
         &__image {
-          height: 80px;
-          width: 80px;
-          img {
-            height: 80px;
-            width: 80px;
-            object-fit: cover;
-          }
+          max-height: 150px;
         }
         &__item {
           height: 80px;
+          max-width: 280px;
+          word-break: break-all;
           margin-left: 16px;
+          display: inline-table;
           &--name {
             padding: 0 0 8px;
           }
@@ -91,6 +88,9 @@
         &--card {
           list-style: none;
           padding-top: 10px;
+        }
+        &--image {
+          padding: 10px 0;
         }
       }
       &__address {
