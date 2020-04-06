@@ -32,7 +32,6 @@ require 'payjp'
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to @item 
     else
       redirect_to action: :new
     end
@@ -50,8 +49,7 @@ require 'payjp'
   end
   
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    @product.destroy
     redirect_to root_path
   end
 

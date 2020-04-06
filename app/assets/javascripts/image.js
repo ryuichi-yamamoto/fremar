@@ -19,7 +19,7 @@ $(function() {
       }
     
       // file_fieldのnameに動的なindexをつける為の配列
-      let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+      let fileIndex = [1,2,3,4,5];
       // 既に使われているindexを除外
       lastIndex = $('.js-file_group:last').data('index');
       fileIndex.splice(0, lastIndex);
@@ -43,6 +43,9 @@ $(function() {
           // 末尾の数に1足した数を追加する
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
         }
+        if ('img[data-index=="4"]') {
+          $('div[data-index="5"]').remove();
+        };
       });
     
       $('#image-box').on('click', '.js-remove', function() {
