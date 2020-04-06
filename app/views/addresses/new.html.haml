@@ -1,8 +1,11 @@
+= render "/items/templates/head_template"
 .addresseMain
+  = render "/users/users_side"
   .addresseMain__wrapper
     = form_for :address do |f|
-      .addresseTitle
-        %p 住所入力
+      .addresseFrame
+        .addresseTitle
+          %p 住所登録
         .addresseName__guide
           %p#text お名前
           %p#mark 必須
@@ -20,27 +23,27 @@
         .addressePostalCode__guide
           %p#text 郵便番号
           %p#mark 必須
-        = f.text_field :postal_code, autofocus: true, id: "addresseTel", placeholder: "123-4567"
+        = f.text_field :postal_code, autofocus: true, id: "addressePostalCode", placeholder: "123-4567"
         .addressePrefectare__guide
           %p#text 都道府県
           %p#mark 必須
-        = f.text_field :prefecture, autofocus: true, id: "addresseTel", placeholder: "福岡県"
+        = f.text_field :prefecture, autofocus: true, id: "addressePrefectare", placeholder: "福岡県"
         .addresseCity__guide
           %p#text 市町村
           %p#mark 必須
-        = f.text_field :City, autofocus: true, id: "addresseTel", placeholder: "福岡市"
+        = f.text_field :City, autofocus: true, id: "addresseCity", placeholder: "福岡市"
         .addresseAddress__guide
           %p#text 番地
           %p#mark 任意
-        = f.text_field :address, autofocus: true, id: "addresseTel", placeholder: ""
+        = f.text_field :address, autofocus: true, id: "addresseAddress", placeholder: ""
         .addresseRoom__guide
           %p#text 建物名
           %p#mark 任意
-        = f.text_field :room, autofocus: true, id: "addresseTel", placeholder: ""
+        = f.text_field :room, autofocus: true, id: "addresseRoom", placeholder: ""
 
         -# .deleted_at
         -#   = f.text_field :deleted_at
 
         .userSignUp__success
           = f.submit "登録する", id: "sendBtn"
-          
+= render "/items/templates/foot_template"
