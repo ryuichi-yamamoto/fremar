@@ -102,10 +102,8 @@
           .exbMain__sixWrapper__center
             = f.submit "出品する", id: "sendBtn"
             = link_to "もどる", root_path, id: "backBtn"
-  
-  .exbFooter
-    .exbFooter__center
-      = image_tag src ="logo-gray.png", id: "exbFooter__center__logo", width: '200'
+
+= render "/items/templates/sub_foot_template"
   
 
   
