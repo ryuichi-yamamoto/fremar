@@ -1,3 +1,4 @@
+
 .PayHeader
   .PayHeader__title
     = image_tag "logo.png", width: "250"
@@ -7,23 +8,35 @@
     .PayMain__contents--info
       .PayMain__contents--info__box
         .PayMain__contents--info__box__image
-          = image_tag "bobu.jpg"
+          = image_tag @item_images[0].image.url if @item_images[0].image.present?
         .PayMain__contents--info__box__item
-          %p.PayMain__contents--info__box__item--name まとめ売りっ！
+          %p.PayMain__contents--info__box__item--name= @item.name
           .PayMain__contents--info__box__item--price
-            .PayMain__contents--info__box__item--price__num ¥1,500-
+            .PayMain__contents--info__box__item--price__num
+              = number_to_currency(@item.price, :unit => "¥", :precision => 0)
             .PayMain__contents--info__box__item--price__fee (税込)送料込み
     .PayMain__contents--means
       %ul.PayMain__contents--means__price
-        %li.PayMain__contents--means__price--itle 支払い金額
-        %li.PayMain__contents--means__price--num ¥1,500-
+        %li.PayMain__contents--means__price--title 支払い金額
+        %li.PayMain__contents--means__price--num
+          = number_to_currency(@item.price, :unit => "¥", :precision => 0) 
       .PayMain__contents--means__method
         %ul.PayMain__contents--means__method--title
           %li.PayMain__contents--means__method--title__theme 支払い方法
           %li.PayMain__contents--means__method--title__edit
-            = link_to "#" do
+            = link_to card_path do
               変更する
-        %li.PayMain__contents--means__method--card クレジットカード情報
+        %li.PayMain__contents--means__method--card
+          - if @default_card_information.blank?
+            %br クレジットカードを登録してください
+          - else
+            .PayMain__contents--means__method--image
+              = image_tag "#{@card_src}",alt: @card_brand, id: "card_image", size: '36x24'
+            = "**** **** **** " + @default_card_information.last4
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            %p
+            = exp_month + " / " + exp_year
       .PayMain__contents--means__address
         %ul.PayMain__contents--means__address--info
           %li.PayMain__contents--means__address--info__theme 配送先
@@ -35,9 +48,8 @@
           %li= "大阪府 大阪市中央区難波5丁目1−60 なんばスカイオ15階"
           %li= "田中 太郎"
       .PayMain__contents--means__btn
-        = form_with url: pay_items_path do
-          :plain
-          %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": "pk_test_753b09f353bcc8cbee5a5d36"}
+        = form_with url: pay_items_path, local: true do |f|
+          = f.submit "購入する", class: "pay__btn"
   .PayFooer-iamge
     = image_tag "logo-gray.png", width: '200'
 

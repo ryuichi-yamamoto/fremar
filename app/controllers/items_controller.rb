@@ -1,14 +1,15 @@
 class ItemsController < ApplicationController
-
-# before_action :set_item, except: [:index, :new, :create]
-
-
+  
+  
+require 'payjp'
+ 
   def index
       @items = Item.includes(:images).references(:items).where(condition: '1').limit(3).order('created_at DESC')
-      @ladies_items = Item.includes(:images).references(:items).where(condition: '1', category_id: 1..199).limit(3).order('created_at DESC')
+      @ladies_items = Item.includes(:images).references(:items).where(condition: '1', category_id: 1..199).limit(3).order('created_at DESC')  
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -30,10 +31,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
-      redirect_to root_path
+    if @item.save
     else
-      render :new
+      redirect_to action: :new
     end
   end
 
@@ -49,19 +49,48 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    @product.destroy
-    redirect_to root_path
+    item = Item.find(params[:id])
+    item.destroy
   end
 
   def purchase
+    @item = Item.find(params[:id])
+    @item_images = @item.images
+    @item_image = Image.new
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      # redirect_to controller: "cards", action: "confirmation"
+    else
+      Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand 
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
+    end
   end
 
   def pay
+    @item = Item.find(params[:id])
+    @item.increment!(:condition, 1)
+    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
     Payjp::Charge.create(
-    amount: 1200,
-    card: params['payjp-token'],
-    currency: 'jpy'
+    amount: @item.price,
+    customer: card.customer_id,
+    currency: 'jpy',
     )
     redirect_to action: :done
   end
@@ -73,10 +102,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :text, :size, :prefecture, :category_id, :status, :deliveryfee, :deliveryday, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
   
 end
