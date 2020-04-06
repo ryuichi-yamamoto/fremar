@@ -8,47 +8,65 @@
     .dtlWhole-view__item-main__name
       = @item.name
     .dtlWhole-view__item-main__toppic
-      = image_tag 'bobu.jpg', class: 'main-pic'
+      - if @item_images[0].nil?
+        = image_tag "bobu.jpg", class:'main-pic'
+      - else
+        = image_tag @item_images[0].image.url, class:'main-pic'
     .dtlWhole-view__item-main__otherpic-grp
       .dtlWhole-view__item-main__otherpic-grp--left
-        = image_tag 'bobu.jpg', class: 'left-pic'
+        - if @item_images[0].nil?
+          = image_tag "bobu.jpg", class:'left-pic'
+        - else
+          = image_tag @item_images[0].image.url, class: 'left-pic'
       .dtlWhole-view__item-main__otherpic-grp--leftmid
-        = image_tag 'bobu.jpg', class: 'leftmid-pic'
+        - if @item_images[1].nil?
+          = image_tag "bobu.jpg", class:'leftmid-pic'
+        - else
+          = image_tag @item_images[1].image.url, class: 'leftmid-pic'
       .dtlWhole-view__item-main__otherpic-grp--mid
-        = image_tag 'bobu.jpg', class: 'mid-pic'
+        - if @item_images[2].nil?
+          = image_tag "bobu.jpg", class:'mid-pic'
+        - else
+          = image_tag @item_images[2].image.url, class: 'mid-pic'
       .dtlWhole-view__item-main__otherpic-grp--rightmid
-        = image_tag 'bobu.jpg', class: 'rightmid-pic'
+        - if @item_images[3].nil?
+          = image_tag "bobu.jpg", class:'rightmid-pic'
+        - else
+          = image_tag @item_images[3].image.url, class: 'rightmid-pic'
       .dtlWhole-view__item-main__otherpic-grp--right
-        = image_tag 'bobu.jpg', class: 'right-pic'
+        - if @item_images[4].nil?
+          = image_tag "bobu.jpg", class:'right-pic'
+        - else
+          = image_tag @item_images[4].image.url, class: 'right-pic'
     .dtlWhole-view__item-main__pricebox
       .dtlWhole-view__item-main__pricebox__price
         ¥
         = @item.price
       .dtlWhole-view__item-main__pricebox__tax-txt
         (税込) 送料込み
-      - if user_signed_in? && current_user.id == @item.user_id
-        .pop-box
-          %label{:for => "popup-on"}
+        - if user_signed_in? && current_user.id == @item.user_id
+          .pop-box
             %label{:for => "popup-on"}
-              .btn-open
-                オプション
-            %input#popup-on{:type => "checkbox"}
-            .popup
-              %label.icon-close{:for => "popup-on"}
-              .popup-content
-              .dtlWhole-view__item-main__setting
-                %ul.dtlWhole-view__item-main__setting__list
-                  %li.dtlWhole-view__item-main__setting__list--edit
-                    =link_to 'この出品を編集', "#", class:"edit-btn"
-                  %li.dtlWhole-view__item-main__setting__list--dty
-                    =link_to 'この出品を削除', item_path, method: :delete, class:"destroy-btn"
               %label{:for => "popup-on"}
-                .btn-close 閉じる
-      - else
-        .dtlWhole-view__item-main__pricebox__purchase
-          = link_to '購入画面に進む！', purchase_items_path, class:"purchase-btn"
-    .dtlWhole-view__item-main__item-explan
-      = @item.text
+                .btn-open
+                  オプション
+              %input#popup-on{:type => "checkbox"}
+              .popup
+                %label.icon-close{:for => "popup-on"}
+                .popup-content
+                .dtlWhole-view__item-main__setting
+                  %ul.dtlWhole-view__item-main__setting__list
+                    %li.dtlWhole-view__item-main__setting__list--edit
+                      =link_to 'この出品を編集', "#", class:"edit-btn"
+                    %li.dtlWhole-view__item-main__setting__list--dty
+                      =link_to 'この出品を削除', item_path, method: :delete, class:"destroy-btn"
+                %label{:for => "popup-on"}
+                  .btn-close 閉じる
+        - else
+          .dtlWhole-view__item-main__pricebox__purchase
+            = link_to '購入画面に進む！', purchase_items_path, class:"purchase-btn"
+        .dtlWhole-view__item-main__item-explan
+          = @item.text
     .dtlWhole-view__item-main__item-lists
       %table{:border => "1"}
         %tr
@@ -66,7 +84,6 @@
               = @item.category.parent.name
               %br
               = @item.category.name
-              -# = @item.child.category.name
         %tr
           %th
             ブランド

@@ -63,7 +63,7 @@
           .exbMain__thirdWrapper__under
             %p#text 商品の状態
             %p#mark 必須
-          = f.collection_select :status, Status.all, :id, :name, prompt: "選択してください", class: 'input'
+          = f.collection_select :status_id, Status.all, :id, :name, prompt: "選択してください", class: 'input'
           .exbMain__thirdWrapper__bottom
             %p#text サイズ
             %p#mark 必須
@@ -74,15 +74,15 @@
           .exbMain__fourthWrapper__top
             %p#text 配送料の負担
             %p#mark 必須
-          = f.collection_select :deliveryfee, Deliveryfee.all, :id, :name, prompt: "選択してください", class: 'input'
+          = f.collection_select :deliveryfee_id, Deliveryfee.all, :id, :name, prompt: "選択してください", class: 'input'
           .exbMain__fourthWrapper__center
             %p#text 発送元の地域
             %p#mark 必須
-          = f.collection_select :prefecture, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
           .exbMain__fourthWrapper__under
             %p#text 発送までの日数
             %p#mark 必須
-          = f.collection_select :deliveryday, Deliveryday.all, :id, :name, prompt: "選択してください", class: 'input'
+          = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, prompt: "選択してください", class: 'input'
     
         .exbMain__fifthWrapper
           .exbMain__fifthWrapper__left

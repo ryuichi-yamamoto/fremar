@@ -10,6 +10,8 @@ require 'payjp'
 
   def show
     @item = Item.find(params[:id])
+    @item_images = @item.images
+    @item_image = Image.new
   end
 
   def new
@@ -101,7 +103,7 @@ require 'payjp'
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :text, :size, :prefecture, :category_id, :status, :deliveryfee, :deliveryday, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :text, :size, :prefecture_id, :category_id, :status_id, :deliveryfee_id, :deliveryday_id, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
 end

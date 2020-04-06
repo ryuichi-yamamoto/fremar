@@ -31,9 +31,10 @@
     &__otherpic-grp {
       height: 100px;
       width: 330px;
-      margin-left: 35px;
+      margin-left:35px;
       background-color: #aaaaaa;
       display: flex;
+      margin-bottom: 10px;
       &--left {
         width: 110px;
         background-color: #676;
@@ -175,7 +176,7 @@
     &__item-explan {
       text-align: center;
       font-size: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     &__item-lists {
       table th {
