@@ -96,98 +96,47 @@
       .productHead
         =link_to"新規投稿商品","＃",class:"pickUpTitle"
       .productLists
-        .productList
-          =link_to "#", class: "productList" do
-            %figure.productList--img
-            =image_tag src="test1.jpg"
-            .productList--body
-              %h3.name test1
-              .product--text
-                %ul
-                  %li 3000円
-                  %li
-                    %i.icon 
-                    ★
-                    0
-                %p 税込
-
-        .productList
-          =link_to "#", class: "productList" do
-            %figure.productList--img
-            =image_tag src="test1.jpg"
-            .productList--body
-              %h3.name test1
-              .product--text
-                %ul.text
-                  %li 3000円
-                  %li
-                    %i.icon 
-                    ★
-                    0
-                %p 税込
-        .productList
-          =link_to "#", class: "productList" do
-            %figure.productList--img
-            =image_tag src="test1.jpg"
-            .productList--body
-              %h3.name test1
-              .product--text
-                %ul
-                  %li 3000円
-                  %li
-                    %i.icon
-                    ★
-                    0
-                %p 税込
+        - @items.each do |item|
+          .productList
+            =link_to item_path(item.id), class: "productList_item" do
+              %figure.productList--img
+                = image_tag "#{item.images[0].image}"
+                .productList--body
+                  %h3.name 
+                    = item.name
+                  .product--text
+                    %ul
+                      %li 
+                        = "#{item.price}円"
+                      %li
+                        %i.icon 
+                        ★
+                        0
+                    %p 税込
 
   .topMain__pickUpContainer
-    %h2.head ピックアップブランド
+    %h2.head ピックアップカテゴリー
     .productBox
       .productHead
-        =link_to"アーカイバ","＃",class:"pickUpTitle"
+        =link_to"レディース","＃",class:"pickUpTitle"
       .productLists
-        .productList
-          =link_to "#", class: "productList" do
-            %figure.productList--img
-            =image_tag src="test1.jpg"
-            .productList--body
-              %h3.name test1
-              .product--text
-                %ul
-                  %li 3000円
-                  %li
-                    %i.icon 
-                    ★
-                    0
-                %p 税込
-        .productList
-          =link_to "#", class: "productList" do
-            %figure.productList--img
-            =image_tag src="test1.jpg"
-            .productList--body
-              %h3.name test1
-              .product--text
-                %ul
-                  %li 3000円
-                  %li
-                    %i.icon 
-                    ★
-                    0
-                %p 税込
-        .productList
-          =link_to "#", class: "productList" do
-            %figure.productList--img
-            =image_tag src="test1.jpg"
-            .productList--body
-              %h3.name test1
-              .product--text
-                %ul
-                  %li 3000円
-                  %li
-                    %i.icon 
-                    ★
-                    0
-                %p 税込
+        - @ladies_items.each do |item|
+          .productList
+            =link_to item_path(item.id), class: "productList_item" do
+              %figure.productList--img
+                = image_tag "#{item.images[0].image}"
+                .productList--body
+                  %h3.name 
+                    = item.name
+                  .product--text
+                    %ul
+                      %li 
+                        = "#{item.price}円"
+                      %li
+                        %i.icon 
+                        ★
+                        0
+                    %p 税込
     .topMain__pickUpContainer-bottom
 
   .topMain__bttomVisual

@@ -4,10 +4,8 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
-    #TOPページ新規商品一覧表示ーーーーーーーーーーーーーーーーーー
-    #@items = Item.all.limit(3).order(:created_at)
-    #@images = Image.where('item_id == ?',@items.ids)
+      @items = Item.includes(:images).references(:items).where(condition: '1').limit(3).order('created_at DESC')
+      @ladies_items = Item.includes(:images).references(:items).where(condition: '1', category_id: 1..199).limit(3).order('created_at DESC')
   end
 
   def show
