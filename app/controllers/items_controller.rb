@@ -54,8 +54,6 @@ require 'payjp'
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    @product.destroy
-    redirect_to root_path
   end
 
   def purchase
