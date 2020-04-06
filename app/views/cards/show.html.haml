@@ -7,6 +7,8 @@
         %form
         .card-box
           %label.card-box__title クレジットカード一覧
+        .card__image
+          = image_tag "#{@card_src}",alt: @card_brand, id: "card_image", size: '36x24'
         .card__number 
           = "**** **** **** " + @default_card_information.last4
         .expire__date

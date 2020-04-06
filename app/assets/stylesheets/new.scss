@@ -224,8 +224,7 @@ background-color: gray;
 }
 
 .js-file_group {
-  display: flex;
-  justify-content: center;
+  @include dFlex();
   font-size: 17px;
   width: 115px;
   margin-left: 8px;

@@ -31,24 +31,13 @@
         = f.text_field :City, autofocus: true, id: "addresseTel", placeholder: "福岡市"
         .addresseAddress__guide
           %p#text 番地
-          %p#mark 必須
+          %p#mark 任意
         = f.text_field :address, autofocus: true, id: "addresseTel", placeholder: ""
         .addresseRoom__guide
           %p#text 建物名
-          %p#mark 必須
+          %p#mark 任意
         = f.text_field :room, autofocus: true, id: "addresseTel", placeholder: ""
-        -# .userSignUp__email
-        -#   %p#text メールアドレス
-        -#   %p#mark 必須
-        -# = f.email_field :email, placeholder: " PC・携帯どちらでも可", id: "emailForm"
-        -# .userSignUp__pwForm
-        -#   %p#text パスワード
-        -#   %p#mark 必須
-        -# = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
-        -# .userSignUp__pwForm
-        -#   %p#text パスワード(再入力)
-        -#   %p#mark 必須
-        -# = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
+
         -# .deleted_at
         -#   = f.text_field :deleted_at
 

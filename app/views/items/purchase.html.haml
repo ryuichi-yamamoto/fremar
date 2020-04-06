@@ -8,16 +8,18 @@
     .PayMain__contents--info
       .PayMain__contents--info__box
         .PayMain__contents--info__box__image
-          = image_tag "bobu.jpg"
+          = image_tag @item_images[0].image.url if @item_images[0].image.present?
         .PayMain__contents--info__box__item
-          %p.PayMain__contents--info__box__item--name まとめ売りっ！
+          %p.PayMain__contents--info__box__item--name= @item.name
           .PayMain__contents--info__box__item--price
-            .PayMain__contents--info__box__item--price__num ¥1,500-
+            .PayMain__contents--info__box__item--price__num
+              = number_to_currency(@item.price, :unit => "¥", :precision => 0)
             .PayMain__contents--info__box__item--price__fee (税込)送料込み
     .PayMain__contents--means
       %ul.PayMain__contents--means__price
-        %li.PayMain__contents--means__price--itle 支払い金額
-        %li.PayMain__contents--means__price--num ¥1,500-
+        %li.PayMain__contents--means__price--title 支払い金額
+        %li.PayMain__contents--means__price--num
+          = number_to_currency(@item.price, :unit => "¥", :precision => 0) 
       .PayMain__contents--means__method
         %ul.PayMain__contents--means__method--title
           %li.PayMain__contents--means__method--title__theme 支払い方法
@@ -28,6 +30,8 @@
           - if @default_card_information.blank?
             %br クレジットカードを登録してください
           - else
+            .PayMain__contents--means__method--image
+              = image_tag "#{@card_src}",alt: @card_brand, id: "card_image", size: '36x24'
             = "**** **** **** " + @default_card_information.last4
             - exp_month = @default_card_information.exp_month.to_s
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
@@ -45,7 +49,7 @@
           %li= "田中 太郎"
       .PayMain__contents--means__btn
         = form_with url: pay_items_path, local: true do |f|
-          = f.submit :購入する, class: "pay__btn"
+          = f.submit "購入する", class: "pay__btn"
   .PayFooer-iamge
     = image_tag "logo-gray.png", width: '200'
 

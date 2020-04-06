@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   
+  
 require 'payjp'
  
   def index
@@ -34,7 +35,6 @@ require 'payjp'
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to @item 
     else
       redirect_to action: :new
     end
@@ -54,9 +54,14 @@ require 'payjp'
   def destroy
     item = Item.find(params[:id])
     item.destroy
+    @product.destroy
+    redirect_to root_path
   end
 
   def purchase
+    @item = Item.find(params[:id])
+    @item_images = @item.images
+    @item_image = Image.new
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       # redirect_to controller: "cards", action: "confirmation"
@@ -64,14 +69,31 @@ require 'payjp'
       Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand 
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
     end
   end
 
   def pay
+    @item = Item.find(params[:id])
+    @item.increment!(:condition, 1)
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
     Payjp::Charge.create(
-    amount: 12000,
+    amount: @item.price,
     customer: card.customer_id,
     currency: 'jpy',
     )
