@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  
-  
+  before_action :set_item, only: [:show, :pay, :purchase]
+
   require 'payjp'
    
     def index
@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     end
   
     def show
-      @item = Item.find(params[:id])
       @item_images = @item.images
       @item_image = Image.new
     end
@@ -56,7 +55,6 @@ class ItemsController < ApplicationController
     end
   
     def purchase
-      @item = Item.find(params[:id])
       @item_images = @item.images
       @item_image = Image.new
       card = Card.where(user_id: current_user.id).first
@@ -85,7 +83,6 @@ class ItemsController < ApplicationController
     end
   
     def pay
-      @item = Item.find(params[:id])
       @item.increment!(:condition, 1)
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
@@ -98,6 +95,10 @@ class ItemsController < ApplicationController
     end
   
     def done
+    end
+
+    def set_item
+      @item = Item.find(params[:id])
     end
   
     private
