@@ -179,7 +179,6 @@
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
-          overflow: hidden;
         }
         .item__img{
           width: 70%;
@@ -246,14 +245,12 @@
         width: 100%;
         height: 200px;
         vertical-align: bottom;
-        object-fit: cover;
       }
       .productList--img{
         max-width: 100%;
         width: 220px;
         height: 150px;
         position: relative;
-        overflow: hidden;
         margin: 0;
         z-index: auto;
       }
