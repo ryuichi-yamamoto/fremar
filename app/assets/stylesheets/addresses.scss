@@ -58,3 +58,52 @@ background-color: gray;
   font-weight: 600;
   color: #878787;
 }
+
+.addresseMain {
+  background-color: #f8f8f8;
+  display: flex;
+  &__wrapper {
+    @include wrapper();
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    .addresseTitle {
+      margin: 0 auto;
+      width: 100%;
+      .addresseName__guide {
+        width: 100%;
+        display: flex;
+        margin: auto;
+      }
+      .addresseNameKana__guide {
+        display: flex;
+        margin: auto;
+      }
+      .addresseTel__guide {
+        display: flex;
+        margin: auto;
+      }
+      .addressePostalCode__guide {
+        display: flex;
+        margin: auto;
+      }
+      .addressePrefectare__guide {
+        display: flex;
+        margin: auto;
+      }
+      .addresseCity__guide {
+        display: flex;
+        margin: auto;
+      }
+      .addresseAddress__guide {
+        display: flex;
+        margin: auto;
+      }
+      .addresseRoom__guide {
+        display: flex;
+        margin: auto;
+      }
+    }
+  }
+}
