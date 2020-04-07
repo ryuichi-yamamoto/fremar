@@ -123,6 +123,7 @@ background-color: gray;
     &__under {
       @include janle();    
     }
+    #item_status_id {
       @include formBox();
     }
     &__bottom {
