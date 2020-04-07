@@ -51,7 +51,6 @@
       }
     }
     &__pro {
-      @include btn;
       &--btn {
         @include btn;
         position: relative;
@@ -61,7 +60,6 @@
       }
     }
     &__out {
-      @include btn;
       &--btn {
         @include btn;
         position: relative;
@@ -71,7 +69,6 @@
       }
     }
     &__adin {
-      @include btn;
       &--btn {
         @include btn;
         position: relative;
@@ -81,7 +78,6 @@
       }
     }
     &__adedit {
-      @include btn;
       &--btn {
         @include btn;
         position: relative;
@@ -91,21 +87,10 @@
       }
     }
     &__newcard {
-      @include btn;
       &--btn {
         @include btn;
         position: relative;
         .newcardbtn {
-          @include btnwrite;
-        }
-      }
-    }
-    &__cardedit {
-      @include btn;
-      &--btn {
-        @include btn;
-        position: relative;
-        .cardeditbtn {
           @include btnwrite;
         }
       }
