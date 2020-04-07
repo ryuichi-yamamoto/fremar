@@ -4,14 +4,9 @@
 
   .userSignUpMain__wrapper
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    
       .userSignUp
         .userSignUp__head
           %p 会員情報入力
-        .userSignUp__google
-        %label
-          = icon("fab", "google")
-          = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, id: "google"
         .userSignUp__nickname
           %p#text ニックネーム(40文字以内)
           %p#mark 必須
@@ -20,17 +15,14 @@
           %p#text メールアドレス
           %p#mark 必須
         = f.email_field :email, placeholder: " PC・携帯どちらでも可", id: "emailForm"
-        - if @sns_id.present?
-          = hidden_field_tag :sns_auth, true
-        - else
-          .userSignUp__pwForm
-            %p#text パスワード
-            %p#mark 必須
-          = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
-          .userSignUp__pwForm
-            %p#text パスワード(再入力)
-            %p#mark 必須
-          = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
+        .userSignUp__pwForm
+          %p#text パスワード
+          %p#mark 必須
+        = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
+        .userSignUp__pwForm
+          %p#text パスワード(再入力)
+          %p#mark 必須
+        = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
   
         .userSignUp__textTitle
           %p 本人確認
@@ -66,7 +58,6 @@
         .userSignUp__success
           = f.submit "登録する", id: "sendBtn"
           = render "devise/shared/links"
-       
   
 = render "/items/templates/sub_foot_template"
 
