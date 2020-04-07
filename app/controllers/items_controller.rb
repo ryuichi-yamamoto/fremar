@@ -59,14 +59,16 @@ class ItemsController < ApplicationController
     end
   
     def purchase
+      @item = Item.find(params[:id])
       @item_images = @item.images
       @item_image = Image.new
+      @address = Address.where(user_id: current_user.id).first
       card = Card.where(user_id: current_user.id).first
       if card.blank?
-        # クレジットカードは登録されていないと強制的にconfirmationのviewに飛んでしまう為、コメントアウト
+         # クレジットカードは登録されていないと強制的にconfirmationのviewに飛んでしまう為、コメントアウト
         # redirect_to controller: "cards", action: "confirmation"
       else
-        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        Payjp.api_key = ENV['PAYJP_SECRET_KEY']
         customer = Payjp::Customer.retrieve(card.customer_id)
         @default_card_information = customer.cards.retrieve(card.card_id)
         @card_brand = @default_card_information.brand 
@@ -86,11 +88,12 @@ class ItemsController < ApplicationController
         end
       end
     end
-  
+
     def pay
+      @item = Item.find(params[:id])
       @item.increment!(:condition, 1)
       card = Card.where(user_id: current_user.id).first
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       Payjp::Charge.create(
       amount: @item.price,
       customer: card.customer_id,
@@ -98,10 +101,13 @@ class ItemsController < ApplicationController
       )
       redirect_to action: :done
     end
-  
+
     def done
     end
 
+ 
+    private
+  
     def set_item
       @item = Item.find(params[:id])
     end
