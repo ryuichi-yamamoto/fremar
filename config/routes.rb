@@ -28,5 +28,6 @@ Rails.application.routes.draw do
       get 'confirmation'
     end
   end
-  resources :addresses, only: [:new, :edit, :update]
+  get 'signup', to: 'users#new'
+  resources :addresses, only: [:new, :create, :edit, :update]
 end

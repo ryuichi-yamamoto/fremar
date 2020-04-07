@@ -1,65 +1,6 @@
-* {
-  box-sizing: border-box;
-}
 
-@mixin wrapper($padding: 40px) {
-  border-bottom: 2px solid #f8f8f8;
-  padding: $padding;
-}
 
-@mixin formBox($height: 50px, $margin-bottom: 40px, $width: 100%) {
-  height: $height;
-  width: $width;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid lightgray; 
-  margin-bottom: $margin-bottom;
-  padding: 10px;
-}
-
-@mixin janle($padding: 15px 0, $font-weight: 600) {
-  padding: $padding;
-  font-weight: $font-weight;
-  display: flex;
-}
-
-@mixin dFlex($display: flex, $justify-content: center) {
-  display: $display;
-  justify-content: $justify-content;
-}
-
-@mixin mark() {
-  height: 20px;
-  background-color: red;
-  font-size: 12px;
-  font-weight: 600;
-  color: white;
-  border-radius: 3px;
-  padding: 0 3px;
-  margin: auto 0;
-  margin-left: 10px;
-}
-
-#mark {
-@include mark();
-}
-
-#mark2 {
-@include mark();
-background-color: gray;
-}
-
-#text {
-  font-weight: 600;
-  font-size: 15px;
-}
-
-#janle {
-  margin-bottom: 20px;
-  font-weight: 600;
-  color: #878787;
-}
-
+// 下記は住所登録ページ（newアクション）の記述
 .addresseMain {
   background-color: #f8f8f8;
   display: flex;
@@ -145,6 +86,102 @@ background-color: gray;
       }
       #addresseRoom {
         @include formBox();
+      }
+    }
+  }
+}
+
+// 下記は本人情報編集ページ（editアクション）の記述
+
+// 下記は住所登録ページ（newアクション）の記述
+.userEdit {
+  background-color: #f8f8f8;
+  display: flex;
+  &__wrapper {
+    @include wrapper();
+    background-color: white;
+    width: 50%;
+    margin: 5px auto;
+    .userEditFrame {
+      margin: 0 auto;
+      width: 70%;
+      .userEditTitle {
+        font-size: 20px;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+        padding-bottom: 40px;
+      }
+      .userEditNicGuide {
+        width: 100%;
+        display: flex;
+        margin: auto;
+      }
+      #nicknameForm {
+        @include formBox();
+        width: 40%;
+      }
+      .userEditName {
+        width: 100%;
+        display: flex;
+        margin: auto;
+      }
+      #firstnameForm {
+        @include formBox();
+        width: 40%;
+      }
+      #lastnameForm {
+        @include formBox();
+        width: 40%;
+      }
+      .userEditKana {
+        display: flex;
+        margin: auto;
+      }
+      #firstname_hiraganaForm {
+        @include formBox();
+        width: 40%;
+      }
+      #lastname_hiraganaForm {
+        @include formBox();
+        width: 40%;
+      }
+      .userEditBirthday {
+        display: flex;
+        margin: auto;
+      }
+      #birthForm {
+        @include formBox();
+      }
+      #birthForm2 {
+        @include formBox();
+      }
+      .userEditPas {
+        display: flex;
+        margin: auto;
+      }
+      #pwForm {
+        @include formBox();
+      }
+      .userEditPas2 {
+        display: flex;
+        margin: auto;
+      }
+      #pwForm {
+        @include formBox();
+      }
+      #sendBtn {
+        height: 50px;
+        width: 100%;
+        background-color: #3DCACE;
+        margin: auto;
+        border-radius: 5px;
+        line-height: 50px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
       }
     }
   }
