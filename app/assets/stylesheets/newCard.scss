@@ -1,12 +1,18 @@
 .Cards {
   background-color: #f8f8f8;
   height: 100vh;
+  display: flex;
+  position: relative;
   .NewCard {
     background-color: #fff;
     width: 700px;
+    height: 600px;
+    position: absolute;
+    right: 180px;
+    margin-top: 50px;
     &__info {
       &--name {
-        padding: 8px 24px;
+        padding: 15px 24px;
         text-align: center;
         font-size: 24px;
         font-weight: bold;
