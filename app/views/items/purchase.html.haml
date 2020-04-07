@@ -43,13 +43,20 @@
           %li.PayMain__contents--means__address--info__edit
             = link_to "#" do
               変更する
-        %ul.PayMain__contents--means__address--info__text
-          %li= "〒#{@address.postal_code}"
-          %li= "#{@address.prefecture} #{@address.city} #{@address.room}"
-          %li= "#{@address.first_name} #{@address.last_name}"
-      .PayMain__contents--means__btn
-        = form_with url: pay_items_path, local: true do |f|
-          = f.submit "購入する", class: "pay__btn"
+        - if @address.blank?
+          %br 配送先を登録してください
+        - else
+          %ul.PayMain__contents--means__address--info__text
+            %li= "〒#{@address.postal_code}"
+            %li= "#{@address.prefecture} #{@address.city} #{@address.room}"
+            %li= "#{@address.first_name} #{@address.last_name}"
+      - if @default_card_information && @address
+        .PayMain__contents--means__btn
+          = form_with url: pay_items_path, local: true do |f|
+            = f.submit "購入する", class: "pay__btn"
+      - else
+        .PayMain__contents--means__btn
+          .not__botton 購入する
   .PayFooer-iamge
     = image_tag "logo-gray.png", width: '200'
     
