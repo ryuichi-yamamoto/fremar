@@ -1,4 +1,30 @@
 // 下記はユーザーページで主に使うサイドメニュー
+@mixin btnsize {
+  height: 70px;
+  width: 200px;
+}
+@mixin btn {
+  height: 70px;
+  width: 200px;
+  margin-top: 2px;
+  font-size: 20px;
+  text-align: center;
+  border: solid;
+  line-height: 70px;
+  border-radius: 5px;
+  font-weight: 550;
+  border-color: #3DCACE;
+  background-color: white;
+}
+@mixin btnwrite {
+  text-decoration: none;
+  color: #3DCACE;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .user__side {
   height: 200px;
   width: 200px;
@@ -15,137 +41,72 @@
     height: 214px;
     width: 200px;
     &__mypage {
-      height: 70px;
-      width: 200px;
+      @include btnsize;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        border: solid;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .mybtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
         }
       }
     }
     &__pro {
-      height: 70px;
-      width: 200px;
+      @include btn;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border: solid;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .probtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
         }
       }
     }
     &__out {
-      height: 70px;
-      width: 200px;
+      @include btn;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border: solid;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .outbtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
         }
       }
     }
     &__adin {
-      height: 70px;
-      width: 200px;
+      @include btn;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border: solid;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .adbtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
         }
       }
     }
     &__adedit {
-      height: 70px;
-      width: 200px;
+      @include btn;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border: solid;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .adeditbtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
+        }
+      }
+    }
+    &__newcard {
+      @include btn;
+      &--btn {
+        @include btn;
+        position: relative;
+        .newcardbtn {
+          @include btnwrite;
+        }
+      }
+    }
+    &__cardedit {
+      @include btn;
+      &--btn {
+        @include btn;
+        position: relative;
+        .cardeditbtn {
+          @include btnwrite;
         }
       }
     }
