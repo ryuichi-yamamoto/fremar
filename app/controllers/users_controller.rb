@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   def index
+    @users = User.all
+    @addresses = Address.all
   end
 
   def show
@@ -16,6 +18,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # @addresses = Addresse.find(params[:id])
   end
 
   def update

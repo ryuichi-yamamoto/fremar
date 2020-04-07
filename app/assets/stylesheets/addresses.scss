@@ -120,6 +120,7 @@
       }
       #nicknameForm {
         @include formBox();
+        width: 40%;
       }
       .userEditName {
         width: 100%;
@@ -128,11 +129,11 @@
       }
       #firstnameForm {
         @include formBox();
-        width: 49%;
+        width: 40%;
       }
       #lastnameForm {
         @include formBox();
-        width: 49%;
+        width: 40%;
       }
       .userEditKana {
         display: flex;
@@ -140,11 +141,11 @@
       }
       #firstname_hiraganaForm {
         @include formBox();
-        width: 49%;
+        width: 40%;
       }
       #lastname_hiraganaForm {
         @include formBox();
-        width: 49%;
+        width: 40%;
       }
       .userEditBirthday {
         display: flex;

@@ -3,5 +3,6 @@
   = render "users_side"
   .users__main__right
     .users__main__right__name
-      ユーザーネーム
+      = link_to "/users/users" , class: "indexName" do 
+        ユーザーネーム
 = render "/items/templates/foot_template"

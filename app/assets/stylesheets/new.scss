@@ -216,15 +216,12 @@ background-color: gray;
   width: 115px;
   margin-left: 8px;
   float: left;
-  p {
-    cursor: pointer;
-  }
   .js-remove {
     margin-left: 10px;
-    cursor: pointer;
   }
 }
 #image-box {  
+  cursor: pointer;
   .js-file {
     display: none;
   }
