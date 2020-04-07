@@ -14,7 +14,6 @@ class CardsController < ApplicationController
     else
       customer = Payjp::Customer.create(
       description: '登録テスト', 
-      # email: current_user.email,
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       )
@@ -28,7 +27,6 @@ class CardsController < ApplicationController
   end
 
   def delete
-    # card = Card.where(user_id: current_user.id).first
     if @card.present?
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -39,7 +37,6 @@ class CardsController < ApplicationController
   end
 
   def show
-    # card = Card.where(user_id: current_user.id).first
     if @card.blank?
       redirect_to action: "confirmation", id: current_user.id
     else
