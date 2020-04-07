@@ -17,9 +17,9 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.images.new
       @category_parent_array = ["カテゴリ選択"]
-        Category.where(ancestry: nil).each do |parent|
-          @category_parent_array << parent.name
-      end  
+        @array = Category.where(ancestry: nil).pluck(:name)
+        @category_parent_array.push(@array)
+        @category_parent_array.flatten!
     end
   
     def get_category_children
@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
   
     def create
       @item = Item.new(item_params)
+      # 下記の処理は特になし、saveができなかった場合のみ、エラーハンドリングとしてnewのビューへ遷移するようにしている
       if @item.save
       else
         redirect_to action: :new
@@ -50,7 +51,11 @@ class ItemsController < ApplicationController
     end
     
     def destroy
-      @item.destroy
+      if @item.destroy
+        render :destroy
+      else
+        redirect_to root_path
+      end
     end
   
     def purchase
@@ -58,9 +63,10 @@ class ItemsController < ApplicationController
       @item_image = Image.new
       card = Card.where(user_id: current_user.id).first
       if card.blank?
+        # クレジットカードは登録されていないと強制的にconfirmationのviewに飛んでしまう為、コメントアウト
         # redirect_to controller: "cards", action: "confirmation"
       else
-        Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
         customer = Payjp::Customer.retrieve(card.customer_id)
         @default_card_information = customer.cards.retrieve(card.card_id)
         @card_brand = @default_card_information.brand 
@@ -84,7 +90,7 @@ class ItemsController < ApplicationController
     def pay
       @item.increment!(:condition, 1)
       card = Card.where(user_id: current_user.id).first
-      Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
       amount: @item.price,
       customer: card.customer_id,
@@ -105,6 +111,5 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :price, :text, :size, :brandName, :prefecture_id, :category_id, :status_id, :deliveryfee_id, :deliveryday_id, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
     end
-    
-  
+
   end
