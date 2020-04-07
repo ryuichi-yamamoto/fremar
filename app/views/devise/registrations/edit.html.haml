@@ -1,123 +1,46 @@
 = render "/items/templates/head_template"
 .userEdit
   = render "/users/users_side"
-  .userEdit__main
-  = form_for(current_user) do |f|
-    .userEdit__main--title
-      本人情報の編集
-    .userEdit__main__nic
-      .userEdit__main__nic--guide
-        ニックネーム
-      .userEdit__main__nic--in
-        = f.text_field :nickname, autofocus: true, id: "nicknameForm"
-    .userEdit__main__data
-      ユーザー情報
-      .userEdit__main__data--in
-    .userEdit__main__name
-      .userEdit__main__name--guide
-        お名前
-      .userEdit__main__name--nin
-        必須
-    .userEdit__main__nameIn
-      .userEdit__main__nameIn--first
-        = f.text_field :first_name, autofocus: true, id: "firstnameForm"
-      .userEdit__main__nameIn--last
-        = f.text_field :last_name, autofocus: true, id: "lastnameForm"
-    .userEdit__main__kana
-      .userEdit__main__kana--guide
-        お名前　かな
-      .userEdit__main__kana--nin
-        必須
-    .userEdit__main__kanaIn
-      .userEdit__main__kanaIn--first
-        = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm"
-      .userEdit__main__kanaIn--last
-        = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm"
-    .userEdit__main__birthday
-      .userEdit__main__birthday--guide
-        生年月日
-      .userEdit__main__birthday--nin
-        必須
-    .userEdit__main__birthdayIn
-      .userEdit__main__birthdayIn--year
-        = f.text_field :birth_year, placeholder: "", id: "birthForm"
-      .userEdit__main__birthdayIn--mon
-        = f.text_field :birth_month, placeholder: "", id: "birthForm2"
-      .userEdit__main__birthdayIn--day
-        = f.text_field :birth_day, placeholder: "", id: "birthForm2"
-    .userEdit__main__postalCode
-      .userEdit__main__postalCode--guide
-        パスワード
-      .userEdit__main__postalCode--nin
-        必須
-    .userEdit__main__postalCodeIn
-      = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
-    .userEdit__main__prefectur
-      .userEdit__main__prefectur--guide
-        パスワード
-      .userEdit__main__prefectur--nin
-        必須
-    .userEdit__main__prefecturIn
-      = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
-    .userEdit__main__city
-      .userEdit__main__city--guide
-        市区町村
-      .userEdit__main__city--nin
-        任意
-    .userEdit__main__cityIn
-    .userEdit__main__address
-      .userEdit__main__address--guide
-        番地
-      .userEdit__main__address--nin
-        任意
-    .userEdit__main__addressIn
-    .userEdit__main__room
-      .userEdit__main__room--guide
-        建物名
-      .userEdit__main__room--nin
-        任意
-    .userEdit__main__roomIn
-    .userEdit__main__regi
-      .userEdit__main__regi--btn
-        = f.submit "登録する", id: "sendBtn"
-        -# = render "devise/shared/links"
+  .userEdit__wrapper
+    = form_for(current_user) do |f|
+      .userEditFrame
+        .userEditTitle
+          %P 本人情報編集
+        .userEditNicGuide
+          %p#text ニックネーム
+          %p#mark 必須
+        .userEditNicIn
+          = f.text_field :nickname, autofocus: true, id: "nicknameForm"
+        .userEditName
+          %p#text お名前
+          %p#mark 必須
+        .userEditNameIn
+          = f.text_field :first_name, autofocus: true, id: "firstnameForm"
+          = f.text_field :last_name, autofocus: true, id: "lastnameForm"
+        .userEditKana
+          %p#text お名前　ふりがな
+          %p#mark 必須
+        .userEditKanaIn
+          = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm"
+          = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm"
+        .userEditBirthday
+          %p#text 生年月日
+          %p#mark 必須
+        .userEditBirthdayIn
+          = f.text_field :birth_year, placeholder: "", id: "birthForm"
+          = f.text_field :birth_month, placeholder: "", id: "birthForm2"
+          = f.text_field :birth_day, placeholder: "", id: "birthForm2"
+        .userEditPas
+          %p#text パスワード
+          %p#mark 必須
+        .userEditPasIn
+          = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
+        .userEditPas2
+          %p#text パスワード
+          %p#mark 必須
+        .userEditPas2In
+          = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
+        .userEditSendBtn
+          = f.submit "登録する", id: "sendBtn"
+          -# = render "devise/shared/links"
 = render "/items/templates/foot_template"
-
--# 下記はユーザー情報編集の際見本にするコードの為保持
-
--# %h2
--#   Edit #{resource_name.to_s.humanize}
--# = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
--#   = render "devise/shared/error_messages", resource: resource
--#   .field
--#     = f.label :email
--#     %br/
--#     = f.email_field :email, autofocus: true, autocomplete: "email"
--#   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
--#     %div
--#       Currently waiting confirmation for: #{resource.unconfirmed_email}
--#   .field
--#     = f.label :password
--#     %i (leave blank if you don't want to change it)
--#     %br/
--#     = f.password_field :password, autocomplete: "new-password"
--#     - if @minimum_password_length
--#       %br/
--#       %em
--#         = @minimum_password_length
--#         characters minimum
--#   .field
--#     = f.label :password_confirmation
--#     %br/
--#     = f.password_field :password_confirmation, autocomplete: "new-password"
--#   .field
--#     = f.label :current_password
--#     %i (we need your current password to confirm your changes)
--#     %br/
--#     = f.password_field :current_password, autocomplete: "current-password"
--#   .actions
--#     = f.submit "Update"
--# %h3 Cancel my account
--# %p
--#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-

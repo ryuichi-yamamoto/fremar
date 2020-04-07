@@ -1,6 +1,5 @@
 .user__side
   .user__side__set
-    設定
   .user__side__list
     .user__side__list__mypage
       .user__side__list__mypage--btn
@@ -16,7 +15,7 @@
           住所登録
     .user__side__list__adedit
       .user__side__list__adedit--btn
-        = link_to "/addresses/new" , class: "adeditbtn" do
+        = link_to "/addresses/:id/edit" , class: "adeditbtn" do
           住所変更
 
 -# = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"list-links"
