@@ -1,6 +1,7 @@
 = render "/items/templates/head_template"
 .Cards
-  .NewCard
+  = render "/users/users_side"
+  .ShowCard
     %section.NewCard__info
       %h2.NewCard__info--name 支払い方法
       %form
@@ -12,4 +13,4 @@
               %i
               = icon('fas', 'credit-card', class: "confirmation-list__icon")
               クレジットカードを追加する
-              
+= render "/items/templates/foot_template"
