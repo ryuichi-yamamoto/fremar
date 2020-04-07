@@ -17,6 +17,7 @@ unless Rails.env.development? || Rails.env.test?
       }
       config.fog_directory  = 'fremar-product-image'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/fremar-product-image'
+      config.cache_storage = :fog
     end
   end
 end
