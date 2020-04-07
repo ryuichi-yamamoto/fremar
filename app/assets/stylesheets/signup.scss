@@ -83,8 +83,27 @@ background-color: gray;
     font-weight: 600;
     text-align: center;
   }
+  #google {
+    @include formBox();
+    padding: 18px 93px;
+    text-decoration: none;
+    position: relative;
+    font-size: 17px;
+    color: blue;
+    font-weight: 600;
+    border: 3px solid blue;
+  }
+  i {
+    font-size: 25px;
+    position: absolute;
+    top: 31%;
+    left: 40%;
+    z-index: 1;
+    color: blue;
+  }
   &__nickname {
     @include janle();
+    margin-top: 30px;
   }
   #nicknameForm {
     @include formBox();
