@@ -1,5 +1,5 @@
 = render "/items/templates/head_template"
-.jjj
+.Cards
   .NewCard
     %section.NewCard__info
       %h2.NewCard__info--name 支払い方法
@@ -18,3 +18,4 @@
         = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
           %input{ type: "hidden", name: "card_id", value: "" }
           %button.delete__button 削除する
+          
