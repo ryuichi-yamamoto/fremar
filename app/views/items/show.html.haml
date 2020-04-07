@@ -98,22 +98,22 @@
           %th
             商品の状態
             %td
-              = @item.status
+              = @item.status.name
         %tr
           %th
             配送料の負担
             %td
-              = @item.deliveryfee
+              = @item.deliveryfee.name
         %tr
           %th
             配送元の地域
             %td
-              = @item.prefecture
+              = @item.prefecture.name
         %tr
           %th
             発送日の目安
             %td
-              = @item.deliveryday
+              = @item.deliveryday.name
   .dtlWhole-view__comment-form
     .dtlWhole-view__comment-form__grp
       .dtlWhole-view__comment-form__grp__txtarea
