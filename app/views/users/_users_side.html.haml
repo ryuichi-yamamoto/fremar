@@ -17,5 +17,13 @@
       .user__side__list__adedit--btn
         = link_to edit_address_path(current_user), method: :get , class: "adeditbtn" do
           住所変更
+    .user__side__list__newcard
+      .user__side__list__newcard--btn
+        = link_to users_path , class: "newcardbtn" do
+          カード情報入力
+    .user__side__list__cardedit
+      .user__side__list__cardedit--btn
+        = link_to users_path , class: "cardeditbtn" do
+          カード情報変更
 
 -# = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"list-links"
