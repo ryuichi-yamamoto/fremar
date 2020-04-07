@@ -21,9 +21,17 @@ class Item < ApplicationRecord
   validates :deliveryday_id, presence: true
   validates :status_id,      presence: true
   validates_associated :images
-  validates :images,         presence: true
-  validates :user_id,        presence: true
-  validates :category_id,    presence: true
-  validates :condition,      presence: true
+  validates :images,      presence: true
+  validates :user_id,     presence: true
+  validates :category_id, presence: true
+  validates :condition,   presence: true
+
+  def self.search(search)
+    if search
+      Item.where(['name LIKE(?) OR text LIKE(?) OR brandname LIKE(?)', "%#{search}%","%#{search}%","%#{search}%"])
+    else
+      Item.all
+    end
+  end
 
 end

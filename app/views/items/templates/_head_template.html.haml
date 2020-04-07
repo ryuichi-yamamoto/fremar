@@ -2,11 +2,11 @@
   .header-grp__header
     .header-grp__header__rogo-txt
       = link_to image_tag(src= "logo.png", class: "header-grp__header__rogo-txt__rogo"),root_path
-      .header-grp__header__rogo-txt__txtbox
-        %input.txt-form{:type => "text", :placeholder => "キーワードから探す"}
-        %button.submit-btn{:type => "submit"}
-          .button-search
-            = image_tag 'search-rogo.png', width: '20'
+      = form_with(url: search_items_path, local: true, method: :get, class: "header-grp__header__rogo-txt__txtbox") do |f|
+        = f.text_field :keyword, placeholder: "キーワードから探す", class: "txt-form"
+        = button_tag type: "submit" , class:"submit-btn" do
+          =image_tag 'search-rogo.png', width: '20' 
+
     .header-grp__header__lists
       %ul.header-grp__header__lists__leftbox
         %li.header-grp__header__lists__leftbox__category
