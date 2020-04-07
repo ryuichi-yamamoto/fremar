@@ -1,0 +1,43 @@
+= render "/items/templates/head_template"
+= render "/items/templates/new_btn"
+.breadcrumb
+  %ul
+    %li パンくず
+.searchMain
+  .indexMain
+    .indexMain__box
+      .searchTitle
+        %h2
+          = "#{params[:keyword]}"
+          %span.result の検索結果一覧
+    .productLists
+      - @items.each do |item|
+        .productList
+          =link_to item_path(item.id), class: "productList_item" do
+            %figure.productList--img
+              = image_tag "#{item.images[0].image}"
+              .productList--body
+                %h3.name 
+                  = item.name
+                .product--text
+                  %ul
+                    %li 
+                      = "#{item.price}円"
+                    %li
+                      %i.icon 
+                      ★
+                      0
+                  %p 税込
+
+.topMain__bttomVisual
+  .topMain__bttomVisual__inner
+    .topMain__bttomVisual__inner__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    .topMain__bttomVisual__inner__message
+      今すぐ無料ダウンロード！
+    .content__btn_last
+      =link_to "https://www.apple.com/jp/ios/app-store/",class: "appStore" do
+        =image_tag src="Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" 
+      =link_to "https://play.google.com/store?hl=ja", class:"googlePlay" do
+        =image_tag src="google-play.png"
+= render "/items/templates/foot_template"

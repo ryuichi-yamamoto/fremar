@@ -26,5 +26,12 @@ class Item < ApplicationRecord
   validates :category_id, presence: true
   validates :condition,   presence: true
 
+  def self.search(search)
+    if search
+      Item.where(['name LIKE(?) OR text LIKE(?) OR brandname LIKE(?)', "%#{search}%","%#{search}%","%#{search}%"])
+    else
+      Item.all
+    end
+  end
 
 end
