@@ -59,7 +59,6 @@ class ItemsController < ApplicationController
     end
   
     def purchase
-      @item = Item.find(params[:id])
       @item_images = @item.images
       @item_image = Image.new
       @address = Address.where(user_id: current_user.id).first
@@ -90,7 +89,6 @@ class ItemsController < ApplicationController
     end
 
     def pay
-      @item = Item.find(params[:id])
       @item.increment!(:condition, 1)
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
@@ -111,8 +109,6 @@ class ItemsController < ApplicationController
     def set_item
       @item = Item.find(params[:id])
     end
-  
-    private
   
     def item_params
       params.require(:item).permit(:name, :price, :text, :size, :brandName, :prefecture_id, :category_id, :status_id, :deliveryfee_id, :deliveryday_id, :condition, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
