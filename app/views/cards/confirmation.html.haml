@@ -1,0 +1,15 @@
+= render "/items/templates/head_template"
+.Cards
+  .NewCard
+    %section.NewCard__info
+      %h2.NewCard__info--name 支払い方法
+      %form
+        .NewCard__info--contents
+          .card-box
+            %label.card-box__title クレジットカード一覧
+          = link_to new_card_path(current_user), class: "confirmation-list__btn", data: {"turbolinks" => false} do
+            .confirmation-list
+              %i
+              = icon('fas', 'credit-card', class: "confirmation-list__icon")
+              クレジットカードを追加する
+              
