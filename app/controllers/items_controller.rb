@@ -59,11 +59,12 @@ require 'payjp'
     @item = Item.find(params[:id])
     @item_images = @item.images
     @item_image = Image.new
+    @address = Address.where(user_id: current_user.id).first
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       # redirect_to controller: "cards", action: "confirmation"
     else
-      Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
       @card_brand = @default_card_information.brand 
@@ -88,7 +89,7 @@ require 'payjp'
     @item = Item.find(params[:id])
     @item.increment!(:condition, 1)
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
     amount: @item.price,
     customer: card.customer_id,

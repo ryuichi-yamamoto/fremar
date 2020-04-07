@@ -96,3 +96,4 @@ gem 'payjp'
 
 gem "jquery-rails"
 
+gem 'dotenv-rails'
