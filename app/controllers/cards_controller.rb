@@ -1,18 +1,19 @@
 class CardsController < ApplicationController
 
+  before_action :set_card, only: [:delete, :show]
+
   require "payjp"
 
   def new
   end
 
   def create
-    Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
       description: '登録テスト', 
-      # email: current_user.email,
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       )
@@ -26,26 +27,22 @@ class CardsController < ApplicationController
   end
 
   def delete
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-    else
-      Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
-      customer = Payjp::Customer.retrieve(card.customer_id)
+    if @card.present?
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
     end
       redirect_to action: "confirmation", id: current_user.id
   end
 
-
   def show
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
       redirect_to action: "confirmation", id: current_user.id
     else
-      Payjp.api_key = "sk_test_1ba767c5bffca296748263f9"
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
       @card_brand = @default_card_information.brand 
       case @card_brand
       when "Visa"
@@ -67,6 +64,12 @@ class CardsController < ApplicationController
   def confirmation
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
+  end
+
+  private
+  
+  def set_card
+    @card = Card.where(user_id: current_user.id).first
   end
 
 end

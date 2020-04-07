@@ -2,7 +2,7 @@
 .addresseMain
   = render "/users/users_side"
   .addresseMain__wrapper
-    = form_for :address do |f|
+    = form_for @address do |f|
       .addresseFrame
         .addresseTitle
           %p 住所登録
@@ -31,14 +31,14 @@
         .addresseCity__guide
           %p#text 市町村
           %p#mark 必須
-        = f.text_field :City, autofocus: true, id: "addresseCity", placeholder: "福岡市"
+        = f.text_field :city, autofocus: true, id: "addresseCity", placeholder: "福岡市"
         .addresseAddress__guide
           %p#text 番地
-          %p#mark 任意
+          %p#mark 必須
         = f.text_field :address, autofocus: true, id: "addresseAddress", placeholder: ""
         .addresseRoom__guide
           %p#text 建物名
-          %p#mark 任意
+          %p#mark2 任意
         = f.text_field :room, autofocus: true, id: "addresseRoom", placeholder: ""
 
         -# .deleted_at
