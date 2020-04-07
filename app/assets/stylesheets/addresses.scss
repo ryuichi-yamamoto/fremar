@@ -186,3 +186,47 @@
     }
   }
 }
+
+// 下記は住所登録完了画面（create）の記述
+.addressCreate {
+  background-color: whitesmoke;
+  display: flex;
+  .addressCreate__wrapper {
+    height: 100vw;
+    width: 100%;
+    display: flex;
+    .addresseCreateFrame {
+      margin: 5px auto;
+      width: 70%;
+      background-color: white;
+      .addresseCreateTitle {
+        height: 300px;
+        width: 100%;
+        text-align: center;
+        line-height: 300px;
+        font-weight: 600;
+        font-size: 30px;
+      }
+      .addresseLink {
+        width: 100%;
+        display: flex;
+        .topBtn {
+          text-decoration: none;
+          text-align: center;
+          width: 50%;
+          font-size: 20px;
+          font-weight: 550;
+          color: #3DCACE;
+        }
+        .myBtn {
+          text-decoration: none;
+          text-align: center;
+          width: 50%;
+          font-size: 20px;
+          font-weight: 550;
+          color: #3DCACE;
+        }
+      }
+    }
+  }
+}

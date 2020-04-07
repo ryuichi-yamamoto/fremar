@@ -4,5 +4,10 @@
   .addressCreate__wrapper
     .addresseCreateFrame
       .addresseCreateTitle
-        %p 登録完了！
+        %p 登録完了
+      .addresseLink
+        = link_to "root" , class: "topBtn" do
+          トップ
+        = link_to "/users" , class: "myBtn" do
+          マイページ
 = render "/items/templates/foot_template"
