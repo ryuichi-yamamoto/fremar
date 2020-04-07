@@ -1,0 +1,68 @@
+= render "/items/templates/head_template"
+.Cards
+  .NewCard
+    %section.NewCard__info
+      %h2.NewCard__info--name クレジットカード情報入力
+      = form_tag(cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+        .NewCard__info--contents
+          .card-box
+            %label.card-box__title カード番号
+            %span.card-box__form 必須
+          .card-text
+            = text_field_tag "number", "", class: "card-text__form", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+          %ul.card-text__image
+            %li.card-text__image--list
+              = image_tag 'visa.svg', size: '49x20'
+            %li.card-text__image--list
+              = image_tag 'master-card.svg', size: '34x20'
+            %li.card-text__image--list
+              = image_tag 'saison-card.svg', size: '30x20'
+            %li.card-text__image--list
+              = image_tag 'jcb.svg', size: '32x20'
+            %li.card-text__image--list
+              = image_tag 'american_express.svg', size: '21x20'
+            %li.card-text__image--list
+              = image_tag 'dinersclub.svg', size: '32x20'
+            %li.card-text__image--list
+              = image_tag 'discover.svg', size: '32x20'
+          .card-time
+            %label.card-time__title 有効期限
+            %span.card-time__form 必須
+          .card-select
+            %select.select__default#exp_month{name: "exp_month", type: "text"}
+              %option{value: ""} --
+              %option{value: "1"}01
+              %option{value: "2"}02
+              %option{value: "3"}03
+              %option{value: "4"}04
+              %option{value: "5"}05
+              %option{value: "6"}06
+              %option{value: "7"}07
+              %option{value: "8"}08
+              %option{value: "9"}09
+              %option{value: "10"}10
+              %option{value: "11"}11
+              %option{value: "12"}12
+            %span 月
+            %select.select__default#exp_year{name: "exp_year", type: "text"}
+              %option{value: ""} --
+              %option{value: "2020"}20
+              %option{value: "2021"}21
+              %option{value: "2022"}22
+              %option{value: "2023"}23
+              %option{value: "2024"}24
+              %option{value: "2025"}25
+              %option{value: "2026"}26
+              %option{value: "2027"}27
+              %option{value: "2028"}28
+              %option{value: "2029"}29
+              %option{value: "2030"}30
+            %span  年
+          .card-security
+            %label セキュリティーコード
+            %span.card-security__form 必須
+          .card-code
+            = text_field_tag "cvc", "", class: "card-code__cvc", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+          #card_token
+            = submit_tag "追加する", id: "token_submit", class: "top__margin"
+            
