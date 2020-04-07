@@ -1,6 +1,8 @@
-
-
 // 下記は住所登録ページ（newアクション）の記述
+@mixin centerin {
+  display: flex;
+  margin: auto;
+}
 .addresseMain {
   background-color: #f8f8f8;
   display: flex;
@@ -22,8 +24,7 @@
       }
       .addresseName__guide {
         width: 100%;
-        display: flex;
-        margin: auto;
+        @include centerin;
       }
       #firstnameForm {
         @include formBox();
@@ -34,8 +35,7 @@
         width: 40%;
       }
       .addresseNameKana__guide {
-        display: flex;
-        margin: auto;
+        @include centerin;
       }
       #firstname_hiraganaForm {
         @include formBox();
@@ -46,43 +46,37 @@
         width: 40%;
       }
       .addresseTel__guide {
-        display: flex;
-        margin: auto;
+        @include centerin;
       }
       #addresseTel {
         @include formBox();
       }
       .addressePostalCode__guide {
-        display: flex;
-        margin: auto;
+        @include centerin;
       }
       #addressePostalCode {
         @include formBox();
       }
       .addressePrefectare__guide {
-        display: flex;
-        margin: auto;
+        @include centerin;
       }
       #addressePrefectare {
         @include formBox();
       }
       .addresseCity__guide {
-        display: flex;
-        margin: auto;
+        @include centerin;
       }
       #addresseCity {
         @include formBox();
       }
       .addresseAddress__guide {
-        display: flex;
-        margin: auto;
+        @include centerin;
       }
       #addresseAddress {
         @include formBox();
       }
       .addresseRoom__guide {
-        display: flex;
-        margin: auto;
+        @include centerin;
       }
       #addresseRoom {
         @include formBox();
@@ -90,9 +84,6 @@
     }
   }
 }
-
-// 下記は本人情報編集ページ（editアクション）の記述
-
 // 下記は住所登録ページ（newアクション）の記述
 .userEdit {
   background-color: #f8f8f8;
@@ -185,8 +176,15 @@
     }
   }
 }
-
 // 下記は住所登録完了画面（create）の記述
+@mixin endbtn {
+  text-decoration: none;
+  text-align: center;
+  width: 50%;
+  font-size: 20px;
+  font-weight: 550;
+  color: #3DCACE;
+}
 .addressCreate {
   background-color: whitesmoke;
   display: flex;
@@ -210,20 +208,10 @@
         width: 100%;
         display: flex;
         .topBtn {
-          text-decoration: none;
-          text-align: center;
-          width: 50%;
-          font-size: 20px;
-          font-weight: 550;
-          color: #3DCACE;
+          @include endbtn;
         }
         .myBtn {
-          text-decoration: none;
-          text-align: center;
-          width: 50%;
-          font-size: 20px;
-          font-weight: 550;
-          color: #3DCACE;
+          @include endbtn;
         }
       }
     }
