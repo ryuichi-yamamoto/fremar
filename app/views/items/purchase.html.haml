@@ -45,9 +45,9 @@
             = link_to "#" do
               変更する
         %ul.PayMain__contents--means__address--info__text
-          %li= "〒123-4567"
-          %li= "大阪府 大阪市中央区難波5丁目1−60 なんばスカイオ15階"
-          %li= "田中 太郎"
+          %li= "〒#{@address.postal_code}"
+          %li= "#{@address.prefecture} #{@address.city} #{@address.room}"
+          %li= "#{@address.first_name} #{@address.last_name}"
       .PayMain__contents--means__btn
         = form_with url: pay_items_path, local: true do |f|
           = f.submit "購入する", class: "pay__btn"
