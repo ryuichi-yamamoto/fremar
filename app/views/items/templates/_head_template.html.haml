@@ -6,11 +6,10 @@
         = f.text_field :keyword, placeholder: "キーワードから探す", class: "txt-form"
         = button_tag type: "submit" , class:"submit-btn" do
           =image_tag 'search-rogo.png', width: '20' 
-
     .header-grp__header__lists
       %ul.header-grp__header__lists__leftbox
         %li.header-grp__header__lists__leftbox__category
-          = link_to 'カテゴリー', "#", class:"list-links"
+          = link_to 'カテゴリー', "#", class:"list-links"          
         %li.header-grp__header__lists__leftbox__brands
           = link_to 'ブランド', "#", class:"list-links"
       - if user_signed_in?

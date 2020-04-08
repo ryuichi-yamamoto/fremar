@@ -41,7 +41,7 @@
         %ul.PayMain__contents--means__address--info
           %li.PayMain__contents--means__address--info__theme 配送先
           %li.PayMain__contents--means__address--info__edit
-            = link_to "#" do
+            = link_to new_address_path(current_user.id) do
               変更する
         - if @address.blank?
           %br 配送先を登録してください
