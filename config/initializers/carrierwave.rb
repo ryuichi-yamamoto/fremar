@@ -27,6 +27,7 @@ unless Rails.env.development? || Rails.env.test?
         config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/fremar-product-image'
     end
   end
+end
 
 
 
