@@ -1,4 +1,6 @@
 = render "/items/templates/head_template"
+- breadcrumb :confirmationCard
+= breadcrumbs pretext: "",separator: " &rsaquo; "
 .Cards
   = render "/users/users_side"
   .ShowCard
