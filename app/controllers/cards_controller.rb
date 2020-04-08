@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
 
   before_action :set_card, only: [:delete, :show]
+  before_action :set_address, only: [:show, :new, :confirmation]
 
   require "payjp"
 
@@ -64,13 +65,16 @@ class CardsController < ApplicationController
   def confirmation
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
-    @address = Address.where(user_id: current_user.id).first
   end
 
   private
   
   def set_card
     @card = Card.where(user_id: current_user.id).first
+  end
+
+  def set_address
+    @address = Address.where(user_id: current_user.id).first
   end
 
 end
