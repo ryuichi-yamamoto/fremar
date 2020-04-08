@@ -64,6 +64,7 @@ class CardsController < ApplicationController
   def confirmation
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
+    @address = Address.where(user_id: current_user.id).first
   end
 
   private

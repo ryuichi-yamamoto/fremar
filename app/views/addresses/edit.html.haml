@@ -11,37 +11,37 @@
         .addresseName__guide
           %p#text お名前
           %p#mark 必須
-        = f.text_field :first_name, id: "firstnameForm", placeholder: "例）橋本"
-        = f.text_field :last_name, id: "lastnameForm", placeholder: "例）環奈"
+        = f.text_field :first_name, id: "firstnameForm"
+        = f.text_field :last_name, id: "lastnameForm"
         .addresseNameKana__guide
           %p#text お名前かな
           %p#mark 必須
-        = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）はしもと"
-        = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）かんな"
+        = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm"
+        = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm"
         .addresseTel__guide
           %p#text 電話番号
           %p#mark 必須
-        = f.text_field :tel, autofocus: true, id: "addresseTel", placeholder: "09012345678"
+        = f.text_field :tel, autofocus: true, id: "addresseTel"
         .addressePostalCode__guide
           %p#text 郵便番号
           %p#mark 必須
-        = f.text_field :postal_code, autofocus: true, id: "addressePostalCode", placeholder: "123-4567"
+        = f.text_field :postal_code, autofocus: true, id: "addressePostalCode"
         .addressePrefectare__guide
           %p#text 都道府県
           %p#mark 必須
-        = f.text_field :prefecture, autofocus: true, id: "addressePrefectare", placeholder: "福岡県"
+        = f.text_field :prefecture, autofocus: true, id: "addressePrefectare"
         .addresseCity__guide
           %p#text 市町村
           %p#mark 必須
-        = f.text_field :city, autofocus: true, id: "addresseCity", placeholder: "福岡市"
+        = f.text_field :city, autofocus: true, id: "addresseCity"
         .addresseAddress__guide
           %p#text 番地
           %p#mark 必須
-        = f.text_field :address, autofocus: true, id: "addresseAddress", placeholder: ""
+        = f.text_field :address, autofocus: true, id: "addresseAddress"
         .addresseRoom__guide
           %p#text 建物名
           %p#mark2 任意
-        = f.text_field :room, autofocus: true, id: "addresseRoom", placeholder: ""
+        = f.text_field :room, autofocus: true, id: "addresseRoom"
         .userSignUp__success
           = f.submit "登録する", id: "sendBtn"
 = render "/items/templates/foot_template"

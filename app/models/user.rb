@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :addresses
-  has_many :items
-  has_many :comments
-  has_many :cards
-  has_many :sns_credentials
+  belongs_to :address, foreign_key: 'user_id'
+  has_many   :items
+  has_many   :comments
+  has_many   :cards
+  has_many   :sns_credentials
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

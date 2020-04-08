@@ -1,4 +1,6 @@
 = render "/items/templates/head_template"
+- breadcrumb :addressRegister
+= breadcrumbs pretext: "",separator: " &rsaquo; "
 .addressCreate
   = render "/users/users_side"
   .addressCreate__wrapper
@@ -6,8 +8,8 @@
       .addresseCreateTitle
         %p 登録完了
       .addresseLink
-        = link_to "root" , class: "topBtn" do
+        = link_to root_path , class: "topBtn" do
           トップ
-        = link_to "/users" , class: "myBtn" do
+        = link_to users_path , class: "myBtn" do
           マイページ
 = render "/items/templates/foot_template"
