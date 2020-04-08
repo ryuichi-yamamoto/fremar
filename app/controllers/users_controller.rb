@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
 
   def index
+    @address = Address.where(user_id: current_user.id).first
   end
 
   def show
     @user = User.find(params[:id])
-    @address = Address.find(params[:id])
+
+#     @address = Address.find(params[:id])
+    @address = Address.where(user_id: current_user.id).first
   end
 
   def new
@@ -17,6 +20,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @address = Address.where(user_id: current_user.id).first
   end
 
   def update

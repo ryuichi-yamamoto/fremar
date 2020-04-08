@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
+
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :authenticate_user!
   protect_from_forgery with: :null_session
+  before_action :set_address, only: [:edit]
+
 
 
   private
@@ -25,4 +28,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
+
+  def set_address
+    @address = Address.where(user_id: current_user.id).first
+  end
+  
 end
