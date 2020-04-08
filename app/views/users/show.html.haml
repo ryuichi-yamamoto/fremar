@@ -1,22 +1,46 @@
 = render "/items/templates/head_template"
-= render "/items/templates/new_btn"
-.show__main
-  .show__main__content
-    .show__main__content__user
-      .show__main__content__user--name
-        = link_to "#" , class: "showUserName" do
-          ユーザーネーム
-    .show__main__content__data
-      ユーザー詳細画面
-    .show__main__content__icon
-      .show__main__content__icon--fb
-        F
-      .show__main__content__icon--tw
-        T
-      .show__main__content__icon--ln
-        L
-    .show__main__content__goods
-      .show__main__content__goods--name
-        この出品者の商品
-      .show__main__content__goods--product
+- breadcrumb :mypage
+= breadcrumbs pretext: "",separator: " &rsaquo; "
+.iamMain
+  = render "/users/users_side"
+  .iamMain__wrapper
+    .iamFrame
+      .iamTitle
+        本人情報
+      .iamNickname__guide
+        %p#iamtext ニックネーム
+      .iamNickname__iam
+        = @user.nickname
+      .iamNickname__guide
+        %P#iamtext お名前
+      .iamName__iam
+        = @user.first_name
+        = @user.last_name
+      .iamKana__guide
+        %P#iamtext ふりがな
+      .iamKana__iam
+        = @user.first_name_hiragana
+        = @user.last_name_hiragana
+      .iamBirth__guide
+        %P#iamtext 生年月日
+      .iamBirth__iam
+        = @user.birth_year
+        年
+        = @user.birth_month
+        月
+        = @user.birth_day
+        日
+      .iamTel__guide
+        %P#iamtext 郵便番号
+      .iamTel__iam
+        = @address.postal_code
+      .iamCity__guide
+        %P#iamtext 住所
+      .iamCity__iam
+        = @address.prefecture
+        = @address.city
+      .iamCity__iamRoom
+        = @address.address
+        = @address.room
+
 = render "/items/templates/foot_template"

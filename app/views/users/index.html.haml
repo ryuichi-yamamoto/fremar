@@ -2,9 +2,10 @@
 = render "/items/templates/new_btn"
 - breadcrumb :mypage
 = breadcrumbs pretext: "",separator: " &rsaquo; "
-.users__main
+.userTopMain
   = render "users_side"
-  .users__main__right
-    .users__main__right__name
-      ユーザーネーム
+  .userTopMain__wrapper
+    .userTopMainFrame
+      = link_to user_path(current_user) , class: "showUserName" do
+        ユーザー情報
 = render "/items/templates/foot_template"
