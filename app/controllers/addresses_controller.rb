@@ -14,6 +14,9 @@ class AddressesController < ApplicationController
 
   def edit
     @address = Address.where(user_id: current_user.id).first
+    if @address.blank?
+      redirect_to action: :new
+    end
   end
 
   def update
