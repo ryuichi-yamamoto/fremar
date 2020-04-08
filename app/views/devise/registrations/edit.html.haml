@@ -1,4 +1,6 @@
 = render "/items/templates/head_template"
+- breadcrumb :profile
+= breadcrumbs pretext: "",separator: " &rsaquo; " 
 .userEdit
   = render "/users/users_side"
   .userEdit__wrapper

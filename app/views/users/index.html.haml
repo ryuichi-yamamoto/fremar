@@ -1,4 +1,6 @@
 = render "/items/templates/head_template"
+- breadcrumb :mypage
+= breadcrumbs pretext: "",separator: " &rsaquo; "
 .users__main
   = render "users_side"
   .users__main__right

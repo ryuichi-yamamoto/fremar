@@ -18,3 +18,22 @@
 @import "addresses";
 @import "templates/sub_foot_template";
 @import "search";
+
+.breadcrumbs {
+  font-size: 12px;
+  padding: 20px 190px;
+  border-bottom: 1px solid lightgray;
+  a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: black;
+  }
+  a:hover {
+    color: #FFC36F;
+    border-bottom: 1px solid #FFC36F;
+    }
+  .current {
+    margin-left: 10px;
+    font-weight: 600;
+  }
+}
