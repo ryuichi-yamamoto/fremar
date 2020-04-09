@@ -3,71 +3,72 @@
     .userSignUp__header--logo
       =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "250"), root_path
   .userSignUpMain__wrapper
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      .userSignUp
-        .userSignUp__head
-          %p 会員情報入力
-        .userSignUp__google
-          .userSignUp__google--btn
-            %label
-              = icon("fab", "google")
-              = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, id: "google"
-        .userSignUp__nickname
-          %p#text ニックネーム(40文字以内)
-          %p#mark 必須
-        = f.text_field :nickname, autofocus: true, id: "nicknameForm", placeholder: "例）フリマル菜奈"
-        .userSignUp__email
-          %p#text メールアドレス
-          %p#mark 必須
-        = f.email_field :email, placeholder: " PC・携帯どちらでも可", id: "emailForm"
-        - if @sns_id.present?
-          = hidden_field_tag :sns_auth, true
-        - else
-          .userSignUp__pwForm
-            %p#text パスワード
+    .userSignUpMain__wrapper--frame
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        .userSignUp
+          .userSignUp__head
+            %p 会員情報入力
+          .userSignUp__google
+            .userSignUp__google--btn
+              %label
+                = icon("fab", "google")
+                = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, id: "google"
+          .userSignUp__nickname
+            %p#text ニックネーム(40文字以内)
             %p#mark 必須
-          = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
-          .userSignUp__pwForm
-            %p#text パスワード(再入力)
+          = f.text_field :nickname, autofocus: true, id: "nicknameForm", placeholder: "例）フリマル菜奈"
+          .userSignUp__email
+            %p#text メールアドレス
             %p#mark 必須
-          = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
-  
-        .userSignUp__textTitle
-          %p 本人確認
-        .userSignUp__textField
-          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-        .userSignUp__status
-          %p#text 性別
-          %p#mark 必須
-        = f.select :status, [['男性','男性'], ['女性','女性']], prompt: "選択", id: "status"
-        .userSignUp__fullname
-          %p#text お名前
-          %p#mark 必須
-        = f.text_field :first_name, autofocus: true, id: "firstnameForm", placeholder: "例）小松"
-        = f.text_field :last_name, autofocus: true, id: "lastnameForm", placeholder: "例）菜奈"
-        .userSignUp__fullname-hiragana
-          %p#text お名前かな
-          %p#mark 必須
-        = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）こまつ"
-        = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）なな"
-        .userSignUp__birthday
-          %p#text 生年月日
-          %p#mark 必須
-        .userSignUp__birthdayForm
-          = f.text_field :birth_year, placeholder: "2020", id: "birthForm"
-          #birthText 年
-          = f.text_field :birth_month, placeholder: "05", id: "birthForm2"
-          #birthText 月
-          = f.text_field :birth_day, placeholder: "10", id: "birthForm2"
-          #birthText 日
-        -# .deleted_at
-        -#   = f.text_field :deleted_at
+          = f.email_field :email, placeholder: " PC・携帯どちらでも可", id: "emailForm"
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            .userSignUp__pwForm
+              %p#text パスワード
+              %p#mark 必須
+            = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
+            .userSignUp__pwForm
+              %p#text パスワード(再入力)
+              %p#mark 必須
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
+    
+          .userSignUp__textTitle
+            %p 本人確認
+          .userSignUp__textField
+            %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .userSignUp__status
+            %p#text 性別
+            %p#mark 必須
+          = f.select :status, [['男性','男性'], ['女性','女性']], prompt: "選択", id: "status"
+          .userSignUp__fullname
+            %p#text お名前
+            %p#mark 必須
+          = f.text_field :first_name, autofocus: true, id: "firstnameForm", placeholder: "例）小松"
+          = f.text_field :last_name, autofocus: true, id: "lastnameForm", placeholder: "例）菜奈"
+          .userSignUp__fullname-hiragana
+            %p#text お名前かな
+            %p#mark 必須
+          = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）こまつ"
+          = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）なな"
+          .userSignUp__birthday
+            %p#text 生年月日
+            %p#mark 必須
+          .userSignUp__birthdayForm
+            = f.text_field :birth_year, placeholder: "2020", id: "birthForm"
+            #birthText 年
+            = f.text_field :birth_month, placeholder: "05", id: "birthForm2"
+            #birthText 月
+            = f.text_field :birth_day, placeholder: "10", id: "birthForm2"
+            #birthText 日
+          -# .deleted_at
+          -#   = f.text_field :deleted_at
 
-        .userSignUp__success
-          = f.submit "登録する", id: "sendBtn"
-        .userSignUp__topGo
-          = render "devise/shared/links"
-       
+          .userSignUp__success
+            = f.submit "登録する", id: "sendBtn"
+          .userSignUp__topGo
+            = render "devise/shared/links"
+        
   
 = render "/items/templates/sub_foot_template"
 
