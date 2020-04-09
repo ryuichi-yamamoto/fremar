@@ -27,9 +27,8 @@
 }
 .user__side {
   height: 200px;
-  width: 200px;
-  margin-top: 30px;
-  margin-left: 10%;
+  width: 110px;
+  margin-left: 14%;
   &__set {
     height: 40px;
     width: 100px;
@@ -97,38 +96,8 @@
     }
   }
 }
-// 下記はユーザーページ（index）の記述
-.userTopMain {
-  background-color: #f8f8f8;
-  display: flex;
-  &__wrapper {
-    @include wrapper();
-    background-color: white;
-    width: 50%;
-    margin: 5px auto;
-    .userTopMainFrame {
-      height: 80vh;
-      text-decoration: none;
-      display: flex;
-      .showUserName {
-        text-decoration: none;
-        margin: 100px auto;
-        font-size: 20px;
-        color: #3DCACE;
-        height: 70px;
-        width: 200px;
-        text-align: center;
-        border: solid;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border-color: #3DCACE;
-        background-color: white;
-      }
-    }
-  }
-}
-// 下記はユーザーの詳細ページ（show）の記述
+
+// 下記はユーザーの詳細ページ（index）の記述
 @mixin centerin {
   display: flex;
   margin: auto;
@@ -138,7 +107,7 @@
 }
 @mixin iam {
   margin: 10px auto 0;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 #iamtext {
@@ -148,11 +117,12 @@
 .iamMain {
   background-color: #f8f8f8;
   display: flex;
+  padding-top: 100px;
   &__wrapper {
     @include wrapper();
     background-color: white;
     width: 50%;
-    margin: 5px auto;
+    margin: 0 auto;
     .iamFrame {
       margin: 0 auto;
       width: 70%;
@@ -210,6 +180,7 @@
   height: 1100px;
   width: 100vw;
   display: flex;
+  padding-top: 40px;
   &__main {
     height: 2000px;
     width: 80%;
