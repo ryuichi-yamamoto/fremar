@@ -6,17 +6,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
-
-  def new
-    @users = User.new
-  end
-
-  def create
-  end
-
   def edit
     @user = User.find(params[:id])
   end
