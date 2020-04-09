@@ -29,7 +29,7 @@
           %li.header-grp__header__lists__rightbox__login
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"list-links"
           %li.header-grp__header__lists__rightbox__new
-            = link_to 'マイページ', "/users/", class:"list-links"
+            = link_to 'マイページ', "/users/:id", class:"list-links"
       - else
         %ul.header-grp__header__lists__rightbox
           %li.header-grp__header__lists__rightbox__login

@@ -6,22 +6,25 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    if @address.save
+    if @address.save!
     else
       redirect_to action: :new
     end
   end
 
   def edit
-    @address = Address.find(params[:id])
+    @address = Address.where(user_id: current_user.id).first
+    if @address.blank?
+      redirect_to action: :new
+    end
   end
 
   def update
-    if current_user.update(address_params)
+    @address = Address.where(user_id: current_user.id).first
+    if @address.update(address_params)
       redirect_to users_path(current_user)
-      # sign_in(current_user, bypass: true)
     else
-      redirect_to
+      redirect_to action: :edit
     end
   end
 

@@ -1,17 +1,17 @@
 .userSignUpMain
   .userSignUp__header
-    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "250"), root_path
-
+    .userSignUp__header--logo
+      =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "250"), root_path
   .userSignUpMain__wrapper
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    
       .userSignUp
         .userSignUp__head
           %p 会員情報入力
         .userSignUp__google
-        %label
-          = icon("fab", "google")
-          = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, id: "google"
+          .userSignUp__google--btn
+            %label
+              = icon("fab", "google")
+              = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, id: "google"
         .userSignUp__nickname
           %p#text ニックネーム(40文字以内)
           %p#mark 必須
@@ -65,6 +65,7 @@
 
         .userSignUp__success
           = f.submit "登録する", id: "sendBtn"
+        .userSignUp__topGo
           = render "devise/shared/links"
        
   

@@ -9,18 +9,19 @@
       .user__side__list__pro--btn
         = link_to edit_user_registration_path, class: "probtn" do
           本人情報変更
-    .user__side__list__adin
-      .user__side__list__adin--btn
-        = link_to new_address_path , class: "adbtn" do
-          住所登録
-    .user__side__list__adedit
-      .user__side__list__adedit--btn
-        = link_to edit_address_path(current_user), method: :get , class: "adeditbtn" do
-          住所変更
     .user__side__list__newcard
       .user__side__list__newcard--btn
-
         = link_to confirmation_card_path(current_user) , class: "newcardbtn" do
           カード情報確認
+    -if @address.present?
+      .user__side__list__adedit
+        .user__side__list__adedit--btn
+          = link_to edit_address_path(current_user), method: :get , class: "adeditbtn" do
+            住所変更
+    -else
+      .user__side__list__adin
+        .user__side__list__adin--btn
+          = link_to new_address_path , class: "adbtn" do
+            住所登録
 
--# = link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"list-links"
+      

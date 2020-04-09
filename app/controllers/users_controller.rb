@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
+  before_action :set_address, only: [:index, :edit]
+
   def index
+    @user = current_user
   end
 
   def show
@@ -37,6 +40,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :first_name, :last_name, :first_name_hiragana, :last_name_hiragana, :birth_year, :birth_month, :birth_day, :email, :password, :password_confirmation, :status, :deleted_at)
+  end
+
+  def set_address
+    @address = Address.where(user_id: current_user.id).first
   end
 
 end

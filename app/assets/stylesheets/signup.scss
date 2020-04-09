@@ -61,45 +61,58 @@ background-color: gray;
 
 .userSignUpMain {
   background-color: #F8F8F8;
-  padding: 0 370px;
   font-size: 14px;
+  .userSignUp__header {
+    height: 128px;
+    width: 100%;
+    display: flex;
+    &--logo {
+      margin: auto;
+    }
+  }
   &__wrapper {
-    @include wrapper($padding: 0 180px);
+    @include wrapper();
     background-color: white;
+    width: 60%;
+    display: flex;
+    margin: auto;
   }
 }
 
-.userSignUp__header {
-  height: 128px; 
-  @include dFlex();
-  align-items: center;
-  padding: 16px;
-}
+
 
 .userSignUp {
   &__head {
-    @include wrapper();
+    height: 70px;
     font-size: 22px;
     font-weight: 600;
     text-align: center;
+    margin: auto;
   }
-  #google {
-    @include formBox();
-    padding: 18px 93px;
-    text-decoration: none;
-    position: relative;
-    font-size: 17px;
-    color: blue;
-    font-weight: 600;
-    border: 3px solid blue;
-  }
-  i {
-    font-size: 25px;
-    position: absolute;
-    top: 31%;
-    left: 40%;
-    z-index: 1;
-    color: blue;
+  &__google {
+    display: flex;
+    height: 40px;
+    &--btn {
+      position: relative;
+      margin: auto;
+      #google {
+        border-radius: 5px;
+        padding: 18px 93px;
+        text-decoration: none;
+        font-size: 17px;
+        color: blue;
+        font-weight: 600;
+        border: 3px solid blue;
+        margin: auto;
+      }
+      i {
+        font-size: 25px;
+        z-index: 1;
+        color: blue;
+        position: absolute;
+        left: 40px;
+      }
+    }
   }
   &__nickname {
     @include janle();
@@ -200,5 +213,14 @@ background-color: gray;
   }
   &__center {
     margin: 0;
+  }
+}
+
+.userSignUp__topGo {
+  text-align: center;
+  #loginText {
+    color: #3DCACE;
+    text-decoration: none;
+    font-size: 20px;
   }
 }
