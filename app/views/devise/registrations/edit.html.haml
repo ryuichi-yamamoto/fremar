@@ -1,6 +1,8 @@
 = render "/items/templates/head_template"
+
 - breadcrumb :profile
 = breadcrumbs pretext: "",separator: " &rsaquo; " 
+
 .userEdit
   = render "/users/users_side"
   .userEdit__wrapper
@@ -44,5 +46,5 @@
           = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
         .userEditSendBtn
           = f.submit "登録する", id: "sendBtn"
-          -# = render "devise/shared/links"
+
 = render "/items/templates/foot_template"
