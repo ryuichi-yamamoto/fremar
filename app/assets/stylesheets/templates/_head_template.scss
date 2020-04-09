@@ -46,6 +46,7 @@
       display: flex;
       &__category {
         margin-right: 30px;
+        height: 60px;
         ul.category1{
           z-index: 5;
           position: relative;
@@ -54,10 +55,13 @@
           background-color: rgb(255, 255, 255);
           box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
           width: 224px;
+          height: 800px;
+          margin-top: 28px;
           list-style: none;
-          text-align: center;
+          // text-align: center;
           cursor: pointer;
           li{
+            padding: 10px;
           &:hover {
           background-color: #ea352d;
           a {
@@ -74,10 +78,11 @@
           box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
           left: 224px;
           position: absolute;
-          top: 44px;
+          top: 0px;
           width: 224px;
+          height: 800px;
           cursor: pointer;
-          text-align: center;
+          // text-align: center;
           li.child__list{
             background-color: rgb(255, 255, 255);
           a{
@@ -85,6 +90,7 @@
           }
         }
           li{
+            padding: 5px;
             &:hover {
             background-color: #ea352d;
             a {
@@ -104,7 +110,7 @@
           top: 0px;
           width: 320px;
           cursor: pointer;
-          text-align: center;
+          // text-align: center;
           li.grandchild__list{
             background-color: rgb(255, 255, 255);
             a{
