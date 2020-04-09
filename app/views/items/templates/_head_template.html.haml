@@ -7,10 +7,22 @@
         = button_tag type: "submit" , class:"submit-btn" do
           =image_tag 'search-rogo.png', width: '20' 
     .header-grp__header__lists
-      %ul.header-grp__header__lists__leftbox
-        %li.header-grp__header__lists__leftbox__category
-          = link_to 'カテゴリー', "#", class:"list-links"          
-        %li.header-grp__header__lists__leftbox__brands
+      .header-grp__header__lists__leftbox
+        .header-grp__header__lists__leftbox__category
+          = link_to 'カテゴリー', "#", class:"list-links"
+          %ul.category1
+            - @parents.each do |parent|
+              %li.parent__list
+                = link_to parent.name
+                %ul.category2
+                  - parent.children.each do |child|
+                    %li.child__list
+                      =link_to child.name
+                      %ul.category3
+                        - child.children.each do |grandchild|
+                          %li.grandchild__list
+                            = link_to grandchild.name
+        .header-grp__header__lists__leftbox__brands
           = link_to 'ブランド', "#", class:"list-links"
       - if user_signed_in?
         %ul.header-grp__header__lists__rightbox

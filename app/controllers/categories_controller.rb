@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
     @category = Category.where(id:16..56)
   end
 
+
   private
 
   def post_params
