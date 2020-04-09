@@ -6,6 +6,7 @@
 .addresseMain {
   background-color: #f8f8f8;
   display: flex;
+  padding-top: 100px;
   &__wrapper {
     @include wrapper();
     background-color: white;
@@ -88,6 +89,7 @@
 .userEdit {
   background-color: #f8f8f8;
   display: flex;
+  padding-top: 100px;
   &__wrapper {
     @include wrapper();
     background-color: white;

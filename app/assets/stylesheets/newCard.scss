@@ -3,13 +3,13 @@
   height: 100vh;
   display: flex;
   position: relative;
+  padding-top: 100px;
   .NewCard {
     background-color: #fff;
     width: 700px;
     height: 600px;
     position: absolute;
     right: 180px;
-    margin-top: 50px;
     &__info {
       &--name {
         padding: 15px 24px;
