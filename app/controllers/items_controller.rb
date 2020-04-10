@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
          # クレジットカードは登録されていないと強制的にconfirmationのviewに飛んでしまう為、コメントアウト
         # redirect_to controller: "cards", action: "confirmation"
       else
-        Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+        Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
         customer = Payjp::Customer.retrieve(card.customer_id)
         @default_card_information = customer.cards.retrieve(card.card_id)
         @card_brand = @default_card_information.brand 
@@ -92,7 +92,7 @@ class ItemsController < ApplicationController
     def pay
       @item.increment!(:condition, 1)
       card = Card.where(user_id: current_user.id).first
-      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
       Payjp::Charge.create(
       amount: @item.price,
       customer: card.customer_id,
