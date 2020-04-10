@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :category_dropmenu
-
+  
   def index
     
   end
