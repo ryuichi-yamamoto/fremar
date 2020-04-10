@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :category_dropmenu
   before_action :set_address, only: [:index, :edit]
 
   def index
