@@ -28,8 +28,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
 
+
   def set_parents
     @parents = Category.where(ancestry: nil).limit(13)
   end
+
   
 end

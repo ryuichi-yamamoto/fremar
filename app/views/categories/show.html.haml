@@ -1,0 +1,31 @@
+= render "/items/templates/head_template"
+= render "/items/templates/new_btn"
+.breadcrumb
+  %ul
+    %li パンくず
+
+.categoryListMain
+  .listMain
+    .category_box
+      %h2.category_name 
+        = "#{@category.name}の一覧"
+    .productLists
+      - @items.each do |item|
+        .productList
+          =link_to item_path(item.id), class: "productList_item" do
+            %figure.productList--img
+              = image_tag "#{item.images[0].image}"
+              .productList--body
+                %h3.name 
+                  = item.name
+                .product--text
+                  %ul
+                    %li 
+                      = "#{item.price}円"
+                    %li
+                      %i.icon 
+                      ★
+                      0
+                  %p 税込
+
+= render "/items/templates/foot_template"

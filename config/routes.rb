@@ -33,6 +33,10 @@ Rails.application.routes.draw do
       get 'confirmation'
     end
   end
+
   get 'signup', to: 'users#new'
   resources :addresses, only: [:new, :create, :edit, :update]
+
+  resources :categories, only: [:index, :show] 
+
 end
