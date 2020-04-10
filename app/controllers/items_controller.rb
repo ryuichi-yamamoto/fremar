@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  before_action :category_dropmenu
   before_action :set_item, only: [:show, :pay, :purchase, :destroy]
   before_action :authenticate_user!, only: [:new, :purchase]
 

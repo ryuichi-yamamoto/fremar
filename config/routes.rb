@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  
+  root 'items#index'
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
-  
-  root 'items#index'
 
   resources :items, except: :index do
     collection do
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :show, :edit, :update, :destroy] do
+  resources :users, only: [:index, :edit, :update, :destroy] do
     collection do 
       get 'done'
     end
