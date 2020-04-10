@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
   protect_from_forgery with: :null_session 
 
+  def category_dropmenu
+    @parents = Category.where(ancestry: nil).limit(13)
+  end
+
 
   private
 
@@ -26,5 +30,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
+
   
 end

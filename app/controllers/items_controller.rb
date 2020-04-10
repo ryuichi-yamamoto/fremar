@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :category_dropmenu
   before_action :set_item, only: [:show, :pay, :purchase, :destroy]
   before_action :authenticate_user!, only: [:new, :purchase]
 
@@ -7,7 +8,6 @@ class ItemsController < ApplicationController
     def index
         @items = Item.includes(:images).references(:items).where(condition: '1').limit(3).order('created_at DESC')
         @ladies_items = Item.includes(:images).references(:items).where(condition: '1', category_id: 1..199).limit(3).order('created_at DESC')
-        @parents = Category.where(ancestry: nil).limit(13)
     end
   
     def show
