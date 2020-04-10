@@ -1,0 +1,16 @@
+= render "/items/templates/head_template"
+= render "/items/templates/new_btn"
+.breadcrumb
+  %ul
+    %li パンくず
+
+.categoryMain
+  .category_index
+    %h2.category_title カテゴリー一覧
+    .category_index_box
+      - @parents.each do |parent|
+        %li.parent__list
+          = link_to "#{parent.name}"
+    .category_index_list
+
+= render "/items/templates/foot_template"

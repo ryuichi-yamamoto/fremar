@@ -61,10 +61,20 @@ background-color: gray;
 
 .exhibition {
   background-color: #F8F8F8;
-  padding: 0 370px;
   font-size: 14px;
   &__wrapper {
-    background-color: white;
+    background-color: #F8F8F8;
+    display: flex;
+    .exhibitionFrame {
+      margin: auto;
+      width: 60%;
+      background-color: white;
+      display: flex;
+      &__main {
+        width: 100%;
+        margin: auto;
+      }
+    }
   }
 }
 

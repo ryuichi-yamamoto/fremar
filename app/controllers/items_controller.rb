@@ -5,9 +5,8 @@ class ItemsController < ApplicationController
   require 'payjp'
    
     def index
-      @items = Item.includes(:images).references(:items).where(condition: '1').limit(3).order('created_at DESC')
-      @ladies_items = Item.includes(:images).references(:items).where(condition: '1', category_id: 1..199).limit(3).order('created_at DESC')
-      @parents = Category.where(ancestry: nil).limit(13)
+        @items = Item.includes(:images).references(:items).where(condition: '1').limit(3).order('created_at DESC')
+        @ladies_items = Item.includes(:images).references(:items).where(condition: '1', category_id: 1..199).limit(3).order('created_at DESC')
     end
   
     def show
