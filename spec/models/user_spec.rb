@@ -186,7 +186,5 @@ describe User do
       expect(user.errors[:status]).to include("can't be blank")
     end
 
-
-
   end
 end
