@@ -1,6 +1,8 @@
 = render "/items/templates/head_template"
+
 - breadcrumb :addressRegister
 = breadcrumbs pretext: "",separator: " &rsaquo; "
+
 .addresseMain
   = render "/users/users_side"
   .addresseMain__wrapper
@@ -45,4 +47,5 @@
 
         .userSignUp__success
           = f.submit "登録する", id: "sendBtn"
+          
 = render "/items/templates/foot_template"
