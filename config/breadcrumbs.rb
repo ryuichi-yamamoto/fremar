@@ -4,6 +4,7 @@ end
 
 crumb :mypage do
   link "マイページ", users_path
+  parent :root
 end
 
 crumb :profile do
@@ -25,3 +26,14 @@ crumb :confirmationCard do
   link "カード情報確認", confirmation_card_path(current_user)
   parent :mypage
 end
+
+crumb :category do
+  link "カテゴリ一覧", categories_path
+end
+
+crumb :categoryName do 
+  link "#{Category.find(params[:id]).name}", category_path
+  parent :category
+end
+
+
