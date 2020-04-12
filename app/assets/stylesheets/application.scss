@@ -20,6 +20,7 @@
 @import "search";
 @import "indexCategory";
 @import "showCategory";
+@import "userUpdate";
 
 .breadcrumbs {
   font-size: 12px;
@@ -38,8 +39,4 @@
     margin-left: 10px;
     font-weight: 600;
   }
-}
-
-.userEdit {
-  padding-top: 100px;
 }
