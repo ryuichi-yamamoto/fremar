@@ -63,7 +63,7 @@
             %label セキュリティーコード
             %span.card-security__form 必須
           .card-code
-            = text_field_tag "cvc", "", class: "card-code__cvc", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+            = text_field_tag "cvc", "", class: "card-code__cvc", placeholder: "カード背面3桁もしくは4桁の番号", maxlength: "4", id: "cvc"
           #card_token
             = submit_tag "追加する", id: "token_submit", class: "top__margin"
 = render "/items/templates/foot_template"
