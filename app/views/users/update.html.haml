@@ -1,6 +1,16 @@
 = render "/items/templates/head_template"
+= render "/users/users_side"
 
-.userUpdateMain
-   = render "/users/users_side"
-
+.done__main
+  .done__main__ok
+    .done__main__ok__message
+      ユーザー情報を更新しました
+  .done__main__link
+    .done__main__link__top
+      = link_to "root" , class: "topBtn" do
+        トップ
+    .done__main__link__mypage
+      = link_to "/users" , class: "myBtn" do
+        マイページ
+        
 = render "/items/templates/foot_template"

@@ -26,10 +26,6 @@
   height: 100%;
 }
 .user__side {
-  height: 200px;
-  width: 200px;
-  margin-top: 30px;
-  margin-left: 10%;
   &__set {
     height: 40px;
     width: 100px;
@@ -100,12 +96,13 @@
 // 下記はユーザーページ（index）の記述
 .userTopMain {
   background-color: #f8f8f8;
-  display: flex;
+  display: flex;  
+  padding: 50px 200px;
   &__wrapper {
     @include wrapper();
     background-color: white;
-    width: 50%;
-    margin: 5px auto;
+    width: 100%;
+    margin-left: 50px;
     .userTopMainFrame {
       height: 80vh;
       text-decoration: none;
@@ -138,7 +135,7 @@
 }
 @mixin iam {
   margin: 10px auto 0;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 #iamtext {
@@ -148,11 +145,12 @@
 .iamMain {
   background-color: #f8f8f8;
   display: flex;
+  padding: 50px 200px;
   &__wrapper {
     @include wrapper();
     background-color: white;
-    width: 50%;
-    margin: 5px auto;
+    width: 100%;
+    margin-left: 50px;
     .iamFrame {
       margin: 0 auto;
       width: 70%;
@@ -210,6 +208,7 @@
   height: 1100px;
   width: 100vw;
   display: flex;
+  padding: 50px 200px;
   &__main {
     height: 2000px;
     width: 80%;
@@ -553,6 +552,7 @@
 .done__main {
   height: 80vw;
   width: 100%;
+  padding: 50px 200px;
   &__ok {
     height: 200px;
     width: 80%;

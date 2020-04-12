@@ -6,12 +6,12 @@
 .addresseMain {
   background-color: #f8f8f8;
   display: flex;
-  padding-top: 100px;
+  padding: 50px 200px;
   &__wrapper {
     @include wrapper();
     background-color: white;
-    width: 50%;
-    margin: 5px auto;
+    width: 100%;
+    margin-left: 50px;
     .addresseFrame {
       margin: 0 auto;
       width: 70%;
@@ -89,12 +89,13 @@
 .userEdit {
   background-color: #f8f8f8;
   display: flex;
-  padding-top: 100px;
+  padding: 50px 200px;
   &__wrapper {
     @include wrapper();
     background-color: white;
-    width: 50%;
-    margin: 5px auto;
+    height: 1100px;
+    width: 100%;
+    margin-left: 50px;
     .userEditFrame {
       margin: 0 auto;
       width: 70%;
@@ -190,13 +191,15 @@
 .addressCreate {
   background-color: whitesmoke;
   display: flex;
+  padding: 50px 200px;
   .addressCreate__wrapper {
     height: 100vw;
     width: 100%;
+    margin-left: 50px;
     display: flex;
     .addresseCreateFrame {
       margin: 5px auto;
-      width: 70%;
+      width: 100%;
       background-color: white;
       .addresseCreateTitle {
         height: 300px;
