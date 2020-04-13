@@ -61,30 +61,80 @@ background-color: gray;
 
 .userSignUpMain {
   background-color: #F8F8F8;
-  padding: 0 370px;
   font-size: 14px;
+  .userSignUp__header {
+    height: 128px;
+    width: 100%;
+    display: flex;
+    &--logo {
+      margin: auto;
+    }
+  }
   &__wrapper {
-    @include wrapper($padding: 0 180px);
     background-color: white;
+    width: 70%;
+    display: flex;
+    margin: auto;
+    &--frame {
+      width: 50%;
+      margin: auto;
+    }
   }
 }
 
-.userSignUp__header {
-  height: 128px; 
-  @include dFlex();
-  align-items: center;
-  padding: 16px;
+.error_msg {
+  width: 100%;
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #f8d8da;
+  color: #75242b;
+  border-radius: 3px;
+  border: 1px solid #f9c6cc;
+  position: relative;
+  span.no-icon {
+    position: absolute;
+    right: 15px;
+    font-weight: bold;
+  }
 }
 
 .userSignUp {
   &__head {
-    @include wrapper();
+    height: 70px;
     font-size: 22px;
     font-weight: 600;
     text-align: center;
+    margin: auto;
+  }
+  &__google {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    &--btn {
+      position: relative;
+      margin: auto;
+      width: 100%;
+      #google {
+        border-radius: 5px;
+        padding: 18px 15%;
+        text-decoration: none;
+        font-size: 17px;
+        color: blue;
+        font-weight: 600;
+        border: 3px solid blue;
+      }
+      i {
+        font-size: 25px;
+        z-index: 1;
+        color: blue;
+        position: absolute;
+        left: 6%;
+      }
+    }
   }
   &__nickname {
     @include janle();
+    margin-top: 30px;
   }
   #nicknameForm {
     @include formBox();
@@ -181,5 +231,14 @@ background-color: gray;
   }
   &__center {
     margin: 0;
+  }
+}
+
+.userSignUp__topGo {
+  margin-bottom: 40px;
+  #loginText {
+    color: #3DCACE;
+    text-decoration: none;
+    font-size: 17px;
   }
 }

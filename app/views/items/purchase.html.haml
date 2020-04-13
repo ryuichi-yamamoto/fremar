@@ -1,7 +1,6 @@
-
 .PayHeader
   .PayHeader__title
-    = image_tag "logo.png", width: "250"
+    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "280"), root_path
 .PayMain
   .PayMain__contents
     .PayMain__contents--title 購入内容の確認
@@ -42,15 +41,22 @@
         %ul.PayMain__contents--means__address--info
           %li.PayMain__contents--means__address--info__theme 配送先
           %li.PayMain__contents--means__address--info__edit
-            = link_to "#" do
+            = link_to edit_address_path(current_user.id) do
               変更する
-        %ul.PayMain__contents--means__address--info__text
-          %li= "〒123-4567"
-          %li= "大阪府 大阪市中央区難波5丁目1−60 なんばスカイオ15階"
-          %li= "田中 太郎"
-      .PayMain__contents--means__btn
-        = form_with url: pay_items_path, local: true do |f|
-          = f.submit "購入する", class: "pay__btn"
-  .PayFooer-iamge
-    = image_tag "logo-gray.png", width: '200'
+        - if @address.blank?
+          %br 配送先を登録してください
+        - else
+          %ul.PayMain__contents--means__address--info__text
+            %li= "〒#{@address.postal_code}"
+            %li= "#{@address.prefecture} #{@address.city} #{@address.room}"
+            %li= "#{@address.first_name} #{@address.last_name}"
+      - if @default_card_information && @address
+        .PayMain__contents--means__btn
+          = form_with url: pay_items_path, local: true do |f|
+            = f.submit "購入する", class: "pay__btn"
+      - else
+        .PayMain__contents--means__btn
+          .not__botton 購入する
+
+= render "/items/templates/sub_foot_template"
 

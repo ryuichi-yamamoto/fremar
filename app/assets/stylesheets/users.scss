@@ -1,9 +1,31 @@
 // 下記はユーザーページで主に使うサイドメニュー
-.user__side {
-  height: 200px;
+@mixin btnsize {
+  height: 70px;
   width: 200px;
-  margin-top: 30px;
-  margin-left: 10%;
+}
+@mixin btn {
+  height: 70px;
+  width: 200px;
+  margin-top: 2px;
+  font-size: 20px;
+  text-align: center;
+  border: solid;
+  line-height: 70px;
+  border-radius: 5px;
+  font-weight: 550;
+  border-color: #3DCACE;
+  background-color: white;
+}
+@mixin btnwrite {
+  text-decoration: none;
+  color: #3DCACE;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.user__side {
   &__set {
     height: 40px;
     width: 100px;
@@ -15,241 +37,168 @@
     height: 214px;
     width: 200px;
     &__mypage {
-      height: 70px;
-      width: 200px;
+      @include btnsize;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        border: solid;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .mybtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
         }
       }
     }
     &__pro {
-      height: 70px;
-      width: 200px;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border: solid;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .probtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
         }
       }
     }
     &__out {
-      height: 70px;
-      width: 200px;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border: solid;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .outbtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
         }
       }
     }
     &__adin {
-      height: 70px;
-      width: 200px;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border: solid;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .adbtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
         }
       }
     }
     &__adedit {
-      height: 70px;
-      width: 200px;
       &--btn {
-        height: 70px;
-        width: 200px;
-        margin-top: 2px;
-        font-size: 20px;
-        text-align: center;
-        line-height: 70px;
-        border-radius: 5px;
-        font-weight: 550;
-        border: solid;
-        border-color: #3DCACE;
-        background-color: white;
+        @include btn;
         position: relative;
         .adeditbtn {
-          text-decoration: none;
-          color: #3DCACE;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          @include btnwrite;
+        }
+      }
+    }
+    &__newcard {
+      &--btn {
+        @include btn;
+        position: relative;
+        .newcardbtn {
+          @include btnwrite;
         }
       }
     }
   }
 }
 // 下記はユーザーページ（index）の記述
-.users__main {
-  display: flex;
-  &__right {
-    height: 300px;
-    width: 400px;
-    margin-left: 15%;
-    margin-top: 40px;
-    margin-bottom: 250px;;
-    background-color: #ccffff;
-    text-align: center;
-  }
-  .indexName {
-    line-height: 300px;
-    text-decoration: none;
-    font-size: 30px;
-    color: black;
+.userTopMain {
+  background-color: #f8f8f8;
+  display: flex;  
+  padding: 50px 200px;
+  &__wrapper {
+    @include wrapper();
+    background-color: white;
+    width: 100%;
+    margin-left: 50px;
+    .userTopMainFrame {
+      height: 80vh;
+      text-decoration: none;
+      display: flex;
+      .showUserName {
+        text-decoration: none;
+        margin: 100px auto;
+        font-size: 20px;
+        color: #3DCACE;
+        height: 70px;
+        width: 200px;
+        text-align: center;
+        border: solid;
+        line-height: 70px;
+        border-radius: 5px;
+        font-weight: 550;
+        border-color: #3DCACE;
+        background-color: white;
+      }
+    }
   }
 }
 // 下記はユーザーの詳細ページ（show）の記述
-.show__main {
-  margin-top: 60px;
-  height: 1500px;
-  width: 100vw;
-  position: relative;
-  background-color: #EEEEEE;
-  &__content {
-    height: 1500px;
-    width: 700px;
-    margin: auto;
-    position: relative;
+@mixin centerin {
+  display: flex;
+  margin: auto;
+}
+@mixin iamguide {
+  margin: 30px auto 0;
+}
+@mixin iam {
+  margin: 10px auto 0;
+  font-size: 20px;
+}
+
+#iamtext {
+  font-weight: 600;
+  border-bottom: solid 3px #3DCACE;
+}
+.iamMain {
+  background-color: #f8f8f8;
+  display: flex;
+  padding: 50px 200px;
+  &__wrapper {
+    @include wrapper();
     background-color: white;
-    &__user {
-      height: 300px;
-      width: 700px;
-      margin: auto;
-      position: relative;
-      background-color: #bad3ff;
-      &--name {
-        height: 250px;
-        width: 400px;
-        margin: auto;
+    width: 100%;
+    margin-left: 50px;
+    .iamFrame {
+      margin: 0 auto;
+      width: 70%;
+      .iamTitle {
+        font-size: 20px;
+        margin: 0 auto;
         text-align: center;
-        .showUserName {
-          text-decoration: none;
-          color: black;
-          font-size: 30px;
-          line-height: 250px;
-        }
+        font-weight: 600;
+        padding-bottom: 40px;
       }
-    }
-    &__data {
-      height: 200px;
-      width: 700px;
-    }
-    &__icon {
-      height: 200px;
-      width: 700px;
-      display: flex;
-      &--fb {
-        height: 100px;
-        width: 100px;
-        margin: 100px auto 200px 195px;
-        text-align: center;
-        line-height: 100px;
-        background-color: blue;
+      .iamNickname__guide {
+        @include iamguide;
       }
-      &--tw {
-        height: 100px;
-        width: 100px;
-        margin: 100px auto;
-        text-align: center;
-        line-height: 100px;
-        background-color: cornflowerblue;
+      .iamNickname__iam {
+        @include iam;
       }
-      &--ln {
-        height: 100px;
-        width: 100px;
-        margin: 100px 195px 200px auto;
-        text-align: center;
-        line-height: 100px;
-        background-color: lawngreen;
+      .iamName__guide {
+        @include iamguide;
       }
-    }
-    &__goods {
-      height: 700px;
-      width: 700px;
-      &--name {
-        height: 50px;
-        width: 700px;
-        font-size: 30px;
+      .iamName__iam {
+        @include iam;
       }
-      &--product {
-        height: 200px;
-        width: 200px;
-        margin-top: 20px;
-        margin-left: 25px;
-        margin-right: 25px;
-        background-color: maroon;
+      .iamKana__guide {
+        @include iamguide;
+      }
+      .iamKana__iam {
+        @include iam;
+      }
+      .iamBirth__guide {
+        @include iamguide;
+      }
+      .iamBirth__iam {
+        @include iam;
+      }
+      .iamTel__guide {
+        @include iamguide;
+      }
+      .iamTel__iam {
+        @include iam;
+      }
+      .iamCity__guide {
+        @include iamguide;
+      }
+      .iamCity__iam {
+        @include iam;
+      }
+      .iamCity__iamRoom {
+        @include iam;
       }
     }
   }
@@ -259,6 +208,7 @@
   height: 1100px;
   width: 100vw;
   display: flex;
+  padding: 50px 200px;
   &__main {
     height: 2000px;
     width: 80%;
@@ -602,6 +552,7 @@
 .done__main {
   height: 80vw;
   width: 100%;
+  padding: 50px 200px;
   &__ok {
     height: 200px;
     width: 80%;
@@ -643,12 +594,5 @@
         line-height: 100px;
       }
     }
-  }
-}
-// 下記は住所登録完了画面（create）の記述
-.addressCreate {
-  background-color: whitesmoke;
-  .addressCreate__wrapper {
-    height: 100vw;
   }
 }

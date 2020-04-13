@@ -1,17 +1,23 @@
 class CategoriesController < ApplicationController
+  
+  def index
+    
+  end
+
   def show
-    if params[:id]
-      @category = Category.find(params[:id])
-      @posts = @category.posts.order(created_at: :desc).all
-    else
-      @posts = Post.order(created_at: :desc).all
-    end
-    @category = Category.where(id:16..56)
+    @category = Category.find(params[:id])
+    @categories = [
+      # 下記で@categoryを取得
+      @category,
+      # 下記で@categoryの子カテゴリーを全て取得
+      @category.children,
+      # 下記で@categoryの子カテゴリーの子カテゴリーを全て取得
+      @category.children.map { |category| category.children }
+    ].flatten.compact
+    @items = Item.includes(:images).references(:items).where(condition: '1',category_id: @categories).order('created_at DESC')
+    
   end
 
-  private
-
-  def post_params
-    params.require(:post).permit(:title, :body, :image, :material, :category_id, :likes_count)
-  end
 end
+
+

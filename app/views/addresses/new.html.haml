@@ -1,4 +1,8 @@
 = render "/items/templates/head_template"
+
+- breadcrumb :addressRegister
+= breadcrumbs pretext: "",separator: " &rsaquo; "
+
 .addresseMain
   = render "/users/users_side"
   .addresseMain__wrapper
@@ -34,16 +38,14 @@
         = f.text_field :city, autofocus: true, id: "addresseCity", placeholder: "福岡市"
         .addresseAddress__guide
           %p#text 番地
-          %p#mark2 任意
+          %p#mark 必須
         = f.text_field :address, autofocus: true, id: "addresseAddress", placeholder: ""
         .addresseRoom__guide
           %p#text 建物名
           %p#mark2 任意
         = f.text_field :room, autofocus: true, id: "addresseRoom", placeholder: ""
 
-        -# .deleted_at
-        -#   = f.text_field :deleted_at
-
         .userSignUp__success
           = f.submit "登録する", id: "sendBtn"
+          
 = render "/items/templates/foot_template"

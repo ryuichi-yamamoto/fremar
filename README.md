@@ -25,7 +25,7 @@ Things you may want to cover:
 
 
 # fremar DB設計
-## usersテーブル
+## usersテーブル  
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
@@ -41,10 +41,10 @@ Things you may want to cover:
 |status|string|null: false|
 |deleted_at|datetime|null: false|
 ### Association
-- has_many :addresses
-- has_many :items
-- has_many :comments
-- has_many :cards
+- belongs_to :addresses
+- has_many   :items
+- has_many   :comments
+- has_many   :cards
 
 ## addressesテーブル
 |Column|Type|Options|

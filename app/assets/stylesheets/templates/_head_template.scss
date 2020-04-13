@@ -3,7 +3,8 @@
 }
 
 .header-grp {
-  
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
 &__header {
   height: 100px;
   background-color: #fff;
@@ -40,10 +41,94 @@
     margin-top: 20px;
     justify-content: space-between;
 
+
     &__leftbox {
       display: flex;
+      position: relative;
       &__category {
         margin-right: 30px;
+        height: 60px;
+        text-decoration: none;
+        a{
+          display: block;
+          text-decoration: none;
+          color: #000;
+        }
+        ul.category1{
+          text-decoration: none;
+          z-index: 1;
+          position: absolute;
+          display: none;
+          box-sizing: border-box;
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          width: 224px;
+          height: 800px;
+          margin-top: 28px;
+          list-style: none;
+          // text-align: center;
+          cursor: pointer;
+          li{
+            text-decoration: none;
+            padding: 10px;
+          &:hover {
+          background-color: #ea352d;
+          a {
+            color: #fff;
+              }
+            }
+          }
+        }
+
+        ul.category2{
+          display: none;
+          background-color: rgb(255, 255, 255);
+          bottom: 0px;
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          left: 224px;
+          position: absolute;
+          top: 0px;
+          width: 224px;
+          height: 800px;
+          cursor: pointer;
+          // text-align: center;
+          li.child__list{
+            background-color: rgb(255, 255, 255);
+          a{
+            color:#000;
+          }
+        }
+          li{
+            padding: 5px;
+            &:hover {
+            background-color:#ddd;
+              }
+            }
+          }
+        
+        ul.category3{
+          display: none;
+          background-color: rgb(255, 255, 255);
+          bottom: 0px;
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          left: 224px;
+          position: absolute;
+          top: 0px;
+          width: 320px;
+          cursor: pointer;
+          // text-align: center;
+          li.grandchild__list{
+            background-color: rgb(255, 255, 255);
+            a{
+              color:#000;
+            }
+          }
+          li{
+            &:hover {
+            background-color: #ddd;
+              }
+            }
+        }
       }
     }
     &__rightbox {
@@ -52,9 +137,16 @@
         margin-right: 30px;
       }
     }
-    .list-links {
+    .list-links{
       color: #000;
       text-decoration: none;
+    }
+    .list-links1{
+      color: #000;
+      text-decoration: none;
+      
+      
+      //left: 0;
     }
     .list-links:hover {
       color: #FFC36F;

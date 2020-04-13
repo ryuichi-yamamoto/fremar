@@ -8,7 +8,6 @@
 .PayMain {
   background-color: #f8f8f8;
   line-height: 1;
-  padding-bottom: 40px;
   &__contents {
     background-color: #fff;
     width: 700px;
@@ -123,6 +122,13 @@
         .pay__btn {
           background-color: #3acacd;
           padding: 15px;
+          width: 100%;
+          font-size: 16px;
+          color: #fff;
+        }
+        .not__botton {
+          background-color: #888888;
+          padding: 20px;
           width: 100%;
           font-size: 16px;
           color: #fff;

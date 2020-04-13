@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :authenticate_user!
-  protect_from_forgery with: :null_session
 
+  before_action :basic_auth, if: :production?
+  before_action :set_parents
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
+  protect_from_forgery with: :null_session 
+  protect_from_forgery with: :exception
 
   private
 
@@ -24,4 +26,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
+
+
+  def set_parents
+    @parents = Category.where(ancestry: nil).limit(13)
+  end
+
+  
 end

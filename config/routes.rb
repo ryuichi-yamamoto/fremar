@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
   root 'items#index'
+
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
 
   resources :items, except: :index do
     collection do
       get 'purchase/:id' => 'items#purchase', as: 'purchase'
       post 'pay/:id'=> 'items#pay', as: 'pay'
       get  'done'=> 'items#done', as: 'done'
+      get  'search'
     end
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -15,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :show, :edit, :update, :destroy] do
+  resources :users, only: [:index, :edit, :update, :destroy] do
     collection do 
       get 'done'
     end
@@ -28,6 +33,11 @@ Rails.application.routes.draw do
       get 'confirmation'
     end
   end
+
   get 'signup', to: 'users#new'
+  
   resources :addresses, only: [:new, :create, :edit, :update]
+
+  resources :categories, only: [:index, :show] 
+
 end
