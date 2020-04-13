@@ -3,30 +3,33 @@
     =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "280"), root_path
   
   .exhibition__wrapper
-    =form_for @item do |f|
-      .exbMain
-        .exbMain__topWrapper
-          .exbMain__topWrapper__top
-            %p#text 出品画像
-            %p#mark 必須
-          .exbMain__topWrapper__textBox
-            %p 最大５枚までアップロードできます
-          #image-box
-            #previews
-              - if @item.persisted?
-                - @item.images.each_with_index do |image, i|
-                  = image_tag image.src.url, data: { index: i }, width: "100"
-            = f.fields_for :images do |image|
-              %label
-                .js-file_group{"data-index" => "#{image.index}"}
-                  %p 選択
-                  = image.file_field :image, class: 'js-file'
-                  .js-remove 削除
+    .exhibitionFrame
+      .exhibitionFrame__main
+        =form_for @item do |f|
+          .exbMain
+            .exbMain__topWrapper
+              .exbMain__topWrapper__top
+                %p#text 出品画像
+                %p#mark 必須
+              .exbMain__topWrapper__textBox
+                %p 最大５枚までアップロードできます
+              #image-box
+                #previews
+                  - if @item.persisted?
+                    - @item.images.each_with_index do |image, i|
+                      = image_tag image.src.url, data: { index: i }, width: "100"
+                = f.fields_for :images do |image|
+                  %label
+                    .js-file_group{"data-index" => "#{image.index}"}
+                      %p 選択
+                      = image.file_field :image, class: 'js-file'
+                      .js-remove 削除
                 - if @item.persisted?
                   %label
                     .js-file_group{"data-index" => "#{@item.images.count}"}
                       = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
                       .js-remove 削除
+
             .exbMain__secondWrapper
               .exbMain__secondWrapper__top
                 %p#text 商品名
@@ -91,78 +94,7 @@
             .exbMain__sixWrapper
               .exbMain__sixWrapper__center
                 = f.submit "出品する", id: "sendBtn"
-                = link_to "もどる", root_path, id: "backBtn"
-
-        .exbMain__secondWrapper
-          .exbMain__secondWrapper__top
-            %p#text 商品名
-            %p#mark 必須 
-          = f.text_field :name, id: "itemName", placeholder: "商品名を入力してください"
-          
-          .exbMain__secondWrapper__center
-            %p#text 商品の説明
-            %p#mark 必須
-          = f.text_area :text, id: "introduction", placeholder: "\n商品の説明\n色、重さ、素材、定価額、注意点など"
-          .exbMain__secondWrapper__under
-    
-        .exbMain__thirdWrapper
-          .exbMain__thirdWrapper__janle
-            %p#janle 商品の詳細
-          .exbMain__thirdWrapper__top
-            %p#text カテゴリー
-            %p#mark 必須
-          .listing-form-box 
-            .listing-product-detail__category
-              %span.listing-default--require 
-              .listing-select-wrapper
-              .listing-select-wrapper__box
-                = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: 'item[category_id]'}
-          .exbMain__thirdWrapper__center
-            %p#text ブランド
-            %p#mark2 任意
-          = f.text_field :brandName, id: "brandName", placeholder: "ブランド名を入力してください"
-          .exbMain__thirdWrapper__under
-            %p#text 商品の状態
-            %p#mark 必須
-          = f.collection_select :status_id, Status.all, :id, :name, prompt: "選択してください", class: 'input'
-          .exbMain__thirdWrapper__bottom
-            %p#text サイズ
-            %p#mark 必須
-          = f.text_field :size, id: "size", placeholder: "サイズを入力してください 衣類はS,M,Lなど、靴等は○○cm"  
-        .exbMain__fourthWrapper
-          .exbMain__fourthWrapper__janle
-            %p#janle 配送について
-          .exbMain__fourthWrapper__top
-            %p#text 配送料の負担
-            %p#mark 必須
-          = f.collection_select :deliveryfee_id, Deliveryfee.all, :id, :name, prompt: "選択してください", class: 'input'
-          .exbMain__fourthWrapper__center
-            %p#text 発送元の地域
-            %p#mark 必須
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
-          .exbMain__fourthWrapper__under
-            %p#text 発送までの日数
-            %p#mark 必須
-          = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, prompt: "選択してください", class: 'input'
-    
-        .exbMain__fifthWrapper
-          .exbMain__fifthWrapper__left
-            .exbMain__fifthWrapper__left__janle
-              %p#janle 価格（¥300〜9,999,999)
-            .exbMain__fifthWrapper__left__top
-              %p#text 販売価格
-              %p#mark 必須
-          .exbMain__fifthWrapper__right
-            .exbMain__fifthWrapper__right__priceArea
-              %p#yen ¥
-              = f.text_field :price, id: "price", placeholder: "金額を入力してください"
-
-  
-    
-        .exbMain__sixWrapper
-          .exbMain__sixWrapper__center
-            = f.submit "出品する", id: "sendBtn"
-            = link_to "もどる", root_path, id: "backBtn"
+                = link_to "もどる", root_path, id: "backBtn"  
 
 = render "/items/templates/sub_foot_template"
 
