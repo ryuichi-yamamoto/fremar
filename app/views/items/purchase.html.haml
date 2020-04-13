@@ -1,6 +1,6 @@
 .PayHeader
   .PayHeader__title
-    = image_tag "logo.png", width: "250"
+    =link_to image_tag(src = "logo.png", id: "exbHeader__logo", width: "280"), root_path
 .PayMain
   .PayMain__contents
     .PayMain__contents--title 購入内容の確認
@@ -57,7 +57,6 @@
       - else
         .PayMain__contents--means__btn
           .not__botton 購入する
-  .PayFooer-iamge
-    = image_tag "logo-gray.png", width: '200'
-    
+
+= render "/items/templates/sub_foot_template"
 

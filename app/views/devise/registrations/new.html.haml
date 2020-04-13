@@ -5,6 +5,7 @@
   .userSignUpMain__wrapper
     .userSignUpMain__wrapper--frame
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
         .userSignUp
           .userSignUp__head
             %p 会員情報入力
@@ -16,22 +17,22 @@
           .userSignUp__nickname
             %p#text ニックネーム(40文字以内)
             %p#mark 必須
-          = f.text_field :nickname, autofocus: true, id: "nicknameForm", placeholder: "例）フリマル菜奈"
+          = f.text_field :nickname, autofocus: true, id: "nicknameForm", placeholder: "例）フリマル菜奈", required: true
           .userSignUp__email
             %p#text メールアドレス
             %p#mark 必須
-          = f.email_field :email, placeholder: " PC・携帯どちらでも可", id: "emailForm"
+          = f.email_field :email, placeholder: " PC・携帯どちらでも可", id: "emailForm", required: true
           - if @sns_id.present?
             = hidden_field_tag :sns_auth, true
           - else
             .userSignUp__pwForm
               %p#text パスワード
               %p#mark 必須
-            = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm"
+            = f.password_field :password, autocomplete: "off", placeholder: " パスワード（７文字以上）", id: "pwForm", required: true, minlength: '7', maxlength: '30'
             .userSignUp__pwForm
               %p#text パスワード(再入力)
               %p#mark 必須
-            = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm"
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: " パスワード再入力", id: "pwForm", required: true, minlength: '7', maxlength: '30'
     
           .userSignUp__textTitle
             %p 本人確認
@@ -44,22 +45,22 @@
           .userSignUp__fullname
             %p#text お名前
             %p#mark 必須
-          = f.text_field :first_name, autofocus: true, id: "firstnameForm", placeholder: "例）小松"
-          = f.text_field :last_name, autofocus: true, id: "lastnameForm", placeholder: "例）菜奈"
+          = f.text_field :first_name, autofocus: true, id: "firstnameForm", placeholder: "例）小松", required: true
+          = f.text_field :last_name, autofocus: true, id: "lastnameForm", placeholder: "例）菜奈", required: true
           .userSignUp__fullname-hiragana
             %p#text お名前かな
             %p#mark 必須
-          = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）こまつ"
-          = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）なな"
+          = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）こまつ", required: true
+          = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）なな", required: true
           .userSignUp__birthday
             %p#text 生年月日
             %p#mark 必須
           .userSignUp__birthdayForm
-            = f.text_field :birth_year, placeholder: "2020", id: "birthForm"
+            = f.text_field :birth_year, placeholder: "2020", id: "birthForm", required: true
             #birthText 年
-            = f.text_field :birth_month, placeholder: "05", id: "birthForm2"
+            = f.text_field :birth_month, placeholder: "05", id: "birthForm2", required: true
             #birthText 月
-            = f.text_field :birth_day, placeholder: "10", id: "birthForm2"
+            = f.text_field :birth_day, placeholder: "10", id: "birthForm2", required: true
             #birthText 日
 
           .userSignUp__success

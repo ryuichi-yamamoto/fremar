@@ -2,13 +2,12 @@
   background-color: #f8f8f8;
   height: 100vh;
   display: flex;
-  padding: 50px 200px;
+  padding-top: 100px;
   .NewCard {
     background-color: #fff;
-    width: 700px;
+    width: 55%;
     height: 600px;
-    position: absolute;
-    right: 180px;
+    margin: 0 10%;
     &__info {
       &--name {
         padding: 15px 24px;
@@ -105,6 +104,7 @@
           text-align: center;
           padding: 15px;
           color: #fff;
+          cursor: pointer;
         }
       }
     }

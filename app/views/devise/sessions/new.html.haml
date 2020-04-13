@@ -9,9 +9,9 @@
           .userSignUp__head
             %p ログインフォーム
           .userSignIn__email
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", id: "emailForm"
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", id: "emailForm", required: true
           .userSignIn__pwForm
-          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", id: "pwForm"
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", id: "pwForm", required: true, minlength: '7', maxlength: '30'
         
           .userSignIn__success
             = f.submit "ログインする", id: "sendBtn"

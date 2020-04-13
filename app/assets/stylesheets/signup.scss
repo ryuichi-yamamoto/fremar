@@ -82,7 +82,21 @@ background-color: gray;
   }
 }
 
-
+.error_msg {
+  width: 100%;
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #f8d8da;
+  color: #75242b;
+  border-radius: 3px;
+  border: 1px solid #f9c6cc;
+  position: relative;
+  span.no-icon {
+    position: absolute;
+    right: 15px;
+    font-weight: bold;
+  }
+}
 
 .userSignUp {
   &__head {
