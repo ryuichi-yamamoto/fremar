@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
     def edit
       grandchild_category = @item.category
       child_category = grandchild_category.parent
-
+      
 
       @category_parent_array = []
       Category.where(ancestry: nil).each do |parent|
@@ -64,9 +64,8 @@ class ItemsController < ApplicationController
   
     def update
       if @item.update(item_params)
-        render :update
       else
-        redirect_to root_path
+        redirect_to action: :edit
       end
     end
     
