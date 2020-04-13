@@ -44,20 +44,16 @@ class ItemsController < ApplicationController
     def edit
       grandchild_category = @item.category
       child_category = grandchild_category.parent
-      
-
       @category_parent_array = []
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+        @array = Category.where(ancestry: nil).pluck(:name)
+        @category_parent_array.push(@array)
+        @category_parent_array.flatten!
 
-      @category_children_array = []
-      Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array = Category.where(ancestry: child_category.ancestry) do
         @category_children_array << children
       end
 
-      @category_grandchildren_array = []
-      Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry) do
         @category_grandchildren_array << grandchildren
       end
     end
