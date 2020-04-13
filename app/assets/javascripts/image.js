@@ -14,7 +14,7 @@ $(function() {
       }
       // プレビュー用のimgタグを生成する関数
       const buildImg = (index, url)=> {
-        const html = `<img data-index="${index}" src="${url}" width="110px" height="110px">`;
+        const html = `<img data-index="${index}" src="${url}" width="110px">`;
         return html;
       }
     
@@ -23,7 +23,7 @@ $(function() {
       // 既に使われているindexを除外
       lastIndex = $('.js-file_group:last').data('index');
       fileIndex.splice(0, lastIndex);
-    
+      
       $('.hidden-destroy').hide();
     
       $('#image-box').on('change', '.js-file', function(e) {
@@ -51,7 +51,7 @@ $(function() {
       $('#image-box').on('click', '.js-remove', function() {
         const targetIndex = $(this).parent().data('index');
         // 該当indexを振られているチェックボックスを取得する
-        const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+        const hiddenCheck = $(`input[data-index="${targetIndex}"] hidden-destroy`);
         // もしチェックボックスが存在すればチェックを入れる
         if (hiddenCheck) hiddenCheck.prop('checked', true);
     

@@ -9,33 +9,33 @@
       = @item.name
     .dtlWhole-view__item-main__toppic
       - if @item_images[0].nil?
-        = image_tag "bobu.jpg", class:'main-pic'
+        = image_tag "no-image01.jpg", class:'main-pic'
       - else
         = image_tag @item_images[0].image.url, class:'main-pic'
     .dtlWhole-view__item-main__otherpic-grp
       .dtlWhole-view__item-main__otherpic-grp--left
         - if @item_images[0].nil?
-          = image_tag "bobu.jpg", class:'left-pic'
+          = image_tag "no-image01.jpg", class:'left-pic'
         - else
           = image_tag @item_images[0].image.url, class: 'left-pic'
       .dtlWhole-view__item-main__otherpic-grp--leftmid
         - if @item_images[1].nil?
-          = image_tag "bobu.jpg", class:'leftmid-pic'
+          = image_tag "no-image01.jpg", class:'leftmid-pic'
         - else
           = image_tag @item_images[1].image.url, class: 'leftmid-pic'
       .dtlWhole-view__item-main__otherpic-grp--mid
         - if @item_images[2].nil?
-          = image_tag "bobu.jpg", class:'mid-pic'
+          = image_tag "no-image01.jpg", class:'mid-pic'
         - else
           = image_tag @item_images[2].image.url, class: 'mid-pic'
       .dtlWhole-view__item-main__otherpic-grp--rightmid
         - if @item_images[3].nil?
-          = image_tag "bobu.jpg", class:'rightmid-pic'
+          = image_tag "no-image01.jpg", class:'rightmid-pic'
         - else
           = image_tag @item_images[3].image.url, class: 'rightmid-pic'
       .dtlWhole-view__item-main__otherpic-grp--right
         - if @item_images[4].nil?
-          = image_tag "bobu.jpg", class:'right-pic'
+          = image_tag "no-image01.jpg", class:'right-pic'
         - else
           = image_tag @item_images[4].image.url, class: 'right-pic'
     .dtlWhole-view__item-main__pricebox
@@ -57,7 +57,7 @@
                 .dtlWhole-view__item-main__setting
                   %ul.dtlWhole-view__item-main__setting__list
                     %li.dtlWhole-view__item-main__setting__list--edit
-                      =link_to 'この出品を編集', "#", class:"edit-btn"
+                      =link_to 'この出品を編集', edit_item_path, class:"edit-btn"
                     %li.dtlWhole-view__item-main__setting__list--dty
                       =link_to 'この出品を削除', item_path, method: :delete, class:"destroy-btn"
                 %label{:for => "popup-on"}
@@ -79,11 +79,14 @@
           %th
             カテゴリー
             %td
-              = @item.category.root.name
+              = link_to "#", class:"list-link-grp" do
+                = @item.category.root.name
               %br
-              = @item.category.parent.name
+              = link_to "#", class:"list-link-grp" do
+                = @item.category.parent.name
               %br
-              = @item.category.name
+              = link_to "#", class:"list-link-grp" do
+                = @item.category.name
         %tr
           %th
             ブランド

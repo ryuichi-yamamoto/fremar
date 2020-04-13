@@ -243,8 +243,10 @@ background-color: gray;
   height: 125px;
   width: 100%;
   background-color: lightgray;
+  line-height: 125px;
   img {
     margin: 7px;
     border: 1px solid lightgray;
+    vertical-align: middle;
   }
 }
