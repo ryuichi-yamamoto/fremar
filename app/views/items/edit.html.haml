@@ -17,7 +17,7 @@
                 #previews
                   - if @item.persisted?
                     - @item.images.each_with_index do |image, i|
-                      = image_tag image.image.url, data: { index: i }, width: "100"
+                      = image_tag image.src.url, data: { index: i }, width: "100"
                 = f.fields_for :images do |image|
                   %label
                     .js-file_group{"data-index" => "#{image.index}"}
@@ -55,15 +55,6 @@
                 .listing-form-box
                   .listing-product-detail__category
                     %span.listing-default--require 
-                    .listing-select-wrapper
-                      .listing-select-wrapper__box
-                        = f.select :category_id, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'listing-select-wrapper__box--select', id: 'parent_category', name: 'item[category_id]'}
-                    .category-wrapper-select#children_wrapper
-                      .category-wrapper-select__box
-                        = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "カテゴリ選択", selected: @item.category.parent.id}),{}, {class: 'category-edit', id: 'child_category'}
-                    .category-wrapper-select#grandchildren_wrapper
-                      .category-wrapper-select__box
-                        = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "カテゴリ選択", selected: @item.category.id}),{}, {class: 'category-edit', id: 'grandchild_category'}
               .exbMain__thirdWrapper__center
                 %p#text ブランド
                 %p#mark2 任意
