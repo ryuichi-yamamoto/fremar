@@ -10,11 +10,11 @@
         %br
           フリマアプリです
       .content__btn
-        =link_to "https://www.apple.com/jp/ios/app-store/",class: "appStore" do
-          =image_tag src="Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" 
+        =link_to "https://www.apple.com/jp/ios/app-store/", class: "appStore" do
+          =image_tag src="appstore.svg" 
         =link_to "https://play.google.com/store?hl=ja", class:"googlePlay" do
           =image_tag src="google-play.png" 
-        
+
   .topMain__topIntroduction
     .content__topIntroductionTitle
       フリマルが選ばれる３つの理由
@@ -58,9 +58,9 @@
         出品・購入回数も業界最多です！
         %br ほしかったあの商品に出会えるかもしれません。
       .content__btn
-        =link_to "#",class: "appStore" do
-          =image_tag src="Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" 
-        =link_to "#", class:"googlePlay" do
+        =link_to "https://www.apple.com/jp/ios/app-store/",class: "appStore" do
+          =image_tag src="appstore.svg" 
+        =link_to "https://play.google.com/store?hl=ja", class:"googlePlay" do
           =image_tag src="google-play.png" 
 
   .topMain__middleIntroduction
@@ -94,7 +94,7 @@
     %h2.head ピックアップカテゴリー
     .productBox
       .productHead
-        =link_to"新規投稿商品","＃",class:"pickUpTitle"
+        =link_to"新規投稿商品","",class:"pickUpTitle"
       .productLists
         - @items.each do |item|
           .productList
@@ -118,7 +118,7 @@
     %h2.head ピックアップカテゴリー
     .productBox
       .productHead
-        =link_to"レディース","＃",class:"pickUpTitle"
+        =link_to"レディース","/categories/1",class:"pickUpTitle"
       .productLists
         - @ladies_items.each do |item|
           .productList
@@ -147,7 +147,7 @@
         今すぐ無料ダウンロード！
       .content__btn_last
         =link_to "https://www.apple.com/jp/ios/app-store/",class: "appStore" do
-          =image_tag src="Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" 
+          =image_tag src="appstore.svg" 
         =link_to "https://play.google.com/store?hl=ja", class:"googlePlay" do
           =image_tag src="google-play.png" 
 = render "/items/templates/foot_template"

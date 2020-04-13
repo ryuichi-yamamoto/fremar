@@ -40,6 +40,7 @@
         img{
           width: 180px;
           height: 54px;
+          margin-right: 10px;
         }
       }
       .googlePlay{
@@ -47,6 +48,9 @@
           width: 180px;
           height: auto;
         }
+      }
+      img:hover {
+        opacity: 0.5 ;
       }
     }
   }
@@ -323,6 +327,7 @@
       img{
         width: 180px;
         height: 54px;
+        margin-right: 10px;
       }
     }
     .googlePlay{
@@ -330,6 +335,9 @@
         width: 180px;
         height: auto;
       }
+    }
+    img:hover {
+      opacity: 0.5 ;
     }
   }
 }
