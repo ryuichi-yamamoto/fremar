@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :pay, :purchase, :destroy]
+  before_action :set_item, only: [:show, :pay, :purchase, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :purchase]
 
 
@@ -42,9 +42,28 @@ class ItemsController < ApplicationController
     end
   
     def edit
+      grandchild_category = @item.category
+      child_category = grandchild_category.parent
+      @category_parent_array = []
+        @array = Category.where(ancestry: nil).pluck(:name)
+        @category_parent_array.push(@array)
+        @category_parent_array.flatten!
+
+      @category_children_array = Category.where(ancestry: child_category.ancestry) do
+        @category_children_array << children
+      end
+
+      @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry) do
+        @category_grandchildren_array << grandchildren
+      end
     end
   
     def update
+      # 下記の処理は特になし、updateができなかった場合、ハンドリングとして元のeditビューへ遷移するようにしている
+      if @item.update(item_params)
+      else
+        redirect_to action: :edit
+      end
     end
     
     def destroy
