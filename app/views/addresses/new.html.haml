@@ -13,13 +13,13 @@
         .addresseName__guide
           %p#text お名前
           %p#mark 必須
-        = f.text_field :first_name, id: "firstnameForm", placeholder: "例）橋本"
-        = f.text_field :last_name, id: "lastnameForm", placeholder: "例）環奈"
+        = f.text_field :first_name, id: "firstnameForm", placeholder: "例）田中"
+        = f.text_field :last_name, id: "lastnameForm", placeholder: "例）太郎"
         .addresseNameKana__guide
           %p#text お名前かな
           %p#mark 必須
-        = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）はしもと"
-        = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）かんな"
+        = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）たなか"
+        = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）たろう"
         .addresseTel__guide
           %p#text 電話番号
           %p#mark 必須
@@ -31,19 +31,19 @@
         .addressePrefectare__guide
           %p#text 都道府県
           %p#mark 必須
-        = f.text_field :prefecture, autofocus: true, id: "addressePrefectare", placeholder: "福岡県"
+        = f.text_field :prefecture, autofocus: true, id: "addressePrefectare", placeholder: "大阪府"
         .addresseCity__guide
           %p#text 市町村
           %p#mark 必須
-        = f.text_field :city, autofocus: true, id: "addresseCity", placeholder: "福岡市"
+        = f.text_field :city, autofocus: true, id: "addresseCity", placeholder: "大阪市"
         .addresseAddress__guide
           %p#text 番地
           %p#mark 必須
-        = f.text_field :address, autofocus: true, id: "addresseAddress", placeholder: ""
+        = f.text_field :address, autofocus: true, id: "addresseAddress", placeholder: "市町村以降を入力してください"
         .addresseRoom__guide
           %p#text 建物名
           %p#mark2 任意
-        = f.text_field :room, autofocus: true, id: "addresseRoom", placeholder: ""
+        = f.text_field :room, autofocus: true, id: "addresseRoom", placeholder: "部屋番号を入力してください"
 
         .userSignUp__success
           = f.submit "登録する", id: "sendBtn"

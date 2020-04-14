@@ -17,7 +17,7 @@
           .userSignUp__nickname
             %p#text ニックネーム(40文字以内)
             %p#mark 必須
-          = f.text_field :nickname, autofocus: true, id: "nicknameForm", placeholder: "例）フリマル菜奈", required: true
+          = f.text_field :nickname, autofocus: true, id: "nicknameForm", placeholder: "例）田中太郎", required: true
           .userSignUp__email
             %p#text メールアドレス
             %p#mark 必須
@@ -45,13 +45,13 @@
           .userSignUp__fullname
             %p#text お名前
             %p#mark 必須
-          = f.text_field :first_name, autofocus: true, id: "firstnameForm", placeholder: "例）小松", required: true
-          = f.text_field :last_name, autofocus: true, id: "lastnameForm", placeholder: "例）菜奈", required: true
+          = f.text_field :first_name, autofocus: true, id: "firstnameForm", placeholder: "例）田中", required: true
+          = f.text_field :last_name, autofocus: true, id: "lastnameForm", placeholder: "例）太郎", required: true
           .userSignUp__fullname-hiragana
             %p#text お名前かな
             %p#mark 必須
-          = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）こまつ", required: true
-          = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）なな", required: true
+          = f.text_field :first_name_hiragana, autofocus: true, id: "firstname_hiraganaForm", placeholder: "例）たなか", required: true
+          = f.text_field :last_name_hiragana, autofocus: true, id: "lastname_hiraganaForm", placeholder: "例）たろう", required: true
           .userSignUp__birthday
             %p#text 生年月日
             %p#mark 必須
