@@ -29,15 +29,14 @@ end
 
 crumb :category do
   @category = Category.find(params[:id])
-  case params[:id]
-  when @category.root.id.to_s
+  if params[:id] == @category.root.id.to_s
     link "#{Category.find(params[:id]).name}", category_path
-  when @category.id
-    link "#{Category.find(params[:id]).root.name}",   category_path
+  elsif /^[0-9]+$/ =~ @category.ancestry
+    link "#{Category.find(params[:id]).root.name}",   category_path(Category.find(params[:id]).root.id)
     link "#{Category.find(params[:id]).parent.name}", category_path
-    link "#{Category.find(params[:id]).name}",        category_path
   else
-    link "#{Category.find(params[:id]).root.name}", category_path
+    link "#{Category.find(params[:id]).root.name}",   category_path(Category.find(params[:id]).root.id)
+    link "#{Category.find(params[:id]).parent.name}", category_path(Category.find(params[:id]).parent.id)
     link "#{Category.find(params[:id]).name}",      category_path
   end
   parent :root
