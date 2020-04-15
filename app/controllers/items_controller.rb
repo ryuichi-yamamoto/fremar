@@ -120,7 +120,7 @@ class ItemsController < ApplicationController
     end
   
     def search
-      @items = Item.search(params[:keyword]).order('created_at DESC')
+      @items = Item.search(params[:keyword]).where(condition: '1').order('created_at DESC')
     end
 
     
