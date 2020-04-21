@@ -116,6 +116,8 @@ Things you may want to cover:
 - belongs_to :item
 
 ## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
