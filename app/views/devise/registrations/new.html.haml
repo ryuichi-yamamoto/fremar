@@ -13,7 +13,7 @@
             .userSignUp__google--btn
               %label
                 = icon("fab", "google")
-                = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, id: "google"
+                = link_to 'Googleアカウントで新規登録', user_google_oauth2_omniauth_authorize_path, method: :post, id: "google"
           .userSignUp__nickname
             %p#text ニックネーム(40文字以内)
             %p#mark 必須

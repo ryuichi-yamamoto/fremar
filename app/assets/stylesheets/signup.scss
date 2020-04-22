@@ -110,6 +110,7 @@ background-color: gray;
     display: flex;
     height: 40px;
     width: 100%;
+    text-align: center;
     &--btn {
       position: relative;
       margin: auto;
@@ -128,7 +129,7 @@ background-color: gray;
         z-index: 1;
         color: blue;
         position: absolute;
-        left: 6%;
+        left: 18%;
       }
     }
   }

@@ -8,6 +8,11 @@
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .userSignUp__head
             %p ログインフォーム
+          .userSignUp__google
+            .userSignUp__google--btn
+              %label
+                = icon("fab", "google")
+                = link_to 'Googleアカウントでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, id: "google"
           .userSignIn__email
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", id: "emailForm", required: true
           .userSignIn__pwForm
